@@ -6,7 +6,7 @@
 <title>BELLA — The Classic Italian Afternoon · Hamburg</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;0,6..96,700;0,6..96,900;1,6..96,400;1,6..96,700;1,6..96,900&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700;1,900&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
 :root {
   --crema:  #F5EDD6;
@@ -36,7 +36,7 @@ body::after{content:'';position:fixed;inset:0;z-index:9000;pointer-events:none;
 
 /* ── NAV ── */
 nav{position:sticky;top:0;z-index:500;height:56px;background:rgba(22,8,4,.96);backdrop-filter:blur(14px);display:flex;align-items:center;justify-content:space-between;padding:0 5%;border-bottom:1px solid rgba(245,237,214,.08);}
-.nbrand{font-family:'Bodoni Moda',serif;font-style:italic;font-size:1.3rem;font-weight:900;color:var(--crema);text-decoration:none;letter-spacing:.04em;}
+.nbrand{font-family:'Playfair Display',serif;font-style:italic;font-size:1.3rem;font-weight:900;color:var(--crema);text-decoration:none;letter-spacing:.04em;}
 .nlinks{display:flex;list-style:none;}
 .nlinks a{font-size:.56rem;letter-spacing:.18em;text-transform:uppercase;color:var(--crema);opacity:.35;text-decoration:none;padding:0 14px;transition:opacity .2s,color .2s;}
 .nlinks a:hover{opacity:1;color:var(--aperol);}
@@ -65,11 +65,11 @@ nav{position:sticky;top:0;z-index:500;height:56px;background:rgba(22,8,4,.96);ba
 .hero-body{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:7% 8% 3%;position:relative;z-index:2;}
 
 /* rosone above title */
-.hero-rosone{width:min(160px,32vw);aspect-ratio:1;margin:0 auto 2.5rem;animation:slowspin 55s linear infinite;}
+.hero-rosone{width:min(120px,24vw);aspect-ratio:1;margin:0 auto 2.2rem;animation:slowspin 55s linear infinite;}
 @keyframes slowspin{to{transform:rotate(360deg)}}
 
 h1.bella{
-  font-family:'Bodoni Moda',serif;
+  font-family:'Playfair Display',serif;
   font-style:italic;
   font-weight:900;
   font-size:clamp(7rem,20vw,22rem);
@@ -88,6 +88,7 @@ h1.bella{
   color:rgba(245,237,214,.7);
   margin-bottom:3rem;
 }
+
 .hero-btns{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;}
 .hbtn{font-size:.58rem;letter-spacing:.2em;text-transform:uppercase;font-weight:500;padding:1rem 2.2rem;text-decoration:none;transition:all .25s;}
 .hbtn-light{background:var(--crema);color:var(--aperol);}
@@ -96,11 +97,7 @@ h1.bella{
 .hbtn-ghost:hover{background:rgba(245,237,214,.1);border-color:var(--crema);}
 
 /* bottom stats bar */
-.hero-strip{border-top:1px solid rgba(245,237,214,.15);display:grid;grid-template-columns:repeat(4,1fr);position:relative;z-index:2;}
-.hsi{padding:16px 5%;border-right:1px solid rgba(245,237,214,.12);display:flex;flex-direction:column;gap:3px;}
-.hsi:last-child{border-right:none;}
-.hsi-val{font-family:'Bodoni Moda',serif;font-size:1.5rem;font-weight:700;color:var(--crema);line-height:1;}
-.hsi-lbl{font-size:.5rem;letter-spacing:.22em;text-transform:uppercase;color:rgba(245,237,214,.42);}
+
 
 /* ── SINGLE WAVE: aperol → cielo ── */
 .wave-ac{line-height:0;overflow:hidden;background:var(--aperol);}
@@ -117,26 +114,26 @@ h1.bella{
 /* big statement */
 .sound-statement{text-align:center;margin-bottom:70px;}
 .sound-kicker{font-size:.54rem;letter-spacing:.35em;text-transform:uppercase;font-weight:500;color:var(--buio);opacity:.45;display:block;margin-bottom:1.4rem;}
-.sound-h2{font-family:'Bodoni Moda',serif;font-size:clamp(3rem,8vw,8rem);font-weight:900;line-height:.85;letter-spacing:-.03em;color:var(--buio);}
+.sound-h2{font-family:'Playfair Display',serif;font-size:clamp(3rem,8vw,8rem);font-weight:900;line-height:.85;letter-spacing:-.03em;color:var(--buio);}
 .sound-h2 em{font-style:italic;color:var(--aperol);}
-.sound-tagline{font-family:'Bodoni Moda',serif;font-style:italic;font-size:clamp(1.1rem,2.5vw,1.5rem);color:rgba(22,8,4,.55);margin-top:1.4rem;line-height:1.65;}
+.sound-tagline{font-family:'Playfair Display',serif;font-style:italic;font-size:clamp(1.15rem,2.5vw,1.6rem);color:rgba(22,8,4,.6);margin-top:1.4rem;line-height:1.7;}
 
 /* three value pillars */
 .sound-pillars{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;margin-top:0;}
 .sp{background:rgba(22,8,4,.06);padding:36px 28px;border:1px solid rgba(22,8,4,.1);transition:background .3s;}
 .sp:hover{background:rgba(22,8,4,.1);}
 .sp-icon{font-size:1.6rem;display:block;margin-bottom:16px;}
-.sp-ttl{font-family:'Bodoni Moda',serif;font-size:1.1rem;font-weight:700;color:var(--buio);margin-bottom:8px;}
-.sp-body{font-size:.82rem;line-height:1.85;color:rgba(22,8,4,.55);}
+.sp-ttl{font-family:'Playfair Display',serif;font-size:1.1rem;font-weight:700;color:var(--buio);margin-bottom:8px;}
+.sp-body{font-size:.95rem;line-height:1.9;color:rgba(22,8,4,.6);}
 
 /* experience climax section — the pitch for venues */
 .sound-pitch{margin-top:70px;background:var(--buio);color:var(--crema);padding:60px 56px;position:relative;overflow:hidden;}
 .sound-pitch::before{content:'';position:absolute;top:-40px;right:-40px;width:260px;height:260px;border-radius:50%;background:radial-gradient(circle,rgba(232,96,32,.18),transparent 70%);pointer-events:none;}
 .pitch-label{font-size:.52rem;letter-spacing:.32em;text-transform:uppercase;color:var(--aperol);display:block;margin-bottom:1.4rem;}
-.pitch-h3{font-family:'Bodoni Moda',serif;font-size:clamp(1.8rem,4vw,3.2rem);font-weight:900;line-height:.92;letter-spacing:-.02em;color:var(--crema);margin-bottom:1.8rem;}
+.pitch-h3{font-family:'Playfair Display',serif;font-size:clamp(1.8rem,4vw,3.2rem);font-weight:900;line-height:.92;letter-spacing:-.02em;color:var(--crema);margin-bottom:1.8rem;}
 .pitch-h3 em{font-style:italic;color:var(--sole);}
 .pitch-body{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:start;}
-.pitch-p{font-size:.9rem;line-height:1.95;color:rgba(245,237,214,.55);}
+.pitch-p{font-size:1rem;line-height:2;color:rgba(245,237,214,.6);}
 .pitch-p strong{color:var(--crema);font-weight:500;}
 /* journey arc — visual timeline */
 .journey{display:flex;flex-direction:column;gap:0;border-left:1px solid rgba(245,237,214,.12);padding-left:24px;}
@@ -145,7 +142,7 @@ h1.bella{
 .jstep:nth-child(2)::before{background:var(--sole);}
 .jstep:nth-child(3)::before{background:var(--crema);}
 .jstep-time{font-size:.5rem;letter-spacing:.22em;text-transform:uppercase;color:rgba(245,237,214,.3);display:block;margin-bottom:4px;}
-.jstep-txt{font-size:.82rem;color:rgba(245,237,214,.65);line-height:1.7;}
+.jstep-txt{font-size:.95rem;color:rgba(245,237,214,.7);line-height:1.8;}
 .jstep-txt strong{color:var(--crema);font-weight:500;}
 
 /* ── no wave between cielo sections, direct transition ── */
@@ -164,7 +161,7 @@ h1.bella{
 
 .artists-in{max-width:1060px;margin:0 auto;}
 .artists-hd{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:52px;}
-.artists-h2{font-family:'Bodoni Moda',serif;font-size:clamp(2.5rem,6vw,5rem);font-weight:900;line-height:.88;letter-spacing:-.02em;}
+.artists-h2{font-family:'Playfair Display',serif;font-size:clamp(2.5rem,6vw,5rem);font-weight:900;line-height:.88;letter-spacing:-.02em;}
 .artists-h2 em{font-style:italic;color:var(--aperol);}
 .artists-note{font-size:.52rem;letter-spacing:.28em;text-transform:uppercase;color:rgba(22,8,4,.28);}
 .acards{display:grid;grid-template-columns:repeat(3,1fr);gap:3px;}
@@ -178,11 +175,11 @@ h1.bella{
 .acard:nth-child(2) .acard-img::after{background:linear-gradient(to bottom,rgba(90,174,212,.22),rgba(22,8,4,.72));}
 .acard:nth-child(3) .acard-img::after{background:linear-gradient(to bottom,rgba(192,48,24,.2),rgba(22,8,4,.78));}
 .acard-badge{position:absolute;top:14px;left:14px;z-index:2;font-size:.48rem;letter-spacing:.2em;text-transform:uppercase;font-weight:500;color:var(--crema);background:rgba(22,8,4,.5);padding:4px 10px;backdrop-filter:blur(6px);}
-.acard-num{position:absolute;bottom:14px;left:18px;z-index:2;font-family:'Bodoni Moda',serif;font-size:3.5rem;font-style:italic;font-weight:900;color:var(--sole);opacity:.8;line-height:1;}
+.acard-num{position:absolute;bottom:14px;left:18px;z-index:2;font-family:'Playfair Display',serif;font-size:3.5rem;font-style:italic;font-weight:900;color:var(--sole);opacity:.8;line-height:1;}
 .acard-body{padding:22px 20px 26px;background:var(--buio);}
 .acard-tag{font-size:.52rem;letter-spacing:.2em;text-transform:uppercase;color:var(--sole);display:block;margin-bottom:7px;}
-.acard-name{font-family:'Bodoni Moda',serif;font-size:1.6rem;font-weight:700;color:var(--crema);margin-bottom:8px;}
-.acard-desc{font-size:.78rem;line-height:1.85;color:rgba(245,237,214,.42);margin-bottom:14px;}
+.acard-name{font-family:'Playfair Display',serif;font-size:1.6rem;font-weight:700;color:var(--crema);margin-bottom:8px;}
+.acard-desc{font-size:.9rem;line-height:1.9;color:rgba(245,237,214,.5);margin-bottom:14px;}
 .acard-link{font-size:.52rem;letter-spacing:.16em;text-transform:uppercase;color:var(--crema);opacity:.32;text-decoration:none;border-bottom:1px solid rgba(245,237,214,.18);padding-bottom:2px;transition:opacity .2s,color .2s;}
 .acard-link:hover{opacity:1;color:var(--sole);border-color:var(--sole);}
 
@@ -193,27 +190,26 @@ h1.bella{
 /* ══════════════════════════════
    SECTION 4 — ROOTS (APEROL)
 ══════════════════════════════ */
-.s-roots{background:var(--aperol);color:var(--crema);padding:90px 6%;position:relative;overflow:hidden;}
-.s-roots::before{content:'';position:absolute;right:-80px;bottom:-80px;width:420px;height:420px;opacity:.1;pointer-events:none;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx='200' cy='200' r='190' stroke='%23F5EDD6' stroke-width='2'/%3E%3Ccircle cx='200' cy='200' r='140' stroke='%23F5EDD6' stroke-width='1.5'/%3E%3Ccircle cx='200' cy='200' r='90' stroke='%23F5EDD6' stroke-width='1.5'/%3E%3Cpath d='M200 10 L200 390 M10 200 L390 200 M58 58 L342 342 M342 58 L58 342' stroke='%23F5EDD6' stroke-width='1'/%3E%3C/svg%3E");}
-.roots-in{max-width:1060px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center;position:relative;z-index:1;}
-.roots-kicker{font-size:.52rem;letter-spacing:.35em;text-transform:uppercase;color:rgba(245,237,214,.6);display:block;margin-bottom:1rem;}
-.roots-h2{font-family:'Bodoni Moda',serif;font-size:clamp(3rem,7vw,6.5rem);font-weight:900;line-height:.85;letter-spacing:-.03em;margin-bottom:1.5rem;}
+.s-roots{background:var(--aperol);color:var(--crema);position:relative;overflow:hidden;}
+.roots-in{max-width:1060px;margin:0 auto;position:relative;z-index:1;padding:70px 6% 0;}
+.roots-top{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:40px;flex-wrap:wrap;gap:16px;}
+.roots-kicker{font-size:.52rem;letter-spacing:.35em;text-transform:uppercase;color:rgba(245,237,214,.6);display:block;margin-bottom:.8rem;}
+.roots-h2{font-family:'Playfair Display',serif;font-size:clamp(2.5rem,6vw,5rem);font-weight:900;line-height:.88;letter-spacing:-.02em;}
 .roots-h2 em{font-style:italic;color:rgba(245,237,214,.45);}
-.roots-body{font-style:italic;font-size:1rem;line-height:1.95;color:rgba(245,237,214,.65);margin-bottom:2.5rem;}
-.roots-list{list-style:none;}
-.ri{display:flex;align-items:baseline;gap:20px;padding:14px 0;border-bottom:1px solid rgba(245,237,214,.18);}
-.ri:first-child{border-top:1px solid rgba(245,237,214,.18);}
-.ri-city{font-family:'Bodoni Moda',serif;font-size:1.4rem;font-style:italic;font-weight:700;color:var(--crema);min-width:100px;}
-.ri-name{font-size:.6rem;letter-spacing:.2em;text-transform:uppercase;color:rgba(245,237,214,.5);}
-/* map */
-.roots-map{display:flex;align-items:center;justify-content:center;}
-.map-w{position:relative;width:100%;max-width:320px;}
-.italy-svg{width:100%;height:auto;fill:rgba(245,237,214,.08);stroke:rgba(245,237,214,.3);stroke-width:2.5;stroke-linejoin:round;display:block;}
-.mpin{position:absolute;transform:translate(-50%,-50%);display:flex;align-items:center;gap:8px;}
-.mdot{width:8px;height:8px;border-radius:50%;background:var(--crema);flex-shrink:0;position:relative;}
-.mdot::after{content:'';position:absolute;inset:-4px;border-radius:50%;border:1px solid var(--crema);animation:pp 2.5s ease-out infinite;}
-@keyframes pp{0%{transform:scale(.8);opacity:.8}100%{transform:scale(2.4);opacity:0}}
-.mlbl{font-size:.52rem;letter-spacing:.12em;text-transform:uppercase;font-weight:500;color:var(--crema);background:rgba(22,8,4,.4);padding:3px 8px;white-space:nowrap;}
+.roots-body{font-style:italic;font-size:1.05rem;line-height:1.9;color:rgba(245,237,214,.65);max-width:480px;}
+/* The map block — full width, large, graphic */
+.roots-map-block{position:relative;width:100%;height:clamp(440px,70vw,680px);overflow:hidden;}
+.italy-bg{position:absolute;inset:0;
+  background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 400 520' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M 120 60 C 180 30, 250 40, 290 70 C 320 120, 290 180, 320 280 C 340 320, 360 360, 320 370 C 290 380, 310 380, 290 410 C 280 430, 250 460, 220 440 C 190 410, 250 350, 230 310 C 210 270, 180 250, 190 220 C 200 180, 130 140, 120 60 Z' fill='rgba(245,220,180,0.28)'/%3E%3Cpath d='M 170 460 C 210 440, 240 480, 200 510 C 150 510, 140 470, 170 460 Z' fill='rgba(245,220,180,0.28)'/%3E%3Cpath d='M 90 230 C 130 220, 140 290, 110 330 C 70 350, 50 260, 90 230 Z' fill='rgba(245,220,180,0.28)'/%3E%3C/svg%3E");
+  background-size:contain;background-repeat:no-repeat;background-position:center top;}
+/* inline svg map */
+.map-svg-wrap{position:absolute;inset:0;display:flex;align-items:flex-start;justify-content:center;}
+.italy-svg{height:100%;width:auto;max-width:55%;fill:rgba(245,220,180,.3);stroke:none;display:block;}
+/* pins — styled like the screenshot */
+.mpin{position:absolute;transform:translate(-50%,-50%);display:flex;align-items:center;gap:10px;z-index:3;}
+.mdot{width:26px;height:26px;border-radius:50%;border:2.5px solid rgba(58,22,8,.75);display:flex;align-items:center;justify-content:center;flex-shrink:0;background:transparent;}
+.mdot::after{content:'';width:9px;height:9px;border-radius:50%;background:rgba(58,22,8,.85);display:block;}
+.mlbl{font-family:'Outfit',sans-serif;font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;font-weight:700;color:var(--crema);background:rgba(58,22,8,.82);padding:6px 14px;border-radius:5px;white-space:nowrap;}
 
 /* wave aperol → cielo */
 .wave-aci{line-height:0;overflow:hidden;background:var(--aperol);}
@@ -223,20 +219,20 @@ h1.bella{
    SECTION 5 — VIBE / PHILOSOPHY (BUIO)
 ══════════════════════════════ */
 .s-vibe{background:var(--buio);color:var(--crema);padding:90px 6%;position:relative;overflow:hidden;}
-.s-vibe::before{content:'BELLA';position:absolute;font-family:'Bodoni Moda',serif;font-style:italic;font-size:36vw;font-weight:900;color:rgba(245,237,214,.025);top:50%;left:50%;transform:translate(-50%,-50%);white-space:nowrap;pointer-events:none;letter-spacing:-.04em;}
+.s-vibe::before{content:'BELLA';position:absolute;font-family:'Playfair Display',serif;font-style:italic;font-size:36vw;font-weight:900;color:rgba(245,237,214,.025);top:50%;left:50%;transform:translate(-50%,-50%);white-space:nowrap;pointer-events:none;letter-spacing:-.04em;}
 .vibe-in{max-width:1060px;margin:0 auto;position:relative;z-index:1;}
 .vibe-top{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:end;margin-bottom:52px;}
-.vibe-h2{font-family:'Bodoni Moda',serif;font-size:clamp(2.5rem,6vw,5rem);font-weight:900;line-height:.88;letter-spacing:-.02em;}
+.vibe-h2{font-family:'Playfair Display',serif;font-size:clamp(2.5rem,6vw,5rem);font-weight:900;line-height:.88;letter-spacing:-.02em;}
 .vibe-h2 em{font-style:italic;color:var(--aperol);}
-.vibe-intro{font-family:'Bodoni Moda',serif;font-style:italic;font-size:1.05rem;line-height:1.85;color:rgba(245,237,214,.5);}
+.vibe-intro{font-family:'Playfair Display',serif;font-style:italic;font-size:1.05rem;line-height:1.85;color:rgba(245,237,214,.5);}
 .vibe-traits{display:grid;grid-template-columns:1fr 1fr;border:1px solid rgba(245,237,214,.07);}
 .vt{padding:32px 28px;border-right:1px solid rgba(245,237,214,.07);border-bottom:1px solid rgba(245,237,214,.07);display:flex;gap:18px;transition:background .3s;}
 .vt:nth-child(even){border-right:none;}
 .vt:nth-child(3),.vt:nth-child(4){border-bottom:none;}
 .vt:hover{background:rgba(245,237,214,.03);}
-.vt-n{font-family:'Bodoni Moda',serif;font-size:1.8rem;font-style:italic;font-weight:700;color:var(--aperol);opacity:.3;flex-shrink:0;line-height:1;}
+.vt-n{font-family:'Playfair Display',serif;font-size:1.8rem;font-style:italic;font-weight:700;color:var(--aperol);opacity:.3;flex-shrink:0;line-height:1;}
 .vt-lbl{font-size:.54rem;letter-spacing:.2em;text-transform:uppercase;color:var(--aperol);display:block;margin-bottom:8px;}
-.vt-txt{font-size:.82rem;line-height:1.85;color:rgba(245,237,214,.45);}
+.vt-txt{font-size:.95rem;line-height:1.9;color:rgba(245,237,214,.52);}
 
 /* wave buio → crema */
 .wave-bc{line-height:0;overflow:hidden;background:var(--buio);}
@@ -248,16 +244,16 @@ h1.bella{
 .s-events{background:var(--crema);color:var(--buio);padding:90px 6%;}
 .ev-in{max-width:1060px;margin:0 auto;}
 .ev-top{display:grid;grid-template-columns:1fr 1fr;gap:80px;margin-bottom:52px;align-items:end;}
-.ev-h2{font-family:'Bodoni Moda',serif;font-size:clamp(2.5rem,6vw,5rem);font-weight:900;line-height:.88;letter-spacing:-.02em;}
+.ev-h2{font-family:'Playfair Display',serif;font-size:clamp(2.5rem,6vw,5rem);font-weight:900;line-height:.88;letter-spacing:-.02em;}
 .ev-h2 em{font-style:italic;color:var(--aperol);}
 .ev-card{background:var(--aperol);padding:40px;position:relative;overflow:hidden;}
 .ev-card::before{content:'';position:absolute;inset:8px;border:1px solid rgba(245,237,214,.15);pointer-events:none;}
 .ev-card::after{content:'';position:absolute;top:-30px;right:-30px;width:180px;height:180px;border-radius:50%;background:radial-gradient(circle,rgba(240,165,32,.25),transparent 70%);pointer-events:none;}
 .ev-sup{font-size:.5rem;letter-spacing:.32em;text-transform:uppercase;color:rgba(245,237,214,.6);display:block;margin-bottom:16px;}
-.ev-date{font-family:'Bodoni Moda',serif;font-size:4.5rem;font-weight:900;line-height:1;color:var(--crema);letter-spacing:-.02em;margin-bottom:4px;}
-.ev-name{font-family:'Bodoni Moda',serif;font-style:italic;font-size:1.8rem;color:var(--crema);margin-bottom:8px;}
+.ev-date{font-family:'Playfair Display',serif;font-size:4.5rem;font-weight:900;line-height:1;color:var(--crema);letter-spacing:-.02em;margin-bottom:4px;}
+.ev-name{font-family:'Playfair Display',serif;font-style:italic;font-size:1.8rem;color:var(--crema);margin-bottom:8px;}
 .ev-venue{font-size:.56rem;letter-spacing:.2em;text-transform:uppercase;color:rgba(245,237,214,.5);margin-bottom:14px;}
-.ev-note{font-family:'Bodoni Moda',serif;font-style:italic;font-size:.9rem;color:var(--sole);}
+.ev-note{font-family:'Playfair Display',serif;font-style:italic;font-size:.9rem;color:var(--sole);}
 .gal-lbl{font-size:.5rem;letter-spacing:.3em;text-transform:uppercase;color:rgba(22,8,4,.28);display:block;margin-bottom:12px;}
 .gallery{display:grid;grid-template-columns:repeat(4,1fr);gap:4px;}
 .gi{overflow:hidden;aspect-ratio:1;}
@@ -274,11 +270,11 @@ h1.bella{
 footer{background:var(--buio);color:var(--crema);padding:80px 6% 50px;}
 .ft-in{max-width:1060px;margin:0 auto;}
 .ft-top{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:end;padding-bottom:56px;border-bottom:1px solid rgba(245,237,214,.06);margin-bottom:48px;}
-.ft-hl{font-family:'Bodoni Moda',serif;font-size:clamp(3rem,8vw,7rem);font-weight:900;line-height:.85;letter-spacing:-.03em;}
+.ft-hl{font-family:'Playfair Display',serif;font-size:clamp(3rem,8vw,7rem);font-weight:900;line-height:.85;letter-spacing:-.03em;}
 .ft-hl em{font-style:italic;color:var(--aperol);}
 .ft-right{display:flex;flex-direction:column;gap:24px;justify-content:flex-end;}
 .ft-lbl{font-size:.5rem;letter-spacing:.3em;text-transform:uppercase;color:rgba(245,237,214,.28);display:block;margin-bottom:6px;}
-.ft-mail{font-family:'Bodoni Moda',serif;font-style:italic;font-size:1.2rem;color:var(--crema);text-decoration:none;border-bottom:1px solid rgba(245,237,214,.18);padding-bottom:3px;transition:color .25s,border-color .25s;}
+.ft-mail{font-family:'Playfair Display',serif;font-style:italic;font-size:1.2rem;color:var(--crema);text-decoration:none;border-bottom:1px solid rgba(245,237,214,.18);padding-bottom:3px;transition:color .25s,border-color .25s;}
 .ft-mail:hover{color:var(--sole);border-color:var(--sole);}
 .ft-soc{display:flex;gap:20px;}
 .ft-soc a{font-size:.55rem;letter-spacing:.18em;text-transform:uppercase;color:rgba(245,237,214,.28);text-decoration:none;transition:color .25s;}
@@ -304,7 +300,6 @@ footer{background:var(--buio);color:var(--crema);padding:80px 6% 50px;}
   .pitch-body{grid-template-columns:1fr;gap:24px;}
   .acards{grid-template-columns:1fr;}
   .roots-in,.vibe-top,.ev-top,.ft-top,.ft-grid{grid-template-columns:1fr;gap:36px;}
-  .roots-map{display:none;}
   .vibe-traits{grid-template-columns:1fr;}
   .vt:nth-child(odd),.vt:nth-child(even){border-right:none;border-bottom:1px solid rgba(245,237,214,.07);}
   .vt:last-child{border-bottom:none;}
@@ -328,7 +323,15 @@ footer{background:var(--buio);color:var(--crema);padding:80px 6% 50px;}
 
 <!-- NAV -->
 <nav>
-  <a href="#" class="nbrand">BELLA</a>
+  <a href="#" class="nbrand" style="display:flex;align-items:center;gap:10px;text-decoration:none;">
+    <svg width="22" height="22" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="50" cy="50" r="46" stroke="rgba(245,237,214,.5)" stroke-width="1.5"/>
+      <path d="M18,40 Q27,32 36,40 Q45,48 54,40 Q63,32 72,40 Q79,48 84,43" stroke="rgba(245,237,214,.7)" stroke-width="2" fill="none" stroke-linecap="round"/>
+      <path d="M16,52 Q25,44 34,52 Q43,60 52,52 Q61,44 70,52 Q79,60 84,55" stroke="rgba(245,237,214,.65)" stroke-width="2" fill="none" stroke-linecap="round"/>
+      <path d="M18,63 Q27,55 36,63 Q45,71 54,63 Q63,55 72,63 Q79,71 84,66" stroke="rgba(245,237,214,.5)" stroke-width="1.8" fill="none" stroke-linecap="round"/>
+    </svg>
+    <span style="font-family:'Playfair Display',serif;font-style:italic;font-size:1.3rem;font-weight:900;color:var(--crema);">BELLA</span>
+  </a>
   <button class="burger" aria-label="Menu" onclick="this.classList.toggle('open');document.querySelector('.nlinks').classList.toggle('open')">
     <span></span><span></span><span></span>
   </button>
@@ -348,46 +351,14 @@ footer{background:var(--buio);color:var(--crema);padding:80px 6% 50px;}
 
     <!-- Rosone ornament -->
     <div class="hero-rosone">
-      <svg viewBox="0 0 300 300" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <circle cx="150" cy="150" r="142" stroke="rgba(245,237,214,.3)" stroke-width="1.2"/>
-        <circle cx="150" cy="150" r="115" stroke="rgba(245,237,214,.18)" stroke-width=".8"/>
-        <circle cx="150" cy="150" r="88" stroke="rgba(245,237,214,.25)" stroke-width="1"/>
-        <circle cx="150" cy="150" r="62" stroke="rgba(245,237,214,.15)" stroke-width=".7"/>
-        <circle cx="150" cy="150" r="38" fill="rgba(245,237,214,.12)" stroke="rgba(245,237,214,.3)" stroke-width="1"/>
-        <circle cx="150" cy="150" r="14" fill="rgba(245,237,214,.25)"/>
-        <!-- 16 spokes -->
-        <g stroke="rgba(245,237,214,.2)" stroke-width=".8">
-          <line x1="150" y1="8" x2="150" y2="292"/>
-          <line x1="8" y1="150" x2="292" y2="150"/>
-          <line x1="45" y1="45" x2="255" y2="255"/>
-          <line x1="255" y1="45" x2="45" y2="255"/>
-          <line x1="17" y1="90" x2="283" y2="210"/>
-          <line x1="17" y1="210" x2="283" y2="90"/>
-          <line x1="90" y1="17" x2="210" y2="283"/>
-          <line x1="210" y1="17" x2="90" y2="283"/>
-        </g>
-        <!-- 8 petals -->
-        <g fill="none" stroke="rgba(245,237,214,.22)" stroke-width="1">
-          <path d="M150 55 C162 100 162 130 150 150 C138 130 138 100 150 55Z"/>
-          <path d="M245 150 C200 162 170 162 150 150 C170 138 200 138 245 150Z"/>
-          <path d="M150 245 C138 200 138 170 150 150 C162 170 162 200 150 245Z"/>
-          <path d="M55 150 C100 138 130 138 150 150 C130 162 100 162 55 150Z"/>
-          <path d="M211 89 C180 118 165 135 150 150 C165 135 182 118 211 89Z"/>
-          <path d="M211 211 C182 182 165 165 150 150 C165 165 180 182 211 211Z"/>
-          <path d="M89 211 C118 182 135 165 150 150 C135 165 118 182 89 211Z"/>
-          <path d="M89 89 C118 118 135 135 150 150 C135 135 118 118 89 89Z"/>
-        </g>
-        <!-- diamond tips on outer ring -->
-        <g fill="rgba(245,237,214,.5)">
-          <rect x="147" y="6" width="6" height="6" transform="rotate(45 150 9)"/>
-          <rect x="147" y="285" width="6" height="6" transform="rotate(45 150 288)"/>
-          <rect x="285" y="147" width="6" height="6" transform="rotate(45 288 150)"/>
-          <rect x="6" y="147" width="6" height="6" transform="rotate(45 9 150)"/>
-          <rect x="225" y="63" width="5" height="5" transform="rotate(45 228 66)"/>
-          <rect x="63" y="63" width="5" height="5" transform="rotate(45 66 66)"/>
-          <rect x="225" y="228" width="5" height="5" transform="rotate(45 228 231)"/>
-          <rect x="63" y="228" width="5" height="5" transform="rotate(45 66 231)"/>
-        </g>
+      <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <!-- outer ring -->
+        <circle cx="50" cy="50" r="46" stroke="rgba(245,237,214,.5)" stroke-width="1.2"/>
+        <!-- 4 wave lines — Mediterranean / sound waves -->
+        <path d="M16,35 Q25,27 34,35 Q43,43 52,35 Q61,27 70,35 Q79,43 84,38" stroke="rgba(245,237,214,.65)" stroke-width="1.8" fill="none" stroke-linecap="round"/>
+        <path d="M14,44 Q23,36 32,44 Q41,52 50,44 Q59,36 68,44 Q77,52 86,46" stroke="rgba(245,237,214,.7)" stroke-width="1.8" fill="none" stroke-linecap="round"/>
+        <path d="M14,54 Q23,46 32,54 Q41,62 50,54 Q59,46 68,54 Q77,62 86,56" stroke="rgba(245,237,214,.65)" stroke-width="1.8" fill="none" stroke-linecap="round"/>
+        <path d="M16,64 Q25,56 34,64 Q43,72 52,64 Q61,56 70,64 Q79,72 84,67" stroke="rgba(245,237,214,.5)" stroke-width="1.6" fill="none" stroke-linecap="round"/>
       </svg>
     </div>
 
@@ -398,9 +369,6 @@ footer{background:var(--buio);color:var(--crema);padding:80px 6% 50px;}
       <a href="#events" class="hbtn hbtn-ghost">Upcoming Evenings</a>
     </div>
   </div>
-
-  <div class="hero-strip">
-    <div class="hsi"><span class="hsi-val">3</span><span class="hsi-lbl">Phases of sound</span></div>
     <div class="hsi"><span class="hsi-val">6h</span><span class="hsi-lbl">Of music</span></div>
     <div class="hsi"><span class="hsi-val">4</span><span class="hsi-lbl">Italian cities</span></div>
     <div class="hsi"><span class="hsi-val">∞</span><span class="hsi-lbl">Good vibes</span></div>
@@ -420,7 +388,7 @@ footer{background:var(--buio);color:var(--crema);padding:80px 6% 50px;}
 
     <div class="sound-statement">
       <span class="sound-kicker">01 — The Italian Groove</span>
-      <h2 class="sound-h2">Feel it.<br><em>Live it.</em><br>Dance it.</h2>
+      <h2 class="sound-h2">Start gentle.<br><em>End loud.</em><br>Never forget it.</h2>
       <p class="sound-tagline">From the first note to the last beat — BELLA takes you somewhere you don't want to leave.</p>
     </div>
 
@@ -445,7 +413,7 @@ footer{background:var(--buio);color:var(--crema);padding:80px 6% 50px;}
     <!-- The pitch — for venues, catchy and energetic -->
     <div class="sound-pitch">
       <span class="pitch-label">The Experience · For Venues</span>
-      <h3 class="pitch-h3">When BELLA arrives,<br>the room <em>transforms.</em></h3>
+      <h3 class="pitch-h3">Your space. Our music.<br><em>Their night of the year.</em></h3>
       <div class="pitch-body">
         <div>
           <p class="pitch-p">Imagine your space at 4pm on a summer Saturday. The sun is still high. The drinks are cold. And then — the first note drops. Not loud. Not aggressive. <strong>Just right.</strong></p>
@@ -463,7 +431,7 @@ footer{background:var(--buio);color:var(--crema);padding:80px 6% 50px;}
           </div>
           <div class="jstep">
             <span class="jstep-time">Phase III · 20:00 — 22:00</span>
-            <p class="jstep-txt"><strong>The Climax.</strong> Deep Southern Italian electronic, tarantella reinterpretations, modern Mediterranean beats. <strong>The room explodes. Every. Single. Time.</strong></p>
+            <p class="jstep-txt"><strong>The Climax.</strong> Deep Southern Italian electronic, tarantella reinterpretations, raw Mediterranean heat. The room doesn't walk home — it floats. <strong>Every. Single. Time.</strong></p>
           </div>
         </div>
       </div>
@@ -541,30 +509,28 @@ footer{background:var(--buio);color:var(--crema);padding:80px 6% 50px;}
 <!-- ════════ SECTION 4 — ROOTS (APEROL) ════════ -->
 <section id="roots" class="s-roots">
   <div class="roots-in">
-    <div>
-      <span class="roots-kicker">03 — Provenance</span>
-      <h2 class="roots-h2">Our<br><em>origins</em></h2>
-      <p class="roots-body">Four cities. One shared soul. We carry the warmth of Italy into the most unexpected corners of Northern Europe.</p>
-      <ul class="roots-list">
-        <li class="ri"><span class="ri-city">Udine</span><span class="ri-name">Ale</span></li>
-        <li class="ri"><span class="ri-city">Roma</span><span class="ri-name">Gab</span></li>
-        <li class="ri"><span class="ri-city">Napoli</span><span class="ri-name">Ciccio</span></li>
-        <li class="ri"><span class="ri-city">Sicilia</span><span class="ri-name">Oriana</span></li>
-      </ul>
-    </div>
-    <div class="roots-map">
-      <div class="map-w">
-        <svg class="italy-svg" viewBox="0 0 400 520" xmlns="http://www.w3.org/2000/svg">
-          <path d="M 120 60 C 180 30, 250 40, 290 70 C 320 120, 290 180, 320 280 C 340 320, 360 360, 320 370 C 290 380, 310 380, 290 410 C 280 430, 250 460, 220 440 C 190 410, 250 350, 230 310 C 210 270, 180 250, 190 220 C 200 180, 130 140, 120 60 Z"/>
-          <path d="M 170 460 C 210 440, 240 480, 200 510 C 150 510, 140 470, 170 460 Z"/>
-          <path d="M 90 230 C 130 220, 140 290, 110 330 C 70 350, 50 260, 90 230 Z"/>
-        </svg>
-        <div class="mpin" style="top:17%;left:60%;"><span class="mlbl">Ale · Udine</span><div class="mdot"></div></div>
-        <div class="mpin" style="top:44%;left:60%;"><div class="mdot"></div><span class="mlbl">Gab · Roma</span></div>
-        <div class="mpin" style="top:65%;left:58%;"><span class="mlbl">Ciccio · Napoli</span><div class="mdot"></div></div>
-        <div class="mpin" style="top:92%;left:55%;"><div class="mdot"></div><span class="mlbl">Oriana · Sicilia</span></div>
+    <div class="roots-top">
+      <div>
+        <span class="roots-kicker">03 — Provenance</span>
+        <h2 class="roots-h2">Our<br><em>origins</em></h2>
       </div>
+      <p class="roots-body">Four cities. One shared soul. We carry the warmth of Italy into the most unexpected corners of Northern Europe.</p>
     </div>
+  </div>
+  <!-- Full-width graphic map -->
+  <div class="roots-map-block">
+    <div class="map-svg-wrap">
+      <svg class="italy-svg" viewBox="0 0 400 520" xmlns="http://www.w3.org/2000/svg">
+        <path d="M 120 60 C 180 30, 250 40, 290 70 C 320 120, 290 180, 320 280 C 340 320, 360 360, 320 370 C 290 380, 310 380, 290 410 C 280 430, 250 460, 220 440 C 190 410, 250 350, 230 310 C 210 270, 180 250, 190 220 C 200 180, 130 140, 120 60 Z"/>
+        <path d="M 170 460 C 210 440, 240 480, 200 510 C 150 510, 140 470, 170 460 Z"/>
+        <path d="M 90 230 C 130 220, 140 290, 110 330 C 70 350, 50 260, 90 230 Z"/>
+      </svg>
+    </div>
+    <!-- Pins: positioned as % of the map block -->
+    <div class="mpin" style="top:20%;left:55%;"><span class="mlbl">ALE</span><div class="mdot"></div></div>
+    <div class="mpin" style="top:46%;left:53%;"><div class="mdot"></div><span class="mlbl">GAB</span></div>
+    <div class="mpin" style="top:66%;left:57%;"><span class="mlbl">CICCIO</span><div class="mdot"></div></div>
+    <div class="mpin" style="top:88%;left:45%;"><div class="mdot"></div><span class="mlbl">ORIANA</span></div>
   </div>
 </section>
 
@@ -581,7 +547,7 @@ footer{background:var(--buio);color:var(--crema);padding:80px 6% 50px;}
     <div class="vibe-top">
       <div>
         <span style="font-size:.52rem;letter-spacing:.35em;text-transform:uppercase;color:var(--aperol);opacity:.7;display:block;margin-bottom:.8rem;">04 — The Philosophy</span>
-        <h2 class="vibe-h2">Nothing<br>arbitrary.<br><em>Everything felt.</em></h2>
+        <h2 class="vibe-h2">Small rooms.<br>Big feelings.<br><em>No bad nights.</em></h2>
       </div>
       <p class="vibe-intro">The same instinct that finds the best olive oil on the shelf now finds the best record in the crate. BELLA is curated — from the first song to the last dancer leaving the floor.</p>
     </div>
