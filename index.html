@@ -112,9 +112,6 @@ h1.bella{
 .hbtn-ghost{border:1px solid rgba(245,237,214,.35);color:var(--crema);}
 .hbtn-ghost:hover{background:rgba(245,237,214,.1);border-color:var(--crema);}
 
-/* bottom stats bar */
-
-
 /* ── SINGLE WAVE: aperol → cielo ── */
 .wave-ac{line-height:0;overflow:hidden;background:var(--aperol);}
 .wave-ac svg{display:block;width:100%;height:100px;}
@@ -155,13 +152,12 @@ h1.bella{
 .journey{display:flex;flex-direction:column;gap:0;border-left:1px solid rgba(245,237,214,.12);padding-left:24px;}
 .jstep{padding:14px 0;position:relative;}
 .jstep::before{content:'';position:absolute;left:-30px;top:22px;width:8px;height:8px;border-radius:50%;background:var(--aperol);}
-.jstep:nth-child(2)::before{background:var(--sole);}
-.jstep:nth-child(3)::before{background:var(--crema);}
+.jstep:nth-child(2):before{background:var(--sole);}
+.jstep:nth-child(3):before{background:var(--crema);}
 .jstep-time{font-size:.5rem;letter-spacing:.22em;text-transform:uppercase;color:rgba(245,237,214,.3);display:block;margin-bottom:4px;}
 .jstep-txt{font-size:.95rem;color:rgba(245,237,214,.7);line-height:1.8;}
 .jstep-txt strong{color:var(--crema);font-weight:500;}
 
-/* ── no wave between cielo sections, direct transition ── */
 /* wave cielo→crema before artists */
 .wave-cc{line-height:0;overflow:hidden;background:var(--cielo);}
 .wave-cc svg{display:block;width:100%;height:80px;}
@@ -328,7 +324,6 @@ footer{background:var(--buio);color:var(--crema);padding:80px 6% 50px;}
 </head>
 <body>
 
-<!-- TICKER -->
 <div class="ticker" aria-hidden="true">
   <div class="tk">
     <span>BELLA<span class="d"> · </span>The Classic Italian Afternoon<span class="d"> · </span>Italian Groove<span class="d"> · </span>Neapolitan Soul<span class="d"> · </span>Cantautorato<span class="d"> · </span>Italo Disco<span class="d"> · </span>Mediterranean Funk<span class="d"> · </span>Hamburg<span class="d"> · </span>By Invitation<span class="d"> · </span></span>
@@ -336,7 +331,6 @@ footer{background:var(--buio);color:var(--crema);padding:80px 6% 50px;}
   </div>
 </div>
 
-<!-- NAV -->
 <nav>
   <a href="#" class="nbrand" style="display:flex;align-items:center;gap:10px;text-decoration:none;">
     <svg width="22" height="22" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -360,16 +354,12 @@ footer{background:var(--buio);color:var(--crema);padding:80px 6% 50px;}
   <a href="#events" class="ncta">Reserve a Seat</a>
 </nav>
 
-<!-- ════════ SECTION 1 — HERO (APEROL ORANGE) ════════ -->
 <header class="hero">
   <div class="hero-body">
 
-    <!-- Rosone ornament -->
     <div class="hero-rosone">
       <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <!-- outer ring -->
         <circle cx="50" cy="50" r="46" stroke="rgba(245,237,214,.5)" stroke-width="1.2"/>
-        <!-- 4 wave lines — Mediterranean / sound waves -->
         <path d="M16,35 Q25,27 34,35 Q43,43 52,35 Q61,27 70,35 Q79,43 84,38" stroke="rgba(245,237,214,.65)" stroke-width="1.8" fill="none" stroke-linecap="round"/>
         <path d="M14,44 Q23,36 32,44 Q41,52 50,44 Q59,36 68,44 Q77,52 86,46" stroke="rgba(245,237,214,.7)" stroke-width="1.8" fill="none" stroke-linecap="round"/>
         <path d="M14,54 Q23,46 32,54 Q41,62 50,54 Q59,46 68,54 Q77,62 86,56" stroke="rgba(245,237,214,.65)" stroke-width="1.8" fill="none" stroke-linecap="round"/>
@@ -382,25 +372,23 @@ footer{background:var(--buio);color:var(--crema);padding:80px 6% 50px;}
     <p class="hero-loc">Hamburg · 2026</p>
     <div class="hero-btns">
       <a href="#sound" class="hbtn hbtn-light">Discover the Sound</a>
-      <a href="#events" class="hbtn hbtn-ghost">Upcoming Evenings</a>
+      <a href="#events" class="hbtn hbtn-ghost">Upcoming Afternoons</a>
     </div>
   </div>
 </header>
 
-<!-- ════ SINGLE WAVE: ORANGE → LIGHT BLUE ════ -->
 <div class="wave-ac">
   <svg viewBox="0 0 1440 100" preserveAspectRatio="none">
     <path d="M0,35 C180,85 360,0 540,45 C720,90 900,5 1080,48 C1260,88 1380,20 1440,40 L1440,100 L0,100 Z" fill="#4A8EAA"/>
   </svg>
 </div>
 
-<!-- ════════ SECTION 2 — THE SOUND (CIELO BLUE) ════════ -->
 <section id="sound" class="s-sound">
   <div class="sound-in">
 
     <div class="sound-statement">
       <span class="sound-kicker">01 — The Italian Groove</span>
-      <h2 class="sound-h2">Start gentle.<br><em>End loud.</em><br>Never forget it.</h2>
+      <h2 class="sound-h2">Start in the sun.<br><em>End in the groove.</em><br>Never forget it.</h2>
       <p class="sound-tagline">From the first note to the last beat — BELLA takes you somewhere you don't want to leave.</p>
     </div>
 
@@ -422,28 +410,27 @@ footer{background:var(--buio);color:var(--crema);padding:80px 6% 50px;}
       </div>
     </div>
 
-    <!-- The pitch — for venues, catchy and energetic -->
     <div class="sound-pitch">
       <span class="pitch-label">The Experience · For Venues</span>
-      <h3 class="pitch-h3">Your space. Our music.<br><em>Their night of the year.</em></h3>
+      <h3 class="pitch-h3">Your space. Our music.<br><em>The best afternoon of their summer.</em></h3>
       <div class="pitch-body">
         <div>
           <p class="pitch-p">Imagine your space at 4pm on a summer Saturday. The sun is still high. The drinks are cold. And then — the first note drops. Not loud. Not aggressive. <strong>Just right.</strong></p>
           <p class="pitch-p" style="margin-top:1rem;">People start arriving. They feel it immediately. Something warm. Something alive. By the time the second phase hits, nobody's sitting down. By the third? <strong>Your venue has become a memory people will talk about for months.</strong></p>
-          <p class="pitch-p" style="margin-top:1rem;">BELLA is not a DJ night. It is a curated journey — a crescendo that builds from intimate Italian folk to full Mediterranean groove, landing at a deep Southern Italian beat that makes the floor move. <strong>Every single time.</strong></p>
+          <p class="pitch-p" style="margin-top:1rem;">BELLA is not a late-night club event. It is a curated journey — a crescendo that builds from intimate Italian folk to full Mediterranean groove, landing at a deep Southern Italian beat that makes the floor move. <strong>Every single time.</strong></p>
         </div>
         <div class="journey">
           <div class="jstep">
             <span class="jstep-time">Phase I · 16:00 — 18:00</span>
-            <p class="jstep-txt"><strong>The Warmup.</strong> Live guitar and vocals. Italian folk, cantautorato, bossa nova. The room fills slowly, conversations bloom, aperitivi flow.</p>
+            <p class="jstep-txt"><strong>The Warmup (Il Sole).</strong> Live guitar and vocals. Italian folk, cantautorato, bossa nova. The sun is high, the room fills slowly, al fresco conversations bloom, and ice clinks in aperitivo glasses.</p>
           </div>
           <div class="jstep">
             <span class="jstep-time">Phase II · 18:00 — 20:00</span>
-            <p class="jstep-txt"><strong>The Groove.</strong> Italian funk, rare soul, library music. The energy shifts. People stop talking and start moving. The dancefloor wakes up.</p>
+            <p class="jstep-txt"><strong>The Groove (Il Tramonto).</strong> Italian funk, rare soul, library music. Golden hour hits and the energy shifts. People stop talking and start moving. The dancefloor wakes up in the fading light.</p>
           </div>
           <div class="jstep">
             <span class="jstep-time">Phase III · 20:00 — 22:00</span>
-            <p class="jstep-txt"><strong>The Climax.</strong> Deep Southern Italian electronic, tarantella reinterpretations, raw Mediterranean heat. The room doesn't walk home — it floats. <strong>Every. Single. Time.</strong></p>
+            <p class="jstep-txt"><strong>The Climax (L'Imbrunire).</strong> Deep Southern Italian electronic, tarantella reinterpretations, raw Mediterranean heat. Dusk settles, and the room doesn't walk home — it floats. <strong>Every. Single. Time.</strong></p>
           </div>
         </div>
       </div>
@@ -452,14 +439,12 @@ footer{background:var(--buio);color:var(--crema);padding:80px 6% 50px;}
   </div>
 </section>
 
-<!-- wave cielo → crema -->
 <div class="wave-cc">
   <svg viewBox="0 0 1440 80" preserveAspectRatio="none">
     <path d="M0,50 C200,10 480,72 720,38 C960,5 1240,68 1440,42 L1440,80 L0,80 Z" fill="#F2E6C0"/>
   </svg>
 </div>
 
-<!-- ════════ SECTION 3 — ARTISTS (CREMA) ════════ -->
 <section id="artists" class="s-artists">
   <div class="artists-in">
     <div class="artists-hd">
@@ -511,14 +496,12 @@ footer{background:var(--buio);color:var(--crema);padding:80px 6% 50px;}
   </div>
 </section>
 
-<!-- wave crema → aperol -->
 <div class="wave-ca">
   <svg viewBox="0 0 1440 80" preserveAspectRatio="none">
     <path d="M0,30 C240,75 480,5 720,42 C960,78 1200,10 1440,36 L1440,80 L0,80 Z" fill="#CC4E12"/>
   </svg>
 </div>
 
-<!-- ════════ SECTION 4 — ROOTS (APEROL) ════════ -->
 <section id="roots" class="s-roots">
   <div class="roots-in">
     <div class="roots-top">
@@ -529,7 +512,6 @@ footer{background:var(--buio);color:var(--crema);padding:80px 6% 50px;}
       <p class="roots-body">Four cities. One shared soul. We carry the warmth of Italy into the most unexpected corners of Northern Europe.</p>
     </div>
   </div>
-  <!-- Full-width graphic map -->
   <div class="roots-map-block">
     <div class="map-svg-wrap">
       <svg class="italy-svg" viewBox="0 0 400 520" xmlns="http://www.w3.org/2000/svg">
@@ -538,7 +520,6 @@ footer{background:var(--buio);color:var(--crema);padding:80px 6% 50px;}
         <path d="M 90 230 C 130 220, 140 290, 110 330 C 70 350, 50 260, 90 230 Z"/>
       </svg>
     </div>
-    <!-- Pins: positioned as % of the map block -->
     <div class="mpin" style="top:17%;left:55%;"><span class="mlbl">ALE</span><div class="mdot"></div></div>
     <div class="mpin" style="top:44%;left:55%;"><div class="mdot"></div><span class="mlbl">GAB</span></div>
     <div class="mpin" style="top:65%;left:54%;"><span class="mlbl">CICCIO</span><div class="mdot"></div></div>
@@ -546,20 +527,18 @@ footer{background:var(--buio);color:var(--crema);padding:80px 6% 50px;}
   </div>
 </section>
 
-<!-- wave aperol → buio -->
 <div class="wave-aci">
   <svg viewBox="0 0 1440 80" preserveAspectRatio="none">
     <path d="M0,45 C200,8 480,76 720,35 C960,0 1240,70 1440,44 L1440,80 L0,80 Z" fill="#120602"/>
   </svg>
 </div>
 
-<!-- ════════ SECTION 5 — THE VIBE (BUIO) ════════ -->
 <section id="vibe" class="s-vibe">
   <div class="vibe-in">
     <div class="vibe-top">
       <div>
         <span style="font-size:.52rem;letter-spacing:.35em;text-transform:uppercase;color:var(--aperol);opacity:.7;display:block;margin-bottom:.8rem;">04 — The Philosophy</span>
-        <h2 class="vibe-h2">Small rooms.<br>Big feelings.<br><em>No bad nights.</em></h2>
+        <h2 class="vibe-h2">Intimate spaces.<br>Big feelings.<br><em>Perfect afternoons.</em></h2>
       </div>
       <p class="vibe-intro">The same instinct that finds the best olive oil on the shelf now finds the best record in the crate. BELLA is curated — from the first song to the last dancer leaving the floor.</p>
     </div>
@@ -570,7 +549,7 @@ footer{background:var(--buio);color:var(--crema);padding:80px 6% 50px;}
       </div>
       <div class="vt">
         <span class="vt-n">II</span>
-        <div><span class="vt-lbl">Venues with Soul</span><p class="vt-txt">We don't play just anywhere. Every location is chosen for its atmosphere, its acoustics, its potential to become something special for the evening.</p></div>
+        <div><span class="vt-lbl">Venues with Soul</span><p class="vt-txt">We don't play just anywhere. Every location is chosen for its atmosphere, its acoustics, its potential to become something special for the afternoon.</p></div>
       </div>
       <div class="vt">
         <span class="vt-n">III</span>
@@ -584,30 +563,28 @@ footer{background:var(--buio);color:var(--crema);padding:80px 6% 50px;}
   </div>
 </section>
 
-<!-- wave buio → crema -->
 <div class="wave-bc">
   <svg viewBox="0 0 1440 80" preserveAspectRatio="none">
     <path d="M0,40 C180,82 400,5 720,44 C1040,80 1260,8 1440,38 L1440,80 L0,80 Z" fill="#F2E6C0"/>
   </svg>
 </div>
 
-<!-- ════════ SECTION 6 — EVENTS (CREMA) ════════ -->
 <section id="events" class="s-events">
   <div class="ev-in">
     <div class="ev-top">
       <div>
         <span style="font-size:.52rem;letter-spacing:.35em;text-transform:uppercase;color:var(--aperol);display:block;margin-bottom:.8rem;">05 — Events</span>
-        <h2 class="ev-h2">Evenings &amp;<br><em>Memories</em></h2>
+        <h2 class="ev-h2">Afternoons &amp;<br><em>Memories</em></h2>
       </div>
       <div class="ev-card">
-        <span class="ev-sup">Next Evening</span>
+        <span class="ev-sup">Next Afternoon</span>
         <div class="ev-date">12 Jun</div>
-        <div class="ev-name">Notte Italiana</div>
+        <div class="ev-name">Pomeriggio Italiano</div>
         <div class="ev-venue">Viani Eimsbüttel · Hamburg</div>
         <div class="ev-note">Limited seats · By invitation only</div>
       </div>
     </div>
-    <span class="gal-lbl">From past evenings</span>
+    <span class="gal-lbl">From past afternoons</span>
     <div class="gallery">
       <div class="gi"><img src="salotto.jpeg" alt="" loading="lazy"></div>
       <div class="gi"><img src="IMG_4979.JPG" alt="" loading="lazy"></div>
@@ -621,14 +598,12 @@ footer{background:var(--buio);color:var(--crema);padding:80px 6% 50px;}
   </div>
 </section>
 
-<!-- wave crema → buio -->
 <div class="wave-cb">
   <svg viewBox="0 0 1440 80" preserveAspectRatio="none">
     <path d="M0,35 C240,78 480,5 720,40 C960,75 1200,8 1440,36 L1440,80 L0,80 Z" fill="#120602"/>
   </svg>
 </div>
 
-<!-- FOOTER -->
 <footer id="contatti">
   <div class="ft-in">
     <div class="ft-top">
@@ -654,7 +629,7 @@ footer{background:var(--buio);color:var(--crema);padding:80px 6% 50px;}
         <a href="#">The Format</a>
         <a href="#">The Artists</a>
         <a href="#">Our Roots</a>
-        <a href="#">Host an Evening →</a>
+        <a href="#">Host an Afternoon →</a>
       </div>
       <div class="fc">
         <span class="fc-lbl">Partners</span>
