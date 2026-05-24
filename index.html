@@ -6,18 +6,24 @@
 <title>BELLA — The Classic Italian Afternoon · Hamburg</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700;1,900&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700;1,900&family=Outfit:wght@300;400;500;600&family=Shrikhand&display=swap" rel="stylesheet">
 <style>
 :root {
-  --crema:  #F2E6C0;   /* aged carta da zucchero    */
-  --aperol: #CC4E12;   /* more terracotta, less neon */
-  --sole:   #D88A10;   /* scorched amber ochre       */
-  --rosso:  #A02210;   /* deep fired clay            */
-  --cielo:  #4A8EAA;   /* dusty Adriatico            */
-  --mare:   #1A4A6A;   /* deeper, more mineral       */
-  --buio:   #120602;   /* warm almost-black          */
-  --sabbia: #E0CCA0;   /* warm sand                  */
-  --carta:  #EBE0BE;   /* paper mid-tone             */
+  --crema:  #F2E6C0;   /* aged carta da zucchero */
+  --aperol: #CC4E12;   /* terracotta orange      */
+  --sole:   #D88A10;   /* scorched amber ochre   */
+  --rosso:  #A02210;   /* deep fired clay        */
+  --cielo:  #4A8EAA;   /* dusty Adriatico        */
+  --mare:   #1A4A6A;   /* deeper, more mineral   */
+  --buio:   #120602;   /* warm almost-black      */
+  --sabbia: #E0CCA0;   /* warm sand              */
+  --carta:  #EBE0BE;   /* paper mid-tone         */
+  
+  /* Amalfi Coast Palette */
+  --limone: #F9D84A;        /* Vibrant Lemon Yellow */
+  --azzurro: #006D96;       /* Deep Cerulean */
+  --bougainvillea: #D94F70; /* Faded Pink Floral */
+  --tenda: #F2E6C0;         /* Awning Cream */
 }
 *,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
 html{scroll-behavior:smooth;}
@@ -37,10 +43,10 @@ body::after{content:'';position:fixed;inset:0;z-index:9000;pointer-events:none;
 
 /* ── NAV ── */
 nav{position:sticky;top:0;z-index:500;height:56px;background:rgba(18,6,2,.97);backdrop-filter:blur(12px);display:flex;align-items:center;justify-content:space-between;padding:0 5%;border-bottom:1px solid rgba(204,78,18,.3);}
-.nbrand{font-family:'Playfair Display',serif;font-style:italic;font-size:1.3rem;font-weight:900;color:var(--crema);text-decoration:none;letter-spacing:.04em;}
+.nbrand{font-family:'Shrikhand', serif;font-size:1.4rem;font-weight:400;color:var(--limone);text-decoration:none;letter-spacing:.04em;}
 .nlinks{display:flex;list-style:none;}
 .nlinks a{font-size:.56rem;letter-spacing:.18em;text-transform:uppercase;color:var(--crema);opacity:.35;text-decoration:none;padding:0 14px;transition:opacity .2s,color .2s;}
-.nlinks a:hover{opacity:1;color:var(--aperol);}
+.nlinks a:hover{opacity:1;color:var(--limone);}
 .ncta{background:var(--aperol);color:var(--crema);font-size:.54rem;letter-spacing:.2em;text-transform:uppercase;font-weight:500;padding:9px 20px;text-decoration:none;transition:background .25s;flex-shrink:0;}
 .ncta:hover{background:var(--rosso);}
 .burger{display:none;background:none;border:none;cursor:pointer;padding:10px;flex-direction:column;gap:5px;}
@@ -58,28 +64,27 @@ nav{position:sticky;top:0;z-index:500;height:56px;background:rgba(18,6,2,.97);ba
   display:flex;flex-direction:column;
   position:relative;overflow:hidden;
 }
-/* warm radial bloom */
 .hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 50% 38%,rgba(216,138,16,.4) 0%,transparent 62%);pointer-events:none;}
-/* diagonal hatch — more analog */
 .hero::after{content:'';position:absolute;inset:0;background-image:repeating-linear-gradient(-12deg,transparent,transparent 22px,rgba(18,6,2,.055) 22px,rgba(18,6,2,.055) 23px);pointer-events:none;}
 
 .hero-body{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:8% 8% 4%;position:relative;z-index:2;}
 
-/* rosone above title */
+/* Coastal sunburst replacing the rosone */
 .hero-rosone{width:min(120px,24vw);aspect-ratio:1;margin:0 auto 2.2rem;animation:slowspin 55s linear infinite;}
 @keyframes slowspin{to{transform:rotate(360deg)}}
 
+/* Changed font to Shrikhand for Nu Genea vibe */
 h1.bella{
-  font-family:'Playfair Display',serif;
-  font-style:italic;
-  font-weight:900;
-  font-size:clamp(7rem,20vw,22rem);
-  line-height:.82;
-  letter-spacing:-.02em;
+  font-family:'Shrikhand', serif;
+  font-style:normal;
+  font-weight:400;
+  font-size:clamp(6rem,18vw,20rem);
+  line-height:.9;
+  letter-spacing:0.02em;
   color:var(--crema);
   display:block;
-  margin-bottom:.2em;
-  text-shadow:3px 4px 0 rgba(120,40,8,.18);
+  margin-bottom:.3em;
+  text-shadow:4px 5px 0 rgba(120,40,8,.25);
 }
 .hero-sub{
   font-family:'Outfit',sans-serif;
@@ -87,7 +92,7 @@ h1.bella{
   font-size:clamp(.72rem,1.5vw,.88rem);
   letter-spacing:.32em;
   text-transform:uppercase;
-  color:rgba(242,230,192,.65);
+  color:rgba(242,230,192,.8);
   margin-bottom:1rem;
   display:flex;
   align-items:center;
@@ -99,7 +104,7 @@ h1.bella{
   font-family:'Playfair Display',serif;
   font-style:italic;
   font-size:clamp(.8rem,1.5vw,.95rem);
-  color:rgba(242,230,192,.4);
+  color:rgba(242,230,192,.6);
   letter-spacing:.12em;
   display:block;
   margin-bottom:2.8rem;
@@ -107,7 +112,7 @@ h1.bella{
 
 .hero-btns{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;}
 .hbtn{font-size:.6rem;letter-spacing:.22em;text-transform:uppercase;font-weight:600;padding:1.1rem 2.4rem;text-decoration:none;transition:all .25s;border-radius:0;}
-.hbtn-light{background:var(--crema);color:var(--aperol);box-shadow:3px 3px 0 rgba(120,40,8,.25);}
+.hbtn-light{background:var(--limone);color:var(--aperol);box-shadow:3px 3px 0 rgba(120,40,8,.25);}
 .hbtn-light:hover{background:var(--sole);color:var(--buio);box-shadow:1px 1px 0 rgba(120,40,8,.2);transform:translate(2px,2px);}
 .hbtn-ghost{border:1px solid rgba(245,237,214,.35);color:var(--crema);}
 .hbtn-ghost:hover{background:rgba(245,237,214,.1);border-color:var(--crema);}
@@ -120,18 +125,15 @@ h1.bella{
    SECTION 2 — THE SOUND (CIELO)
 ══════════════════════════════ */
 .s-sound{background:var(--cielo);color:var(--buio);padding:100px 6% 110px;position:relative;overflow:hidden;}
-/* subtle wave texture in bg */
 .s-sound::before{content:'';position:absolute;inset:0;background-image:repeating-linear-gradient(-5deg,transparent,transparent 34px,rgba(26,74,106,.07) 34px,rgba(26,74,106,.07) 35px);pointer-events:none;}
 .sound-in{max-width:1060px;margin:0 auto;position:relative;z-index:1;}
 
-/* big statement */
 .sound-statement{text-align:center;margin-bottom:70px;}
 .sound-kicker{font-size:.54rem;letter-spacing:.35em;text-transform:uppercase;font-weight:500;color:var(--buio);opacity:.45;display:block;margin-bottom:1.4rem;}
 .sound-h2{font-family:'Playfair Display',serif;font-size:clamp(3.5rem,10vw,10rem);font-weight:900;line-height:.82;letter-spacing:-.03em;color:var(--buio);text-shadow:2px 3px 0 rgba(20,60,90,.15);}
-.sound-h2 em{font-style:italic;color:var(--aperol);}
+.sound-h2 em{font-style:italic;color:var(--limone);} /* Updated to limone */
 .sound-tagline{font-family:'Playfair Display',serif;font-style:italic;font-size:clamp(1.15rem,2.5vw,1.6rem);color:rgba(22,8,4,.6);margin-top:1.4rem;line-height:1.7;}
 
-/* three value pillars */
 .sound-pillars{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;margin-top:0;}
 .sp{background:rgba(22,8,4,.06);padding:36px 28px;border:1px solid rgba(22,8,4,.1);transition:background .3s;}
 .sp:hover{background:rgba(22,8,4,.1);}
@@ -139,16 +141,16 @@ h1.bella{
 .sp-ttl{font-family:'Playfair Display',serif;font-size:1.1rem;font-weight:700;color:var(--buio);margin-bottom:8px;}
 .sp-body{font-size:.95rem;line-height:1.9;color:rgba(22,8,4,.6);}
 
-/* experience climax section — the pitch for venues */
+/* pitch for venues */
 .sound-pitch{margin-top:80px;background:var(--buio);color:var(--crema);padding:64px 60px;position:relative;overflow:hidden;border-top:3px solid var(--aperol);}
 .sound-pitch::before{content:'';position:absolute;top:-40px;right:-40px;width:260px;height:260px;border-radius:50%;background:radial-gradient(circle,rgba(232,96,32,.18),transparent 70%);pointer-events:none;}
-.pitch-label{font-size:.52rem;letter-spacing:.32em;text-transform:uppercase;color:var(--aperol);display:block;margin-bottom:1.4rem;}
+.pitch-label{font-size:.52rem;letter-spacing:.32em;text-transform:uppercase;color:var(--limone);display:block;margin-bottom:1.4rem;}
 .pitch-h3{font-family:'Playfair Display',serif;font-size:clamp(1.8rem,4vw,3.2rem);font-weight:900;line-height:.92;letter-spacing:-.02em;color:var(--crema);margin-bottom:1.8rem;}
 .pitch-h3 em{font-style:italic;color:var(--sole);}
 .pitch-body{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:start;}
 .pitch-p{font-size:1rem;line-height:2;color:rgba(245,237,214,.6);}
 .pitch-p strong{color:var(--crema);font-weight:500;}
-/* journey arc — visual timeline */
+
 .journey{display:flex;flex-direction:column;gap:0;border-left:1px solid rgba(245,237,214,.12);padding-left:24px;}
 .jstep{padding:14px 0;position:relative;}
 .jstep::before{content:'';position:absolute;left:-30px;top:22px;width:8px;height:8px;border-radius:50%;background:var(--aperol);}
@@ -156,25 +158,24 @@ h1.bella{
 .jstep:nth-child(3):before{background:var(--crema);}
 .jstep-time{font-size:.5rem;letter-spacing:.22em;text-transform:uppercase;color:rgba(245,237,214,.3);display:block;margin-bottom:4px;}
 .jstep-txt{font-size:.95rem;color:rgba(245,237,214,.7);line-height:1.8;}
-.jstep-txt strong{color:var(--crema);font-weight:500;}
+.jstep-txt strong{color:var(--limone);font-weight:500;}
 
-/* wave cielo→crema before artists */
+/* ── SCALLOPED AWNING: cielo → carta ── */
 .wave-cc{line-height:0;overflow:hidden;background:var(--cielo);}
-.wave-cc svg{display:block;width:100%;height:80px;}
+.wave-cc svg{display:block;width:100%;height:60px;}
 
 /* ══════════════════════════════
    SECTION 3 — ARTISTS (CREMA)
 ══════════════════════════════ */
 .s-artists{background:var(--carta);color:var(--buio);padding:100px 6%;position:relative;}
-/* subtle rosone corner watermarks */
-.s-artists::before,.s-artists::after{content:'';position:absolute;width:280px;height:280px;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx='100' cy='100' r='96' stroke='%23E86020' stroke-width='1'/%3E%3Ccircle cx='100' cy='100' r='70' stroke='%23E86020' stroke-width='.6'/%3E%3Ccircle cx='100' cy='100' r='44' stroke='%23E86020' stroke-width='.6'/%3E%3Cpath d='M100 4 L100 196 M4 100 L196 100 M29 29 L171 171 M171 29 L29 171' stroke='%23E86020' stroke-width='.5'/%3E%3C/svg%3E");background-size:contain;background-repeat:no-repeat;opacity:.07;pointer-events:none;}
+.s-artists::before,.s-artists::after{content:'';position:absolute;width:280px;height:280px;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx='100' cy='100' r='96' stroke='%23006D96' stroke-width='1'/%3E%3Ccircle cx='100' cy='100' r='70' stroke='%23006D96' stroke-width='.6'/%3E%3Ccircle cx='100' cy='100' r='44' stroke='%23006D96' stroke-width='.6'/%3E%3Cpath d='M100 4 L100 196 M4 100 L196 100 M29 29 L171 171 M171 29 L29 171' stroke='%23006D96' stroke-width='.5'/%3E%3C/svg%3E");background-size:contain;background-repeat:no-repeat;opacity:.05;pointer-events:none;}
 .s-artists::before{top:30px;left:30px;}
 .s-artists::after{bottom:30px;right:30px;}
 
 .artists-in{max-width:1060px;margin:0 auto;}
 .artists-hd{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:52px;}
 .artists-h2{font-family:'Playfair Display',serif;font-size:clamp(2.5rem,6vw,5rem);font-weight:900;line-height:.88;letter-spacing:-.02em;}
-.artists-h2 em{font-style:italic;color:var(--aperol);}
+.artists-h2 em{font-style:italic;color:var(--azzurro);} /* Changed to azzurro */
 .artists-note{font-size:.52rem;letter-spacing:.28em;text-transform:uppercase;color:rgba(22,8,4,.28);}
 .acards{display:grid;grid-template-columns:repeat(3,1fr);gap:3px;}
 .acard{background:var(--buio);overflow:hidden;transition:transform .4s cubic-bezier(.16,1,.3,1);}
@@ -187,7 +188,7 @@ h1.bella{
 .acard:nth-child(2) .acard-img::after{background:linear-gradient(to bottom,rgba(90,174,212,.22),rgba(22,8,4,.72));}
 .acard:nth-child(3) .acard-img::after{background:linear-gradient(to bottom,rgba(192,48,24,.2),rgba(22,8,4,.78));}
 .acard-badge{position:absolute;top:14px;left:14px;z-index:2;font-size:.48rem;letter-spacing:.2em;text-transform:uppercase;font-weight:500;color:var(--crema);background:rgba(22,8,4,.5);padding:4px 10px;backdrop-filter:blur(6px);}
-.acard-num{position:absolute;bottom:14px;left:18px;z-index:2;font-family:'Playfair Display',serif;font-size:3.5rem;font-style:italic;font-weight:900;color:var(--sole);opacity:.8;line-height:1;}
+.acard-num{position:absolute;bottom:14px;left:18px;z-index:2;font-family:'Playfair Display',serif;font-size:3.5rem;font-style:italic;font-weight:900;color:var(--limone);opacity:.8;line-height:1;}
 .acard-body{padding:24px 22px 28px;background:#1A0C04;}
 .acard-tag{font-size:.52rem;letter-spacing:.2em;text-transform:uppercase;color:var(--sole);display:block;margin-bottom:7px;}
 .acard-name{font-family:'Playfair Display',serif;font-size:1.6rem;font-weight:700;color:var(--crema);margin-bottom:8px;}
@@ -207,35 +208,32 @@ h1.bella{
 .roots-top{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:40px;flex-wrap:wrap;gap:16px;}
 .roots-kicker{font-size:.52rem;letter-spacing:.35em;text-transform:uppercase;color:rgba(245,237,214,.6);display:block;margin-bottom:.8rem;}
 .roots-h2{font-family:'Playfair Display',serif;font-size:clamp(2.5rem,6vw,5rem);font-weight:900;line-height:.88;letter-spacing:-.02em;}
-.roots-h2 em{font-style:italic;color:rgba(245,237,214,.45);}
+.roots-h2 em{font-style:italic;color:var(--limone);} /* Lemon pop */
 .roots-body{font-style:italic;font-size:1.05rem;line-height:1.9;color:rgba(245,237,214,.65);max-width:480px;}
-/* The map block — full width, large, graphic */
+
 .roots-map-block{position:relative;width:100%;height:clamp(440px,70vw,680px);overflow:hidden;}
-.italy-bg{position:absolute;inset:0;
-  background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 400 520' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M 120 60 C 180 30, 250 40, 290 70 C 320 120, 290 180, 320 280 C 340 320, 360 360, 320 370 C 290 380, 310 380, 290 410 C 280 430, 250 460, 220 440 C 190 410, 250 350, 230 310 C 210 270, 180 250, 190 220 C 200 180, 130 140, 120 60 Z' fill='rgba(245,220,180,0.28)'/%3E%3Cpath d='M 170 460 C 210 440, 240 480, 200 510 C 150 510, 140 470, 170 460 Z' fill='rgba(245,220,180,0.28)'/%3E%3Cpath d='M 90 230 C 130 220, 140 290, 110 330 C 70 350, 50 260, 90 230 Z' fill='rgba(245,220,180,0.28)'/%3E%3C/svg%3E");
-  background-size:contain;background-repeat:no-repeat;background-position:center top;}
-/* inline svg map */
 .map-svg-wrap{position:absolute;inset:0;display:flex;align-items:flex-start;justify-content:center;}
 .italy-svg{height:100%;width:auto;max-width:60%;fill:rgba(242,220,160,.38);stroke:none;display:block;}
-/* pins — styled like the screenshot */
+
 .mpin{position:absolute;transform:translate(-50%,-50%);display:flex;align-items:center;gap:10px;z-index:3;}
 .mdot{width:28px;height:28px;border-radius:50%;border:2.5px solid rgba(40,14,4,.85);display:flex;align-items:center;justify-content:center;flex-shrink:0;background:rgba(204,78,18,.08);}
 .mdot::after{content:'';width:10px;height:10px;border-radius:50%;background:rgba(40,14,4,.9);display:block;}
 .mlbl{font-family:'Outfit',sans-serif;font-size:.74rem;letter-spacing:.2em;text-transform:uppercase;font-weight:700;color:#F2E6C0;background:rgba(40,14,4,.88);padding:7px 15px;border-radius:4px;white-space:nowrap;}
 
-/* wave aperol → cielo */
+/* wave aperol → buio */
 .wave-aci{line-height:0;overflow:hidden;background:var(--aperol);}
 .wave-aci svg{display:block;width:100%;height:80px;}
 
 /* ══════════════════════════════
-   SECTION 5 — VIBE / PHILOSOPHY (BUIO)
+   SECTION 5 — THE VIBE (BUIO)
 ══════════════════════════════ */
 .s-vibe{background:var(--buio);color:var(--crema);padding:90px 6%;position:relative;overflow:hidden;}
-.s-vibe::before{content:'BELLA';position:absolute;font-family:'Playfair Display',serif;font-style:italic;font-size:36vw;font-weight:900;color:rgba(245,237,214,.025);top:50%;left:50%;transform:translate(-50%,-50%);white-space:nowrap;pointer-events:none;letter-spacing:-.04em;}
+/* Funky background text */
+.s-vibe::before{content:'BELLA';position:absolute;font-family:'Shrikhand',serif;font-size:36vw;font-weight:400;color:rgba(245,237,214,.02);top:50%;left:50%;transform:translate(-50%,-50%);white-space:nowrap;pointer-events:none;letter-spacing:-.01em;}
 .vibe-in{max-width:1060px;margin:0 auto;position:relative;z-index:1;}
 .vibe-top{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:end;margin-bottom:52px;}
 .vibe-h2{font-family:'Playfair Display',serif;font-size:clamp(2.5rem,6vw,5rem);font-weight:900;line-height:.88;letter-spacing:-.02em;}
-.vibe-h2 em{font-style:italic;color:var(--sole);}
+.vibe-h2 em{font-style:italic;color:var(--limone);}
 .vibe-intro{font-family:'Playfair Display',serif;font-style:italic;font-size:1.05rem;line-height:1.85;color:rgba(245,237,214,.5);}
 .vibe-traits{display:grid;grid-template-columns:1fr 1fr;border:1px solid rgba(245,237,214,.07);}
 .vt{padding:32px 28px;border-right:1px solid rgba(245,237,214,.07);border-bottom:1px solid rgba(245,237,214,.07);display:flex;gap:18px;transition:background .3s;}
@@ -243,7 +241,7 @@ h1.bella{
 .vt:nth-child(3),.vt:nth-child(4){border-bottom:none;}
 .vt:hover{background:rgba(245,237,214,.03);}
 .vt-n{font-family:'Playfair Display',serif;font-size:1.8rem;font-style:italic;font-weight:700;color:var(--sole);opacity:.4;flex-shrink:0;line-height:1;}
-.vt-lbl{font-size:.56rem;letter-spacing:.2em;text-transform:uppercase;color:var(--sole);display:block;margin-bottom:8px;}
+.vt-lbl{font-size:.56rem;letter-spacing:.2em;text-transform:uppercase;color:var(--limone);display:block;margin-bottom:8px;}
 .vt-txt{font-size:.95rem;line-height:1.9;color:rgba(245,237,214,.52);}
 
 /* wave buio → crema */
@@ -251,26 +249,32 @@ h1.bella{
 .wave-bc svg{display:block;width:100%;height:80px;}
 
 /* ══════════════════════════════
-   SECTION 6 — EVENTS (CREMA)
+   SECTION 6 — EVENTS (CREMA + MAJOLICA)
 ══════════════════════════════ */
-.s-events{background:var(--carta);color:var(--buio);padding:100px 6%;}
+/* Added majolica-bg class for Mediterranean ceramic feel */
+.majolica-bg {
+  background-color: var(--carta);
+  background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M30 0 L60 30 L30 60 L0 30 Z' fill='none' stroke='%234A8EAA' stroke-width='1.5' opacity='0.12'/%3E%3Ccircle cx='30' cy='30' r='12' fill='none' stroke='%23D88A10' stroke-width='1.5' opacity='0.12'/%3E%3C/svg%3E");
+}
+
+.s-events{color:var(--buio);padding:100px 6%;}
 .ev-in{max-width:1060px;margin:0 auto;}
 .ev-top{display:grid;grid-template-columns:1fr 1fr;gap:80px;margin-bottom:52px;align-items:end;}
 .ev-h2{font-family:'Playfair Display',serif;font-size:clamp(2.5rem,6vw,5rem);font-weight:900;line-height:.88;letter-spacing:-.02em;}
-.ev-h2 em{font-style:italic;color:var(--aperol);}
-.ev-card{background:var(--aperol);padding:40px;position:relative;overflow:hidden;border-top:4px solid var(--rosso);}
+.ev-h2 em{font-style:italic;color:var(--azzurro);}
+.ev-card{background:var(--aperol);padding:40px;position:relative;overflow:hidden;border-top:4px solid var(--bougainvillea);}
 .ev-card::before{content:'';position:absolute;inset:8px;border:1px solid rgba(245,237,214,.15);pointer-events:none;}
 .ev-card::after{content:'';position:absolute;top:-30px;right:-30px;width:180px;height:180px;border-radius:50%;background:radial-gradient(circle,rgba(240,165,32,.25),transparent 70%);pointer-events:none;}
-.ev-sup{font-size:.5rem;letter-spacing:.32em;text-transform:uppercase;color:rgba(245,237,214,.6);display:block;margin-bottom:16px;}
+.ev-sup{font-size:.5rem;letter-spacing:.32em;text-transform:uppercase;color:rgba(245,237,214,.8);display:block;margin-bottom:16px;}
 .ev-date{font-family:'Playfair Display',serif;font-size:4.5rem;font-weight:900;line-height:1;color:var(--crema);letter-spacing:-.02em;margin-bottom:4px;}
 .ev-name{font-family:'Playfair Display',serif;font-style:italic;font-size:1.8rem;color:var(--crema);margin-bottom:8px;}
-.ev-venue{font-size:.56rem;letter-spacing:.2em;text-transform:uppercase;color:rgba(245,237,214,.5);margin-bottom:14px;}
-.ev-note{font-family:'Playfair Display',serif;font-style:italic;font-size:.9rem;color:var(--sole);}
-.gal-lbl{font-size:.5rem;letter-spacing:.3em;text-transform:uppercase;color:rgba(22,8,4,.28);display:block;margin-bottom:12px;}
+.ev-venue{font-size:.56rem;letter-spacing:.2em;text-transform:uppercase;color:rgba(245,237,214,.6);margin-bottom:14px;}
+.ev-note{font-family:'Playfair Display',serif;font-style:italic;font-size:.9rem;color:var(--limone);}
+.gal-lbl{font-size:.5rem;letter-spacing:.3em;text-transform:uppercase;color:rgba(22,8,4,.5);display:block;margin-bottom:12px;font-weight:600;}
 .gallery{display:grid;grid-template-columns:repeat(4,1fr);gap:4px;}
 .gi{overflow:hidden;aspect-ratio:1;}
-.gi img{width:100%;height:100%;object-fit:cover;display:block;filter:sepia(35%) contrast(1.1) brightness(.85) saturate(1.25);transition:filter .4s,transform .5s;}
-.gi:hover img{filter:sepia(10%) contrast(1.06) brightness(.9);transform:scale(1.06);}
+.gi img{width:100%;height:100%;object-fit:cover;display:block;filter:sepia(25%) contrast(1.1) brightness(.9) saturate(1.2);transition:filter .4s,transform .5s;}
+.gi:hover img{filter:sepia(5%) contrast(1.05) brightness(1);transform:scale(1.06);}
 
 /* wave crema → buio */
 .wave-cb{line-height:0;overflow:hidden;background:var(--carta);}
@@ -283,7 +287,7 @@ footer{background:var(--buio);color:var(--crema);padding:80px 6% 50px;}
 .ft-in{max-width:1060px;margin:0 auto;}
 .ft-top{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:end;padding-bottom:56px;border-bottom:1px solid rgba(245,237,214,.06);margin-bottom:48px;}
 .ft-hl{font-family:'Playfair Display',serif;font-size:clamp(3rem,8vw,7rem);font-weight:900;line-height:.85;letter-spacing:-.03em;}
-.ft-hl em{font-style:italic;color:var(--sole);}
+.ft-hl em{font-style:italic;color:var(--limone);}
 .ft-right{display:flex;flex-direction:column;gap:24px;justify-content:flex-end;}
 .ft-lbl{font-size:.5rem;letter-spacing:.3em;text-transform:uppercase;color:rgba(245,237,214,.28);display:block;margin-bottom:6px;}
 .ft-mail{font-family:'Playfair Display',serif;font-style:italic;font-size:1.2rem;color:var(--crema);text-decoration:none;border-bottom:1px solid rgba(245,237,214,.18);padding-bottom:3px;transition:color .25s,border-color .25s;}
@@ -339,7 +343,7 @@ footer{background:var(--buio);color:var(--crema);padding:80px 6% 50px;}
       <path d="M16,52 Q25,44 34,52 Q43,60 52,52 Q61,44 70,52 Q79,60 84,55" stroke="rgba(245,237,214,.65)" stroke-width="2" fill="none" stroke-linecap="round"/>
       <path d="M18,63 Q27,55 36,63 Q45,71 54,63 Q63,55 72,63 Q79,71 84,66" stroke="rgba(245,237,214,.5)" stroke-width="1.8" fill="none" stroke-linecap="round"/>
     </svg>
-    <span style="font-family:'Playfair Display',serif;font-style:italic;font-size:1.3rem;font-weight:900;color:var(--crema);">BELLA</span>
+    <span>BELLA</span>
   </a>
   <button class="burger" aria-label="Menu" onclick="this.classList.toggle('open');document.querySelector('.nlinks').classList.toggle('open')">
     <span></span><span></span><span></span>
@@ -359,11 +363,11 @@ footer{background:var(--buio);color:var(--crema);padding:80px 6% 50px;}
 
     <div class="hero-rosone">
       <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <circle cx="50" cy="50" r="46" stroke="rgba(245,237,214,.5)" stroke-width="1.2"/>
-        <path d="M16,35 Q25,27 34,35 Q43,43 52,35 Q61,27 70,35 Q79,43 84,38" stroke="rgba(245,237,214,.65)" stroke-width="1.8" fill="none" stroke-linecap="round"/>
-        <path d="M14,44 Q23,36 32,44 Q41,52 50,44 Q59,36 68,44 Q77,52 86,46" stroke="rgba(245,237,214,.7)" stroke-width="1.8" fill="none" stroke-linecap="round"/>
-        <path d="M14,54 Q23,46 32,54 Q41,62 50,54 Q59,46 68,54 Q77,62 86,56" stroke="rgba(245,237,214,.65)" stroke-width="1.8" fill="none" stroke-linecap="round"/>
-        <path d="M16,64 Q25,56 34,64 Q43,72 52,64 Q61,56 70,64 Q79,72 84,67" stroke="rgba(245,237,214,.5)" stroke-width="1.6" fill="none" stroke-linecap="round"/>
+        <circle cx="50" cy="50" r="42" stroke="rgba(245,237,214,.6)" stroke-width="1.5" stroke-dasharray="4 4"/>
+        <circle cx="50" cy="50" r="28" stroke="rgba(245,237,214,.8)" stroke-width="1"/>
+        <circle cx="50" cy="50" r="10" fill="rgba(245,237,214,.8)"/>
+        <path d="M50 15 L50 28 M50 72 L50 85 M15 50 L28 50 M72 50 L85 50" stroke="rgba(245,237,214,.8)" stroke-width="2" stroke-linecap="round"/>
+        <path d="M25 25 L34 34 M75 75 L66 66 M25 75 L34 66 M75 25 L66 34" stroke="rgba(245,237,214,.6)" stroke-width="1.5" stroke-linecap="round"/>
       </svg>
     </div>
 
@@ -440,8 +444,8 @@ footer{background:var(--buio);color:var(--crema);padding:80px 6% 50px;}
 </section>
 
 <div class="wave-cc">
-  <svg viewBox="0 0 1440 80" preserveAspectRatio="none">
-    <path d="M0,50 C200,10 480,72 720,38 C960,5 1240,68 1440,42 L1440,80 L0,80 Z" fill="#F2E6C0"/>
+  <svg viewBox="0 0 1200 120" preserveAspectRatio="none" style="fill:var(--carta);">
+    <path d="M0,0 V120 Q30,60 60,120 T120,120 T180,120 T240,120 T300,120 T360,120 T420,120 T480,120 T540,120 T600,120 T660,120 T720,120 T780,120 T840,120 T900,120 T960,120 T1020,120 T1080,120 T1140,120 T1200,120 V0 Z" />
   </svg>
 </div>
 
@@ -569,7 +573,7 @@ footer{background:var(--buio);color:var(--crema);padding:80px 6% 50px;}
   </svg>
 </div>
 
-<section id="events" class="s-events">
+<section id="events" class="s-events majolica-bg">
   <div class="ev-in">
     <div class="ev-top">
       <div>
