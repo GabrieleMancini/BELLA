@@ -107,28 +107,19 @@ h1.bella {
   display: inline-flex; align-items: center; justify-content: center; box-shadow: 4px 4px 0 var(--ink);
 }
 
-/* ════════ SECTION 2 — THE SOUND & TIMELINE ════════ */
-.sound-top { text-align: center; margin-bottom: 50px; }
+/* ════════ SECTION 2 — THE CONCEPT (3-COLUMN STEPS) ════════ */
+.sound-top { text-align: center; margin-bottom: 60px; }
 .sound-h2 { font-family: 'DM Serif Display', serif; font-size: clamp(2.2rem, 6vw, 5rem); line-height: .95; color: var(--ink); }
 .sound-h2 em { font-style: italic; color: var(--mattone); }
 
-/* Unified Timeline / Concept */
-.concept-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: center; }
-.timeline { display: flex; flex-direction: column; gap: 24px; border-left: 2px solid var(--ink); padding-left: 24px; margin-left: 12px;}
-.tl-step { position: relative; }
-.tl-step::before { content: ''; position: absolute; left: -33px; top: 6px; width: 14px; height: 14px; border-radius: 50%; background: var(--senape); border: 2px solid var(--ink); }
-.tl-step:nth-child(2):before { background: var(--campari); }
-.tl-step:nth-child(3):before { background: var(--ottanio); }
-.tl-time { font-size: .65rem; font-weight: 700; letter-spacing: .2em; text-transform: uppercase; color: var(--campari); display: block; margin-bottom: 4px; }
-.tl-title { font-family: 'DM Serif Display', serif; font-size: 1.8rem; color: var(--ink); line-height: 1; margin-bottom: 6px;}
-.tl-desc { font-size: 1rem; color: var(--ink); opacity: 0.8; line-height: 1.5; }
-
-/* The Pitch - Direct & Elegant */
-.venue-pitch { background: var(--ottanio); color: var(--cream); padding: 40px; border: 2px solid var(--ink); border-radius: 8px; box-shadow: 6px 6px 0 var(--ink); }
-.vp-lbl { font-size: .6rem; letter-spacing: .2em; text-transform: uppercase; color: var(--senape); font-weight: 700; display: block; margin-bottom: 1rem; }
-.vp-h3 { font-family: 'DM Serif Display', serif; font-size: 2.2rem; line-height: 1; color: var(--cream); margin-bottom: 1rem; }
-.vp-p { font-size: 1.05rem; line-height: 1.6; color: rgba(244, 239, 230, 0.9); }
-.vp-p strong { color: var(--senape); }
+.steps-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 40px; margin-top: 20px; }
+.step-card { position: relative; border-top: 2px solid var(--ink); padding-top: 24px; }
+.step-card::before { content: ''; position: absolute; left: 0; top: -9px; width: 14px; height: 14px; border-radius: 50%; background: var(--senape); border: 2px solid var(--ink); }
+.step-card:nth-child(2):before { background: var(--campari); }
+.step-card:nth-child(3):before { background: var(--ottanio); }
+.tl-time { font-size: .65rem; font-weight: 700; letter-spacing: .2em; text-transform: uppercase; color: var(--campari); display: block; margin-bottom: 6px; }
+.tl-title { font-family: 'DM Serif Display', serif; font-size: 1.8rem; color: var(--ink); line-height: 1; margin-bottom: 10px;}
+.tl-desc { font-size: 1.05rem; color: var(--ink); opacity: 0.8; line-height: 1.5; }
 
 /* ════════ SECTION 3 — SELECTORS ════════ */
 .artists-hd { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 40px; flex-wrap: wrap; gap: 10px; }
@@ -192,7 +183,10 @@ footer.retro-card { background: var(--ink); color: var(--cream); margin-bottom: 
   
   .retro-card { margin: 20px 4%; padding: 40px 5%; box-shadow: 4px 4px 0 var(--ink); }
   
-  .concept-grid { grid-template-columns: 1fr; gap: 40px; }
+  .steps-grid { grid-template-columns: 1fr; gap: 30px; }
+  .step-card { border-top: none; border-left: 2px solid var(--ink); padding-top: 0; padding-left: 24px; margin-left: 8px; }
+  .step-card::before { left: -33px; top: 4px; }
+
   .acards { grid-template-columns: 1fr; gap: 20px; }
   .ev-top { grid-template-columns: 1fr; gap: 24px; }
   .gallery { grid-template-columns: repeat(2, 1fr); gap: 8px; }
@@ -259,29 +253,21 @@ footer.retro-card { background: var(--ink); color: var(--cream); margin-bottom: 
     <h2 class="sound-h2">Nomadic spaces.<br><em>Mediterranean soul.</em></h2>
   </div>
   
-  <div class="concept-grid">
-    <div class="timeline">
-      <div class="tl-step">
-        <span class="tl-time">Step 01 · The Arrival</span>
-        <div class="tl-title">The Space</div>
-        <p class="tl-desc">We pop up in shifting locations across Hamburg—from local cafés and corner kiosks to neighborhood wine shops and food stores. A new canvas for our Mediterranean mood.</p>
-      </div>
-      <div class="tl-step">
-        <span class="tl-time">Step 02 · The Gathering</span>
-        <div class="tl-title">The Atmosphere</div>
-        <p class="tl-desc">The room fills slowly as we settle in. The space transforms as our acoustic rhythms begin, blending the unique character of the venue with our unmistakable Southern warmth.</p>
-      </div>
-      <div class="tl-step">
-        <span class="tl-time">Step 03 · The Climax</span>
-        <div class="tl-title">The Groove</div>
-        <p class="tl-desc">Deep cuts, electronic heat, and rare funk. An intimate, connected crescendo entirely shaped by the energy of the room.</p>
-      </div>
+  <div class="steps-grid">
+    <div class="step-card">
+      <span class="tl-time">Step 01 · The Arrival</span>
+      <div class="tl-title">The Space</div>
+      <p class="tl-desc">We pop up in shifting locations across Hamburg—from local cafés and corner kiosks to neighborhood wine shops and food stores. A new canvas for our Mediterranean mood.</p>
     </div>
-    
-    <div class="venue-pitch">
-      <span class="vp-lbl">A Shifting Landscape</span>
-      <h3 class="vp-h3">Not a fixed club night.</h3>
-      <p class="vp-p">BELLA is a series of nomadic gatherings. We take over everyday and unexpected spaces in Hamburg—popping up anywhere from bustling kiosks and local cafés to specialty food stores and intimate wine shops. We bring our signature sound and atmosphere with us. <strong>A new backdrop, the same unmistakable vibe.</strong></p>
+    <div class="step-card">
+      <span class="tl-time">Step 02 · The Gathering</span>
+      <div class="tl-title">The Atmosphere</div>
+      <p class="tl-desc">The room fills slowly as we settle in. The space transforms as our acoustic rhythms begin, blending the unique character of the venue with our unmistakable Southern warmth.</p>
+    </div>
+    <div class="step-card">
+      <span class="tl-time">Step 03 · The Climax</span>
+      <div class="tl-title">The Groove</div>
+      <p class="tl-desc">Deep cuts, electronic heat, and rare funk. An intimate, connected crescendo entirely shaped by the energy of the room.</p>
     </div>
   </div>
 </section>
@@ -381,7 +367,7 @@ var obs = new IntersectionObserver(function(entries){
     }
   });
 }, {threshold: .05});
-document.querySelectorAll('.retro-card, .acard, .tl-step').forEach(function(el){
+document.querySelectorAll('.retro-card, .acard, .step-card').forEach(function(el){
   el.style.opacity = '0';
   el.style.transform = 'translateY(20px)';
   el.style.transition = 'opacity .6s ease, transform .6s ease';
