@@ -3,22 +3,22 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>BELLA — The Classic Italian Afternoon · Hamburg</title>
+<title>BELLA — An Intimate Italian Afternoon · Hamburg</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Jost:wght@300;400;500;600;700&family=Shrikhand&display=swap" rel="stylesheet">
 <style>
 :root {
-  /* Vintage 70s Funk Palette */
-  --cream:  #FDFBF7;   /* Light paper cream */
-  --ink:    #2A1610;   /* Deep brown/black for text & borders */
+  /* Sophisticated 70s Adult Palette */
+  --cream:    #F4EFE6;   /* Warm, vintage paper cream */
+  --ink:      #2C1A12;   /* Deep espresso brown (richer than black) */
   
-  /* Aperitivo Wave Colors (Vibrant & Funky) */
-  --spritz: #F95C2B;   /* Bright Orange */
-  --rosa:   #E93B70;   /* Faded Pink */
-  --limone: #F9B233;   /* Vibrant Yellow */
-  --lime:   #9CB757;   /* Fresh Lime Green */
-  --azzurro:#007D8A;   /* Deep Teal */
+  /* Muted Aperitivo / 70s Interior Colors */
+  --campari:  #B83B22;   /* Deep Campari Red / Burnt Orange */
+  --mattone:  #C06B52;   /* Terracotta / Brick Pink */
+  --senape:   #D9A05B;   /* Mustard Gold */
+  --oliva:    #7B8455;   /* Olive Green */
+  --ottanio:  #2F5C64;   /* Dark Teal / Petrol Blue */
 }
 
 *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
@@ -34,15 +34,14 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
-/* Fixed Wave Pattern Background */
+/* Fixed Wave Pattern Background (Mature Colors) */
 body::before {
   content: '';
   position: fixed;
   inset: 0;
   z-index: -1;
   background-color: var(--cream);
-  /* Saturated, groovy wave SVG */
-  background-image: url("data:image/svg+xml,%3Csvg width='1200' height='1000' viewBox='0 0 1200 1000' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0,100 C300,350 900,-150 1200,100 L1200,250 C900,0 300,500 0,250 Z' fill='%23F95C2B' opacity='0.85'/%3E%3Cpath d='M0,150 C300,400 900,-100 1200,150 L1200,300 C900,50 300,550 0,300 Z' fill='%23E93B70' opacity='0.85'/%3E%3Cpath d='M0,200 C300,450 900,-50 1200,200 L1200,350 C900,100 300,600 0,350 Z' fill='%23F9B233' opacity='0.85'/%3E%3Cpath d='M0,250 C300,500 900,0 1200,250 L1200,400 C900,150 300,650 0,400 Z' fill='%239CB757' opacity='0.85'/%3E%3Cpath d='M0,300 C300,550 900,50 1200,300 L1200,450 C900,200 300,700 0,450 Z' fill='%23007D8A' opacity='0.85'/%3E%3Cpath d='M0,600 C300,350 900,850 1200,600 L1200,750 C900,1000 300,500 0,750 Z' fill='%23F95C2B' opacity='0.85'/%3E%3Cpath d='M0,650 C300,400 900,900 1200,650 L1200,800 C900,1050 300,550 0,800 Z' fill='%23E93B70' opacity='0.85'/%3E%3Cpath d='M0,700 C300,450 900,950 1200,700 L1200,850 C900,1100 300,600 0,850 Z' fill='%23F9B233' opacity='0.85'/%3E%3Cpath d='M0,750 C300,500 900,1000 1200,750 L1200,900 C900,1150 300,650 0,900 Z' fill='%239CB757' opacity='0.85'/%3E%3Cpath d='M0,800 C300,550 900,1050 1200,800 L1200,950 C900,1200 300,700 0,950 Z' fill='%23007D8A' opacity='0.85'/%3E%3C/svg%3E");
+  background-image: url("data:image/svg+xml,%3Csvg width='1200' height='1000' viewBox='0 0 1200 1000' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0,100 C300,350 900,-150 1200,100 L1200,250 C900,0 300,500 0,250 Z' fill='%23B83B22' opacity='0.75'/%3E%3Cpath d='M0,150 C300,400 900,-100 1200,150 L1200,300 C900,50 300,550 0,300 Z' fill='%23C06B52' opacity='0.75'/%3E%3Cpath d='M0,200 C300,450 900,-50 1200,200 L1200,350 C900,100 300,600 0,350 Z' fill='%23D9A05B' opacity='0.75'/%3E%3Cpath d='M0,250 C300,500 900,0 1200,250 L1200,400 C900,150 300,650 0,400 Z' fill='%237B8455' opacity='0.75'/%3E%3Cpath d='M0,300 C300,550 900,50 1200,300 L1200,450 C900,200 300,700 0,450 Z' fill='%232F5C64' opacity='0.75'/%3E%3Cpath d='M0,600 C300,350 900,850 1200,600 L1200,750 C900,1000 300,500 0,750 Z' fill='%23B83B22' opacity='0.75'/%3E%3Cpath d='M0,650 C300,400 900,900 1200,650 L1200,800 C900,1050 300,550 0,800 Z' fill='%23C06B52' opacity='0.75'/%3E%3Cpath d='M0,700 C300,450 900,950 1200,700 L1200,850 C900,1100 300,600 0,850 Z' fill='%23D9A05B' opacity='0.75'/%3E%3Cpath d='M0,750 C300,500 900,1000 1200,750 L1200,900 C900,1150 300,650 0,900 Z' fill='%237B8455' opacity='0.75'/%3E%3Cpath d='M0,800 C300,550 900,1050 1200,800 L1200,950 C900,1200 300,700 0,950 Z' fill='%232F5C64' opacity='0.75'/%3E%3C/svg%3E");
   background-size: 100vw 1000px;
   background-repeat: repeat-y;
   background-position: center top;
@@ -56,9 +55,9 @@ body::after {
 }
 
 /* ── TICKER ── */
-.ticker { background: var(--spritz); height: 44px; overflow: hidden; display: flex; align-items: center; border-bottom: 3px solid var(--ink); }
-.tk { display: flex; animation: roll 28s linear infinite; white-space: nowrap; }
-.tk span { font-size: .7rem; letter-spacing: .25em; text-transform: uppercase; font-weight: 600; color: var(--cream); padding: 0 2.5rem; }
+.ticker { background: var(--campari); height: 44px; overflow: hidden; display: flex; align-items: center; border-bottom: 2px solid var(--ink); }
+.tk { display: flex; animation: roll 35s linear infinite; white-space: nowrap; }
+.tk span { font-size: .65rem; letter-spacing: .25em; text-transform: uppercase; font-weight: 500; color: var(--cream); padding: 0 2.5rem; }
 .tk .d { color: var(--ink); }
 @keyframes roll { to { transform: translateX(-50%) } }
 
@@ -68,16 +67,16 @@ nav {
   background: var(--cream);
   display: flex; align-items: center; justify-content: space-between; 
   padding: 0 3%; margin: 0 3%;
-  border: 3px solid var(--ink);
+  border: 2px solid var(--ink);
   border-radius: 50px;
   box-shadow: 4px 4px 0 var(--ink);
 }
-.nbrand { font-family: 'Shrikhand', serif; font-size: 1.5rem; color: var(--spritz); text-decoration: none; letter-spacing: .04em; -webkit-text-stroke: 1px var(--ink); text-shadow: 2px 2px 0 var(--ink); }
+.nbrand { font-family: 'Shrikhand', serif; font-size: 1.5rem; color: var(--campari); text-decoration: none; letter-spacing: .04em; -webkit-text-stroke: 1px var(--ink); text-shadow: 2px 2px 0 var(--ink); }
 .nlinks { display: flex; list-style: none; }
 .nlinks a { font-size: .6rem; font-weight: 600; letter-spacing: .15em; text-transform: uppercase; color: var(--ink); text-decoration: none; padding: 0 16px; transition: color .2s; }
-.nlinks a:hover { color: var(--spritz); }
-.ncta { background: var(--limone); color: var(--ink); font-size: .6rem; letter-spacing: .15em; text-transform: uppercase; font-weight: 700; padding: 10px 24px; text-decoration: none; border: 2px solid var(--ink); border-radius: 30px; transition: all .2s; box-shadow: 2px 2px 0 var(--ink); flex-shrink: 0; }
-.ncta:hover { background: var(--spritz); color: var(--cream); transform: translate(-2px, -2px); box-shadow: 4px 4px 0 var(--ink); }
+.nlinks a:hover { color: var(--campari); }
+.ncta { background: var(--ink); color: var(--cream); font-size: .6rem; letter-spacing: .15em; text-transform: uppercase; font-weight: 600; padding: 10px 24px; text-decoration: none; border: 2px solid var(--ink); border-radius: 30px; transition: all .2s; box-shadow: 2px 2px 0 rgba(44,26,18,0); flex-shrink: 0; }
+.ncta:hover { background: var(--campari); color: var(--cream); transform: translate(-2px, -2px); box-shadow: 4px 4px 0 var(--ink); }
 .burger { display: none; background: none; border: none; cursor: pointer; padding: 10px; flex-direction: column; gap: 5px; }
 .burger span { display: block; width: 22px; height: 3px; background: var(--ink); transition: all .3s; }
 .burger.open span:nth-child(1) { transform: translateY(8px) rotate(45deg); }
@@ -87,8 +86,8 @@ nav {
 /* ── RETRO CARD STRUCTURE FOR SECTIONS ── */
 .retro-card {
   background: var(--cream);
-  border: 3px solid var(--ink);
-  border-radius: 20px;
+  border: 2px solid var(--ink);
+  border-radius: 12px; /* Slightly less rounded for a more mature feel */
   box-shadow: 8px 8px 0 var(--ink);
   margin: 60px 3%;
   padding: 80px 6%;
@@ -105,7 +104,6 @@ nav {
   text-align: center; padding: 8%; position: relative; z-index: 2;
 }
 
-/* Original waves logo restored but matching theme */
 .hero-rosone { width: min(120px, 24vw); aspect-ratio: 1; margin: 0 auto 1.5rem; animation: slowspin 55s linear infinite; }
 .hero-rosone svg circle, .hero-rosone svg path { stroke: var(--ink); }
 @keyframes slowspin { to { transform: rotate(360deg) } }
@@ -118,13 +116,12 @@ h1.bella {
   line-height: .9; letter-spacing: 0.02em;
   color: var(--cream);
   display: block; margin-bottom: .2em;
-  /* Massive outline and drop shadow to pop off the waves */
   -webkit-text-stroke: 3px var(--ink);
-  text-shadow: 6px 6px 0 var(--ink), 12px 12px 0 var(--spritz); 
+  text-shadow: 5px 5px 0 var(--ink), 10px 10px 0 var(--campari); 
 }
 .hero-sub {
-  font-family: 'Jost', sans-serif; font-weight: 700;
-  font-size: clamp(.8rem, 1.8vw, 1.1rem); letter-spacing: .25em; text-transform: uppercase;
+  font-family: 'Jost', sans-serif; font-weight: 600;
+  font-size: clamp(.7rem, 1.6vw, 1rem); letter-spacing: .25em; text-transform: uppercase;
   color: var(--ink);
   background: var(--cream);
   border: 2px solid var(--ink);
@@ -134,151 +131,152 @@ h1.bella {
 }
 
 .hero-btns { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
-.hbtn { font-size: .65rem; letter-spacing: .2em; text-transform: uppercase; font-weight: 700; padding: 1.2rem 2.5rem; text-decoration: none; border: 3px solid var(--ink); border-radius: 50px; transition: all .2s; }
-.hbtn-light { background: var(--limone); color: var(--ink); box-shadow: 4px 4px 0 var(--ink); }
-.hbtn-light:hover { background: var(--spritz); color: var(--cream); transform: translate(2px, 2px); box-shadow: 2px 2px 0 var(--ink); }
+.hbtn { font-size: .65rem; letter-spacing: .15em; text-transform: uppercase; font-weight: 600; padding: 1.2rem 2.5rem; text-decoration: none; border: 2px solid var(--ink); border-radius: 50px; transition: all .2s; }
+.hbtn-light { background: var(--senape); color: var(--ink); box-shadow: 4px 4px 0 var(--ink); }
+.hbtn-light:hover { background: var(--campari); color: var(--cream); transform: translate(2px, 2px); box-shadow: 2px 2px 0 var(--ink); }
 .hbtn-ghost { background: var(--cream); color: var(--ink); box-shadow: 4px 4px 0 var(--ink); }
-.hbtn-ghost:hover { background: var(--azzurro); color: var(--cream); transform: translate(2px, 2px); box-shadow: 2px 2px 0 var(--ink); }
+.hbtn-ghost:hover { background: var(--ottanio); color: var(--cream); transform: translate(2px, 2px); box-shadow: 2px 2px 0 var(--ink); }
 
 
 /* ══════════════════════════════
    SECTION 2 — THE SOUND 
 ══════════════════════════════ */
 .sound-statement { text-align: center; margin-bottom: 70px; }
-.sound-kicker { font-size: .6rem; font-weight: 700; letter-spacing: .3em; text-transform: uppercase; color: var(--spritz); display: block; margin-bottom: 1.4rem; }
-.sound-h2 { font-family: 'DM Serif Display', serif; font-size: clamp(3rem, 8vw, 8rem); font-weight: 400; line-height: .95; color: var(--ink); }
-.sound-h2 em { font-style: italic; color: var(--rosa); }
+.sound-kicker { font-size: .6rem; font-weight: 700; letter-spacing: .3em; text-transform: uppercase; color: var(--campari); display: block; margin-bottom: 1.4rem; }
+.sound-h2 { font-family: 'DM Serif Display', serif; font-size: clamp(3rem, 8vw, 7.5rem); font-weight: 400; line-height: .95; color: var(--ink); }
+.sound-h2 em { font-style: italic; color: var(--mattone); }
 .sound-tagline { font-family: 'DM Serif Display', serif; font-style: italic; font-size: clamp(1.25rem, 2.5vw, 1.8rem); color: var(--ink); margin-top: 1.4rem; line-height: 1.6; }
 
 .sound-pillars { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-top: 0; }
-.sp { background: #F5F0E6; padding: 36px 28px; border: 2px solid var(--ink); border-radius: 12px; box-shadow: 4px 4px 0 var(--ink); }
-.sp-icon { font-size: 1.8rem; display: block; margin-bottom: 16px; color: var(--azzurro); }
+.sp { background: #EBE5DA; padding: 36px 28px; border: 2px solid var(--ink); border-radius: 8px; box-shadow: 4px 4px 0 var(--ink); }
+.sp-icon { font-size: 1.8rem; display: block; margin-bottom: 16px; color: var(--ottanio); }
 .sp-ttl { font-family: 'DM Serif Display', serif; font-size: 1.6rem; font-weight: 400; color: var(--ink); margin-bottom: 8px; }
-.sp-body { font-size: 1rem; line-height: 1.8; color: var(--ink); font-weight: 500; }
+.sp-body { font-size: 1rem; line-height: 1.7; color: var(--ink); font-weight: 400; }
 
-.sound-pitch { margin-top: 80px; background: var(--azzurro); color: var(--cream); padding: 64px 60px; border: 3px solid var(--ink); border-radius: 16px; box-shadow: 6px 6px 0 var(--ink); }
-.pitch-label { font-size: .6rem; letter-spacing: .25em; text-transform: uppercase; color: var(--limone); font-weight: 700; display: block; margin-bottom: 1.4rem; }
+.sound-pitch { margin-top: 80px; background: var(--ottanio); color: var(--cream); padding: 64px 60px; border: 2px solid var(--ink); border-radius: 12px; box-shadow: 6px 6px 0 var(--ink); }
+.pitch-label { font-size: .6rem; letter-spacing: .25em; text-transform: uppercase; color: var(--senape); font-weight: 600; display: block; margin-bottom: 1.4rem; }
 .pitch-h3 { font-family: 'DM Serif Display', serif; font-size: clamp(2rem, 4vw, 3.5rem); font-weight: 400; line-height: 1; color: var(--cream); margin-bottom: 1.8rem; }
-.pitch-h3 em { font-style: italic; color: var(--limone); }
+.pitch-h3 em { font-style: italic; color: var(--senape); }
 .pitch-body { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: start; }
-.pitch-p { font-size: 1.1rem; line-height: 1.8; color: var(--cream); font-weight: 400; }
-.pitch-p strong { color: var(--limone); font-weight: 600; }
+.pitch-p { font-size: 1.1rem; line-height: 1.7; color: rgba(244, 239, 230, 0.9); font-weight: 400; }
+.pitch-p strong { color: var(--senape); font-weight: 500; }
 
-.journey { display: flex; flex-direction: column; gap: 0; border-left: 2px solid rgba(253, 251, 247, 0.4); padding-left: 24px; }
+.journey { display: flex; flex-direction: column; gap: 0; border-left: 1px solid rgba(244, 239, 230, 0.3); padding-left: 24px; }
 .jstep { padding: 14px 0; position: relative; }
-.jstep::before { content: ''; position: absolute; left: -31px; top: 22px; width: 12px; height: 12px; border-radius: 50%; background: var(--limone); border: 2px solid var(--ink); }
-.jstep:nth-child(2):before { background: var(--spritz); }
-.jstep:nth-child(3):before { background: var(--rosa); }
-.jstep-time { font-size: .6rem; font-weight: 700; letter-spacing: .2em; text-transform: uppercase; color: rgba(253, 251, 247, 0.8); display: block; margin-bottom: 4px; }
-.jstep-txt { font-size: 1.05rem; color: var(--cream); line-height: 1.7; }
-.jstep-txt strong { color: var(--limone); font-weight: 600; }
+.jstep::before { content: ''; position: absolute; left: -29.5px; top: 22px; width: 10px; height: 10px; border-radius: 50%; background: var(--senape); border: 2px solid var(--ink); }
+.jstep:nth-child(2):before { background: var(--campari); }
+.jstep:nth-child(3):before { background: var(--mattone); }
+.jstep-time { font-size: .6rem; font-weight: 600; letter-spacing: .2em; text-transform: uppercase; color: rgba(244, 239, 230, 0.7); display: block; margin-bottom: 4px; }
+.jstep-txt { font-size: 1.05rem; color: var(--cream); line-height: 1.6; }
+.jstep-txt strong { color: var(--senape); font-weight: 500; }
 
 /* ══════════════════════════════
    SECTION 3 — ARTISTS 
 ══════════════════════════════ */
 .artists-hd { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 52px; }
 .artists-h2 { font-family: 'DM Serif Display', serif; font-size: clamp(2.5rem, 6vw, 5rem); font-weight: 400; line-height: .95; color: var(--ink); }
-.artists-h2 em { font-style: italic; color: var(--spritz); }
-.artists-note { font-size: .6rem; font-weight: 700; letter-spacing: .25em; text-transform: uppercase; color: var(--ink); opacity: .6; }
+.artists-h2 em { font-style: italic; color: var(--campari); }
+.artists-note { font-size: .6rem; font-weight: 600; letter-spacing: .25em; text-transform: uppercase; color: var(--ink); opacity: .6; }
 .acards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
-.acard { background: #F5F0E6; border: 2px solid var(--ink); border-radius: 12px; overflow: hidden; box-shadow: 4px 4px 0 var(--ink); transition: transform .3s, box-shadow .3s; }
+.acard { background: #EBE5DA; border: 2px solid var(--ink); border-radius: 8px; overflow: hidden; box-shadow: 4px 4px 0 var(--ink); transition: transform .3s, box-shadow .3s; }
 .acard:hover { transform: translateY(-4px); box-shadow: 6px 6px 0 var(--ink); }
 .acard-img { position: relative; overflow: hidden; aspect-ratio: 2/3; border-bottom: 2px solid var(--ink); }
-.acard-img img { width: 100%; height: 100%; object-fit: cover; display: block; filter: sepia(30%) contrast(1.1) brightness(.9); transition: transform .5s; }
-.acard:hover .acard-img img { transform: scale(1.05); }
+/* Sepia filter gives it a vintage 70s photography look */
+.acard-img img { width: 100%; height: 100%; object-fit: cover; display: block; filter: sepia(35%) contrast(1.05) brightness(0.9); transition: transform .5s; }
+.acard:hover .acard-img img { transform: scale(1.05); filter: sepia(20%) contrast(1.05) brightness(1); }
 .acard-img::after { content: ''; position: absolute; inset: 0; pointer-events: none; mix-blend-mode: multiply; }
-.acard:nth-child(1) .acard-img::after { background: linear-gradient(to bottom, rgba(249,92,43,.2), transparent); }
-.acard:nth-child(2) .acard-img::after { background: linear-gradient(to bottom, rgba(0,125,138,.2), transparent); }
-.acard:nth-child(3) .acard-img::after { background: linear-gradient(to bottom, rgba(233,59,112,.2), transparent); }
-.acard-badge { position: absolute; top: 14px; left: 14px; z-index: 2; font-size: .55rem; font-weight: 700; letter-spacing: .15em; text-transform: uppercase; color: var(--ink); background: var(--limone); border: 2px solid var(--ink); padding: 6px 12px; border-radius: 20px; }
-.acard-num { position: absolute; bottom: 10px; left: 18px; z-index: 2; font-family: 'Shrikhand', serif; font-size: 4rem; color: var(--cream); -webkit-text-stroke: 2px var(--ink); text-shadow: 3px 3px 0 var(--ink); line-height: 1; }
+.acard:nth-child(1) .acard-img::after { background: linear-gradient(to bottom, rgba(184,59,34,.2), transparent); }
+.acard:nth-child(2) .acard-img::after { background: linear-gradient(to bottom, rgba(47,92,100,.2), transparent); }
+.acard:nth-child(3) .acard-img::after { background: linear-gradient(to bottom, rgba(192,107,82,.2), transparent); }
+.acard-badge { position: absolute; top: 14px; left: 14px; z-index: 2; font-size: .55rem; font-weight: 600; letter-spacing: .15em; text-transform: uppercase; color: var(--ink); background: var(--senape); border: 2px solid var(--ink); padding: 4px 12px; border-radius: 20px; }
+.acard-num { position: absolute; bottom: 10px; left: 18px; z-index: 2; font-family: 'Shrikhand', serif; font-size: 4rem; color: var(--cream); -webkit-text-stroke: 1px var(--ink); text-shadow: 3px 3px 0 var(--ink); line-height: 1; }
 .acard-body { padding: 24px 22px 28px; }
-.acard-tag { font-size: .6rem; font-weight: 700; letter-spacing: .2em; text-transform: uppercase; color: var(--azzurro); display: block; margin-bottom: 7px; }
+.acard-tag { font-size: .55rem; font-weight: 600; letter-spacing: .2em; text-transform: uppercase; color: var(--ottanio); display: block; margin-bottom: 7px; }
 .acard-name { font-family: 'DM Serif Display', serif; font-size: 2.2rem; font-weight: 400; color: var(--ink); margin-bottom: 8px; }
-.acard-desc { font-size: 1rem; line-height: 1.7; color: var(--ink); margin-bottom: 14px; font-weight: 500; }
-.acard-link { font-size: .6rem; font-weight: 700; letter-spacing: .15em; text-transform: uppercase; color: var(--ink); text-decoration: none; border-bottom: 2px solid var(--spritz); padding-bottom: 2px; transition: color .2s; }
-.acard-link:hover { color: var(--spritz); }
+.acard-desc { font-size: 1rem; line-height: 1.6; color: var(--ink); margin-bottom: 14px; font-weight: 400; opacity: 0.9;}
+.acard-link { font-size: .6rem; font-weight: 600; letter-spacing: .15em; text-transform: uppercase; color: var(--ink); text-decoration: none; border-bottom: 2px solid var(--campari); padding-bottom: 2px; transition: color .2s; }
+.acard-link:hover { color: var(--campari); }
 
 
 /* ══════════════════════════════
    SECTION 4 — ROOTS 
 ══════════════════════════════ */
 .roots-top { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 40px; flex-wrap: wrap; gap: 16px; }
-.roots-kicker { font-size: .6rem; font-weight: 700; letter-spacing: .3em; text-transform: uppercase; color: var(--lime); display: block; margin-bottom: .8rem; }
+.roots-kicker { font-size: .6rem; font-weight: 700; letter-spacing: .3em; text-transform: uppercase; color: var(--oliva); display: block; margin-bottom: .8rem; }
 .roots-h2 { font-family: 'DM Serif Display', serif; font-size: clamp(2.5rem, 6vw, 5rem); font-weight: 400; line-height: .95; color: var(--ink); }
-.roots-h2 em { font-style: italic; color: var(--lime); } 
+.roots-h2 em { font-style: italic; color: var(--oliva); } 
 .roots-body { font-family: 'DM Serif Display', serif; font-style: italic; font-size: 1.4rem; line-height: 1.5; color: var(--ink); max-width: 480px; }
 
-.roots-map-block { position: relative; width: 100%; height: clamp(440px, 70vw, 680px); background: #F5F0E6; border: 2px solid var(--ink); border-radius: 12px; overflow: hidden; box-shadow: inset 4px 4px 0 rgba(42, 22, 16, 0.05); }
+.roots-map-block { position: relative; width: 100%; height: clamp(440px, 70vw, 680px); background: #EBE5DA; border: 2px solid var(--ink); border-radius: 8px; overflow: hidden; box-shadow: inset 4px 4px 0 rgba(44, 26, 18, 0.05); }
 .map-svg-wrap { position: absolute; inset: 0; display: flex; align-items: flex-start; justify-content: center; padding: 20px; }
-.italy-svg { height: 100%; width: auto; max-width: 60%; fill: var(--limone); stroke: var(--ink); stroke-width: 2px; display: block; }
+.italy-svg { height: 100%; width: auto; max-width: 60%; fill: var(--senape); stroke: var(--ink); stroke-width: 2px; display: block; }
 
 .mpin { position: absolute; transform: translate(-50%, -50%); display: flex; align-items: center; gap: 10px; z-index: 3; }
-.mdot { width: 24px; height: 24px; border-radius: 50%; border: 3px solid var(--ink); background: var(--spritz); box-shadow: 2px 2px 0 var(--ink); }
-.mlbl { font-family: 'Jost', sans-serif; font-size: .8rem; letter-spacing: .2em; text-transform: uppercase; font-weight: 700; color: var(--cream); background: var(--ink); padding: 6px 14px; border-radius: 20px; white-space: nowrap; }
+.mdot { width: 20px; height: 20px; border-radius: 50%; border: 2px solid var(--ink); background: var(--campari); box-shadow: 2px 2px 0 var(--ink); }
+.mlbl { font-family: 'Jost', sans-serif; font-size: .7rem; letter-spacing: .15em; text-transform: uppercase; font-weight: 600; color: var(--cream); background: var(--ink); padding: 4px 12px; border-radius: 20px; white-space: nowrap; }
 
 /* ══════════════════════════════
    SECTION 5 — THE VIBE 
 ══════════════════════════════ */
 .vibe-top { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: end; margin-bottom: 52px; }
 .vibe-h2 { font-family: 'DM Serif Display', serif; font-size: clamp(2.5rem, 6vw, 5rem); font-weight: 400; line-height: .95; color: var(--ink); }
-.vibe-h2 em { font-style: italic; color: var(--rosa); }
+.vibe-h2 em { font-style: italic; color: var(--mattone); }
 .vibe-intro { font-family: 'DM Serif Display', serif; font-style: italic; font-size: 1.3rem; line-height: 1.6; color: var(--ink); }
-.vibe-traits { display: grid; grid-template-columns: 1fr 1fr; border: 2px solid var(--ink); border-radius: 12px; overflow: hidden; }
-.vt { padding: 32px 28px; background: #F5F0E6; border-right: 2px solid var(--ink); border-bottom: 2px solid var(--ink); display: flex; gap: 18px; }
+.vibe-traits { display: grid; grid-template-columns: 1fr 1fr; border: 2px solid var(--ink); border-radius: 8px; overflow: hidden; }
+.vt { padding: 32px 28px; background: #EBE5DA; border-right: 2px solid var(--ink); border-bottom: 2px solid var(--ink); display: flex; gap: 18px; }
 .vt:nth-child(even) { border-right: none; }
 .vt:nth-child(3), .vt:nth-child(4) { border-bottom: none; }
-.vt-n { font-family: 'Shrikhand', serif; font-size: 2.8rem; color: var(--cream); -webkit-text-stroke: 2px var(--ink); text-shadow: 3px 3px 0 var(--ink); flex-shrink: 0; line-height: .8; }
-.vt-lbl { font-size: .65rem; font-weight: 700; letter-spacing: .2em; text-transform: uppercase; color: var(--spritz); display: block; margin-bottom: 8px; }
-.vt-txt { font-size: 1.05rem; line-height: 1.7; color: var(--ink); font-weight: 500; }
+.vt-n { font-family: 'Shrikhand', serif; font-size: 2.5rem; color: var(--cream); -webkit-text-stroke: 1.5px var(--ink); text-shadow: 2px 2px 0 var(--ink); flex-shrink: 0; line-height: .8; }
+.vt-lbl { font-size: .65rem; font-weight: 600; letter-spacing: .2em; text-transform: uppercase; color: var(--campari); display: block; margin-bottom: 8px; }
+.vt-txt { font-size: 1rem; line-height: 1.6; color: var(--ink); font-weight: 400; }
 
 /* ══════════════════════════════
    SECTION 6 — EVENTS 
 ══════════════════════════════ */
 .ev-top { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; margin-bottom: 52px; align-items: end; }
 .ev-h2 { font-family: 'DM Serif Display', serif; font-size: clamp(2.5rem, 6vw, 5rem); font-weight: 400; line-height: .95; color: var(--ink); }
-.ev-h2 em { font-style: italic; color: var(--azzurro); }
-.ev-card { background: var(--limone); padding: 40px; border: 3px solid var(--ink); border-radius: 12px; box-shadow: 6px 6px 0 var(--ink); position: relative; overflow: hidden; }
-.ev-sup { font-size: .65rem; font-weight: 700; letter-spacing: .3em; text-transform: uppercase; color: var(--ink); opacity: .8; display: block; margin-bottom: 16px; }
+.ev-h2 em { font-style: italic; color: var(--ottanio); }
+.ev-card { background: var(--senape); padding: 40px; border: 2px solid var(--ink); border-radius: 8px; box-shadow: 6px 6px 0 var(--ink); position: relative; overflow: hidden; }
+.ev-sup { font-size: .65rem; font-weight: 600; letter-spacing: .3em; text-transform: uppercase; color: var(--ink); opacity: .8; display: block; margin-bottom: 16px; }
 .ev-date { font-family: 'DM Serif Display', serif; font-size: 5rem; font-weight: 400; line-height: 1; color: var(--ink); margin-bottom: 4px; }
 .ev-name { font-family: 'DM Serif Display', serif; font-style: italic; font-size: 2.2rem; color: var(--ink); margin-bottom: 8px; }
-.ev-venue { font-size: .65rem; font-weight: 700; letter-spacing: .2em; text-transform: uppercase; color: var(--ink); opacity: .8; margin-bottom: 14px; }
-.ev-note { font-family: 'DM Serif Display', serif; font-style: italic; font-size: 1.1rem; color: var(--spritz); font-weight: 600;}
-.gal-lbl { font-size: .6rem; letter-spacing: .3em; text-transform: uppercase; color: var(--ink); display: block; margin-bottom: 16px; font-weight: 700; }
+.ev-venue { font-size: .65rem; font-weight: 600; letter-spacing: .2em; text-transform: uppercase; color: var(--ink); opacity: .8; margin-bottom: 14px; }
+.ev-note { font-family: 'DM Serif Display', serif; font-style: italic; font-size: 1.1rem; color: var(--campari); font-weight: 400;}
+.gal-lbl { font-size: .6rem; letter-spacing: .3em; text-transform: uppercase; color: var(--ink); display: block; margin-bottom: 16px; font-weight: 600; }
 .gallery { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; }
-.gi { overflow: hidden; aspect-ratio: 1; border: 2px solid var(--ink); border-radius: 8px; }
-.gi img { width: 100%; height: 100%; object-fit: cover; display: block; filter: sepia(20%) contrast(1.1) brightness(1); transition: transform .5s; }
-.gi:hover img { transform: scale(1.08); }
+.gi { overflow: hidden; aspect-ratio: 1; border: 2px solid var(--ink); border-radius: 6px; }
+.gi img { width: 100%; height: 100%; object-fit: cover; display: block; filter: sepia(30%) contrast(1.05) brightness(0.9); transition: transform .5s; }
+.gi:hover img { transform: scale(1.08); filter: sepia(10%) contrast(1.05) brightness(1); }
 
 /* ══════════════════════════════
    FOOTER 
 ══════════════════════════════ */
 footer.retro-card { background: var(--ink); color: var(--cream); margin-bottom: 40px; }
-.ft-top { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: end; padding-bottom: 56px; border-bottom: 2px solid rgba(253, 251, 247, 0.15); margin-bottom: 48px; }
+.ft-top { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: end; padding-bottom: 56px; border-bottom: 1px solid rgba(244, 239, 230, 0.15); margin-bottom: 48px; }
 .ft-hl { font-family: 'DM Serif Display', serif; font-size: clamp(3rem, 8vw, 7rem); font-weight: 400; line-height: .95; color: var(--cream); }
-.ft-hl em { font-style: italic; color: var(--limone); }
+.ft-hl em { font-style: italic; color: var(--senape); }
 .ft-right { display: flex; flex-direction: column; gap: 24px; justify-content: flex-end; }
-.ft-lbl { font-size: .6rem; font-weight: 700; letter-spacing: .3em; text-transform: uppercase; color: rgba(253, 251, 247, 0.5); display: block; margin-bottom: 6px; }
-.ft-mail { font-family: 'DM Serif Display', serif; font-style: italic; font-size: 1.6rem; color: var(--spritz); text-decoration: none; border-bottom: 2px solid rgba(249, 92, 43, 0.3); padding-bottom: 3px; transition: color .2s, border-color .2s; }
-.ft-mail:hover { color: var(--limone); border-color: var(--limone); }
+.ft-lbl { font-size: .6rem; font-weight: 600; letter-spacing: .3em; text-transform: uppercase; color: rgba(244, 239, 230, 0.5); display: block; margin-bottom: 6px; }
+.ft-mail { font-family: 'DM Serif Display', serif; font-style: italic; font-size: 1.6rem; color: var(--campari); text-decoration: none; border-bottom: 1px solid rgba(184, 59, 34, 0.4); padding-bottom: 3px; transition: color .2s, border-color .2s; }
+.ft-mail:hover { color: var(--senape); border-color: var(--senape); }
 .ft-soc { display: flex; gap: 20px; }
-.ft-soc a { font-size: .65rem; font-weight: 700; letter-spacing: .15em; text-transform: uppercase; color: var(--cream); text-decoration: none; transition: color .2s; }
-.ft-soc a:hover { color: var(--limone); }
+.ft-soc a { font-size: .65rem; font-weight: 600; letter-spacing: .15em; text-transform: uppercase; color: var(--cream); text-decoration: none; transition: color .2s; }
+.ft-soc a:hover { color: var(--senape); }
 .ft-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; }
 .fc { display: flex; flex-direction: column; }
-.fc:nth-child(2) { padding: 0 32px; border-left: 2px solid rgba(253, 251, 247, 0.15); border-right: 2px solid rgba(253, 251, 247, 0.15); }
+.fc:nth-child(2) { padding: 0 32px; border-left: 1px solid rgba(244, 239, 230, 0.15); border-right: 1px solid rgba(244, 239, 230, 0.15); }
 .fc:nth-child(3) { padding-left: 32px; }
-.fc-lbl { font-size: .6rem; font-weight: 700; letter-spacing: .3em; text-transform: uppercase; color: var(--rosa); display: block; margin-bottom: 14px; }
-.fc a { font-size: .9rem; font-weight: 500; color: rgba(253, 251, 247, 0.7); text-decoration: none; margin-bottom: 10px; display: block; transition: color .2s; }
+.fc-lbl { font-size: .6rem; font-weight: 600; letter-spacing: .3em; text-transform: uppercase; color: var(--mattone); display: block; margin-bottom: 14px; }
+.fc a { font-size: .9rem; font-weight: 400; color: rgba(244, 239, 230, 0.7); text-decoration: none; margin-bottom: 10px; display: block; transition: color .2s; }
 .fc a:hover { color: var(--cream); }
-.ft-bot { margin-top: 48px; padding-top: 24px; border-top: 2px solid rgba(253, 251, 247, 0.15); display: flex; justify-content: space-between; flex-wrap: wrap; gap: 10px; }
-.ft-copy { font-size: .55rem; font-weight: 600; letter-spacing: .18em; text-transform: uppercase; color: rgba(253, 251, 247, 0.4); }
+.ft-bot { margin-top: 48px; padding-top: 24px; border-top: 1px solid rgba(244, 239, 230, 0.15); display: flex; justify-content: space-between; flex-wrap: wrap; gap: 10px; }
+.ft-copy { font-size: .55rem; font-weight: 500; letter-spacing: .18em; text-transform: uppercase; color: rgba(244, 239, 230, 0.4); }
 
 /* ── RESPONSIVE ── */
 @media(max-width:900px){
   nav { margin: 15px 5%; border-radius: 20px; }
   .burger { display: flex; }
-  .nlinks { display: none; position: absolute; top: 70px; left: 0; width: 100%; background: var(--cream); border: 3px solid var(--ink); border-radius: 12px; box-shadow: 4px 4px 0 var(--ink); flex-direction: column; padding: 16px 0; }
+  .nlinks { display: none; position: absolute; top: 70px; left: 0; width: 100%; background: var(--cream); border: 2px solid var(--ink); border-radius: 8px; box-shadow: 4px 4px 0 var(--ink); flex-direction: column; padding: 16px 0; }
   .nlinks.open { display: flex; }
   .nlinks a { padding: 14px 5%; width: 100%; }
   .ncta { display: none; }
@@ -291,7 +289,7 @@ footer.retro-card { background: var(--ink); color: var(--cream); margin-bottom: 
   .vt:nth-child(odd), .vt:nth-child(even) { border-right: none; border-bottom: 2px solid var(--ink); }
   .vt:last-child { border-bottom: none; }
   .gallery { grid-template-columns: repeat(2, 1fr); }
-  .fc:nth-child(2) { padding: 28px 0; border: none; border-top: 2px solid rgba(253, 251, 247, 0.15); border-bottom: 2px solid rgba(253, 251, 247, 0.15); }
+  .fc:nth-child(2) { padding: 28px 0; border: none; border-top: 1px solid rgba(244, 239, 230, 0.15); border-bottom: 1px solid rgba(244, 239, 230, 0.15); }
   .fc:nth-child(3) { padding-left: 0; }
   .artists-hd { flex-direction: column; align-items: flex-start; gap: 8px; }
 }
@@ -301,8 +299,8 @@ footer.retro-card { background: var(--ink); color: var(--cream); margin-bottom: 
 
 <div class="ticker" aria-hidden="true">
   <div class="tk">
-    <span>BELLA<span class="d"> · </span>The Classic Italian Afternoon<span class="d"> · </span>Italian Groove<span class="d"> · </span>Neapolitan Soul<span class="d"> · </span>Cantautorato<span class="d"> · </span>Italo Disco<span class="d"> · </span>Mediterranean Funk<span class="d"> · </span>Hamburg<span class="d"> · </span>By Invitation<span class="d"> · </span></span>
-    <span>BELLA<span class="d"> · </span>The Classic Italian Afternoon<span class="d"> · </span>Italian Groove<span class="d"> · </span>Neapolitan Soul<span class="d"> · </span>Cantautorato<span class="d"> · </span>Italo Disco<span class="d"> · </span>Mediterranean Funk<span class="d"> · </span>Hamburg<span class="d"> · </span>By Invitation<span class="d"> · </span></span>
+    <span>INTIMATE ITALIAN AFTERNOON<span class="d"> · </span>VINYL ONLY<span class="d"> · </span>STRICTLY LIMITED CAPACITY<span class="d"> · </span>NATURAL WINE & GROOVE<span class="d"> · </span></span>
+    <span>INTIMATE ITALIAN AFTERNOON<span class="d"> · </span>VINYL ONLY<span class="d"> · </span>STRICTLY LIMITED CAPACITY<span class="d"> · </span>NATURAL WINE & GROOVE<span class="d"> · </span></span>
   </div>
 </div>
 
@@ -340,58 +338,57 @@ footer.retro-card { background: var(--ink); color: var(--cream); margin-bottom: 
     </svg>
   </div>
   <h1 class="bella">BELLA</h1>
-  <p class="hero-sub">The classic italian afternoon - hamburg</p>
+  <p class="hero-sub">An intimate italian afternoon · Hamburg</p>
   <div class="hero-btns">
     <a href="#sound" class="hbtn hbtn-light">Discover the Sound</a>
     <a href="#events" class="hbtn hbtn-ghost">Upcoming Afternoons</a>
   </div>
 </header>
 
-
 <section id="sound" class="retro-card">
   <div class="sound-statement">
     <span class="sound-kicker">01 — The Italian Groove</span>
-    <h2 class="sound-h2">Start in the sun.<br><em>End in the groove.</em><br>Never forget it.</h2>
-    <p class="sound-tagline">From the first note to the last beat — BELLA takes you somewhere you don't want to leave.</p>
+    <h2 class="sound-h2">Start with a glass.<br><em>End in the groove.</em><br>Unapologetically intimate.</h2>
+    <p class="sound-tagline">From the first pour to the last record — BELLA curates a space you won't want to leave.</p>
   </div>
   <div class="sound-pillars">
     <div class="sp">
       <span class="sp-icon">◎</span>
       <div class="sp-ttl">The Records</div>
-      <p class="sp-body">Italian vinyl, dug deep. Every set is a journey from the mountains of the north to the sun-baked coasts of the south.</p>
+      <p class="sp-body">Italian vinyl, dug deep. A carefully selected journey from Northern mountain folk to sun-baked Southern Mediterranean disco.</p>
     </div>
     <div class="sp">
       <span class="sp-icon">◈</span>
       <div class="sp-ttl">The Places</div>
-      <p class="sp-body">We choose venues like ingredients — for atmosphere, acoustics, and that quality you can't describe but always feel the moment you walk in.</p>
+      <p class="sp-body">We choose spaces like ingredients — hidden spots selected exclusively for their acoustics, character, and intimacy.</p>
     </div>
     <div class="sp">
       <span class="sp-icon">◉</span>
       <div class="sp-ttl">The Crowd</div>
-      <p class="sp-body">Mostly friends. People who love quality — in food, in wine, in music. Intentionally small. Intentionally unforgettable.</p>
+      <p class="sp-body">For those who know. Strictly limited capacity. Quality wine, deep cuts, and conversations that transition naturally into dancing.</p>
     </div>
   </div>
   <div class="sound-pitch">
     <span class="pitch-label">The Experience · For Venues</span>
-    <h3 class="pitch-h3">Your space. Our music.<br><em>The best afternoon of their summer.</em></h3>
+    <h3 class="pitch-h3">A sophisticated transition.<br><em>From daylight to deep groove.</em></h3>
     <div class="pitch-body">
       <div>
-        <p class="pitch-p">Imagine your space at 4pm on a summer Saturday. The sun is still high. The drinks are cold. And then — the first note drops. Not loud. Not aggressive. <strong>Just right.</strong></p>
-        <p class="pitch-p" style="margin-top:1rem;">People start arriving. They feel it immediately. Something warm. Something alive. By the time the second phase hits, nobody's sitting down. By the third? <strong>Your venue has become a memory people will talk about for months.</strong></p>
-        <p class="pitch-p" style="margin-top:1rem;">BELLA is not a late-night club event. It is a curated journey — a crescendo that builds from intimate Italian folk to full Mediterranean groove.</p>
+        <p class="pitch-p">Imagine your space on a late summer afternoon. The sun is high. The natural wine is poured. And then — the first note drops. Not aggressive. <strong>Just right.</strong></p>
+        <p class="pitch-p" style="margin-top:1rem;">Our guests arrive for the atmosphere. By the time golden hour hits, conversations blend into a collective rhythm. By dusk? <strong>Your venue has hosted a perfectly curated memory.</strong></p>
+        <p class="pitch-p" style="margin-top:1rem;">BELLA is not a loud club night. It is an elevated listening experience that gracefully builds into a Mediterranean dancefloor.</p>
       </div>
       <div class="journey">
         <div class="jstep">
           <span class="jstep-time">Phase I · 16:00 — 18:00</span>
-          <p class="jstep-txt"><strong>The Warmup (Il Sole).</strong> Live guitar and vocals. Italian folk, cantautorato, bossa nova. The sun is high, conversations bloom.</p>
+          <p class="jstep-txt"><strong>Aperitivo (Il Sole).</strong> Italian folk, bossa, and acoustic selections. The room fills slowly. Glasses clink. An elegant start.</p>
         </div>
         <div class="jstep">
           <span class="jstep-time">Phase II · 18:00 — 20:00</span>
-          <p class="jstep-txt"><strong>The Groove (Il Tramonto).</strong> Italian funk, rare soul, library music. Golden hour hits and the energy shifts. The dancefloor wakes up.</p>
+          <p class="jstep-txt"><strong>The Transition (Il Tramonto).</strong> Italian funk and library music. Golden hour hits, tempo rises, and a refined crowd finds its rhythm.</p>
         </div>
         <div class="jstep">
           <span class="jstep-time">Phase III · 20:00 — 22:00</span>
-          <p class="jstep-txt"><strong>The Climax (L'Imbrunire).</strong> Deep Southern Italian electronic, raw Mediterranean heat. Dusk settles, and the room floats.</p>
+          <p class="jstep-txt"><strong>The Deep Cut (L'Imbrunire).</strong> Southern electronic and Mediterranean heat. Intimate, connected, and unforgettable.</p>
         </div>
       </div>
     </div>
@@ -401,7 +398,7 @@ footer.retro-card { background: var(--ink); color: var(--cream); margin-bottom: 
 <section id="artists" class="retro-card">
   <div class="artists-hd">
     <div>
-      <span style="font-size:.6rem; font-weight:700; letter-spacing:.3em; text-transform:uppercase; color:var(--azzurro); display:block; margin-bottom:.8rem;">02 — The Artists</span>
+      <span style="font-size:.6rem; font-weight:700; letter-spacing:.3em; text-transform:uppercase; color:var(--ottanio); display:block; margin-bottom:.8rem;">02 — The Selectors</span>
       <h2 class="artists-h2">An afternoon<br><em>in three courses</em></h2>
     </div>
     <span class="artists-note">The Format · 2026</span>
@@ -414,9 +411,9 @@ footer.retro-card { background: var(--ink); color: var(--cream); margin-bottom: 
         <div class="acard-num">I</div>
       </div>
       <div class="acard-body">
-        <span class="acard-tag">Live Music · Duo</span>
+        <span class="acard-tag">Acoustic · Vocals</span>
         <div class="acard-name">Ale und Ori</div>
-        <p class="acard-desc">Guitar and vocals. The Italian classics, alive and warm. The perfect aperitivo for the soul.</p>
+        <p class="acard-desc">Guitar and vocals. The Italian classics, alive and warm. The perfect acoustic pairing for a good glass of wine.</p>
         <a href="https://www.instagram.com/aleundori/" class="acard-link" target="_blank">@aleundori →</a>
       </div>
     </div>
@@ -427,9 +424,9 @@ footer.retro-card { background: var(--ink); color: var(--cream); margin-bottom: 
         <div class="acard-num">II</div>
       </div>
       <div class="acard-body">
-        <span class="acard-tag">DJ Duo · Italian Funk</span>
+        <span class="acard-tag">Vinyl Selectors · Rare Funk</span>
         <div class="acard-name">Disco Kiosco</div>
-        <p class="acard-desc">A relentless dig through Italian folk funk and rare groove. The crowd finds its body.</p>
+        <p class="acard-desc">A relentless dig through 70s Italian folk funk and rare groove. The tempo shifts effortlessly.</p>
       </div>
     </div>
     <div class="acard">
@@ -439,9 +436,9 @@ footer.retro-card { background: var(--ink); color: var(--cream); margin-bottom: 
         <div class="acard-num">III</div>
       </div>
       <div class="acard-body">
-        <span class="acard-tag">Solo DJ · Southern Beats</span>
+        <span class="acard-tag">Mediterranean Electronic</span>
         <div class="acard-name">GABA</div>
-        <p class="acard-desc">The Italian groove wired into modern Southern electronic. The dancefloor ignites.</p>
+        <p class="acard-desc">The Italian groove wired into modern Southern electronic. A sophisticated, driving climax for the evening.</p>
       </div>
     </div>
   </div>
@@ -453,7 +450,7 @@ footer.retro-card { background: var(--ink); color: var(--cream); margin-bottom: 
       <span class="roots-kicker">03 — Provenance</span>
       <h2 class="roots-h2">Our <em>origins</em></h2>
     </div>
-    <p class="roots-body">Four cities. One shared soul. We carry the warmth of Italy into the most unexpected corners of Northern Europe.</p>
+    <p class="roots-body">Four cities. One shared aesthetic. Bringing the refined warmth and musical heritage of Italy into intimate corners of Northern Europe.</p>
   </div>
   <div class="roots-map-block">
     <div class="map-svg-wrap">
@@ -473,27 +470,27 @@ footer.retro-card { background: var(--ink); color: var(--cream); margin-bottom: 
 <section id="vibe" class="retro-card">
   <div class="vibe-top">
     <div>
-      <span style="font-size:.6rem; font-weight:700; letter-spacing:.3em; text-transform:uppercase; color:var(--rosa); display:block; margin-bottom:.8rem;">04 — The Philosophy</span>
-      <h2 class="vibe-h2">Intimate spaces.<br>Big feelings.<br><em>Perfect afternoons.</em></h2>
+      <span style="font-size:.6rem; font-weight:700; letter-spacing:.3em; text-transform:uppercase; color:var(--mattone); display:block; margin-bottom:.8rem;">04 — The Philosophy</span>
+      <h2 class="vibe-h2">Intimate spaces.<br>Deep crates.<br><em>Proper afternoons.</em></h2>
     </div>
-    <p class="vibe-intro">The same instinct that finds the best olive oil on the shelf now finds the best record in the crate. BELLA is curated — from the first song to the last dancer leaving the floor.</p>
+    <p class="vibe-intro">The same care taken to source a beautiful wine goes into sourcing the perfect record. BELLA is curated specifically for a discerning audience.</p>
   </div>
   <div class="vibe-traits">
     <div class="vt">
       <span class="vt-n">I</span>
-      <div><span class="vt-lbl">A Built Crescendo</span><p class="vt-txt">Folk to dancefloor is not a coincidence — it is a carefully constructed arc. Every phase sets up the next.</p></div>
+      <div><span class="vt-lbl">A Built Crescendo</span><p class="vt-txt">We do not rush the tempo. Every phase is a carefully constructed arc, moving from relaxed listening to intentional dancing.</p></div>
     </div>
     <div class="vt">
       <span class="vt-n">II</span>
-      <div><span class="vt-lbl">Venues with Soul</span><p class="vt-txt">We don't play just anywhere. Every location is chosen for its atmosphere and acoustics.</p></div>
+      <div><span class="vt-lbl">Spaces with Soul</span><p class="vt-txt">We partner only with venues that offer character, warmth, and an intimate capacity.</p></div>
     </div>
     <div class="vt">
       <span class="vt-n">III</span>
-      <div><span class="vt-lbl">Italian Music, All of It</span><p class="vt-txt">Cantautorato, library funk, tarantella reworked — if it is excellent and Italian, it belongs.</p></div>
+      <div><span class="vt-lbl">Italian Roots</span><p class="vt-txt">Cantautorato, library funk, obscure disco edits — a deep dive into Mediterranean musical history.</p></div>
     </div>
     <div class="vt">
       <span class="vt-n">IV</span>
-      <div><span class="vt-lbl">Word of Mouth Only</span><p class="vt-txt">No mass promotions. BELLA grows through people who lived it and could not stop talking about it.</p></div>
+      <div><span class="vt-lbl">Under the Radar</span><p class="vt-txt">No mass promotion. We prefer to keep our capacity small and our community tightly knit.</p></div>
     </div>
   </div>
 </section>
@@ -501,18 +498,18 @@ footer.retro-card { background: var(--ink); color: var(--cream); margin-bottom: 
 <section id="events" class="retro-card">
   <div class="ev-top">
     <div>
-      <span style="font-size:.6rem; font-weight:700; letter-spacing:.3em; text-transform:uppercase; color:var(--spritz); display:block; margin-bottom:.8rem;">05 — Events</span>
-      <h2 class="ev-h2">Afternoons &amp;<br><em>Memories</em></h2>
+      <span style="font-size:.6rem; font-weight:700; letter-spacing:.3em; text-transform:uppercase; color:var(--campari); display:block; margin-bottom:.8rem;">05 — Gatherings</span>
+      <h2 class="ev-h2">Upcoming &amp;<br><em>Archive</em></h2>
     </div>
     <div class="ev-card">
-      <span class="ev-sup">Next Afternoon</span>
+      <span class="ev-sup">Next Gathering</span>
       <div class="ev-date">12 Jun</div>
       <div class="ev-name">Pomeriggio Italiano</div>
       <div class="ev-venue">Viani Eimsbüttel · Hamburg</div>
-      <div class="ev-note">Limited seats · By invitation only</div>
+      <div class="ev-note">Strictly limited capacity · By invitation</div>
     </div>
   </div>
-  <span class="gal-lbl">From past afternoons</span>
+  <span class="gal-lbl">From the archive</span>
   <div class="gallery">
     <div class="gi"><img src="salotto.jpeg" alt="" loading="lazy"></div>
     <div class="gi"><img src="IMG_4979.JPG" alt="" loading="lazy"></div>
@@ -538,7 +535,6 @@ footer.retro-card { background: var(--ink); color: var(--cream); margin-bottom: 
         <div class="ft-soc">
           <a href="#">Instagram</a>
           <a href="#">Soundcloud</a>
-          <a href="#">Facebook</a>
         </div>
       </div>
     </div>
@@ -546,16 +542,16 @@ footer.retro-card { background: var(--ink); color: var(--cream); margin-bottom: 
   <div class="ft-grid">
     <div class="fc">
       <span class="fc-lbl">BELLA</span>
-      <a href="#">The Format</a>
-      <a href="#">The Artists</a>
+      <a href="#">The Concept</a>
+      <a href="#">The Selectors</a>
       <a href="#">Our Roots</a>
-      <a href="#">Host an Afternoon →</a>
+      <a href="#">Host a Gathering →</a>
     </div>
     <div class="fc">
       <span class="fc-lbl">Partners</span>
       <a href="#">Viani Alimentari</a>
       <a href="#">Salotto Café</a>
-      <a href="#">Private Events</a>
+      <a href="#">Curated Events</a>
     </div>
     <div class="fc">
       <span class="fc-lbl">Find Us</span>
@@ -565,8 +561,8 @@ footer.retro-card { background: var(--ink); color: var(--cream); margin-bottom: 
     </div>
   </div>
   <div class="ft-bot">
-    <span class="ft-copy">© 2026 BELLA — The Classic Italian Afternoon</span>
-    <span class="ft-copy">From Italy to Hamburg with love</span>
+    <span class="ft-copy">© 2026 BELLA — An Intimate Italian Afternoon</span>
+    <span class="ft-copy">From Italy to Hamburg</span>
   </div>
 </footer>
 
