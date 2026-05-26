@@ -247,19 +247,6 @@ fetch(apiUrl, { headers:{ Accept:'application/vnd.github.v3+json' } })
             '<p class="video-unsupported">Your browser can\'t play this video inline.<br>' +
             '<a href="'+vid.download_url+'" download="'+vid.name+'" class="video-dl-btn">⬇ Download to watch</a></p>' +
           '</video>';
-        // Also show the download button via JS onerror, for browsers that fire it
-        var video = d.querySelector('video');
-        video.addEventListener('error', function(){
-          if (!d.querySelector('.video-fallback-shown')) {
-            var fb = document.createElement('div');
-            fb.className = 'video-fallback-shown';
-            fb.style.cssText = 'position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;background:rgba(23,32,21,.85);gap:12px;border-radius:8px';
-            fb.innerHTML =
-              '<p style="color:var(--cream);font-size:.65rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;opacity:.7">Can\'t play .mov inline</p>' +
-              '<a href="'+vid.download_url+'" download="'+vid.name+'" style="background:var(--cream);color:var(--ink);font-size:.6rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:10px 22px;border-radius:30px;border:2px solid var(--ink);box-shadow:3px 3px 0 rgba(255,255,255,.3);text-decoration:none">⬇ Download to watch</a>';
-            d.appendChild(fb);
-          }
-        }, true); // capture phase catches child source errors
         vg.appendChild(d);
       });
       fadeIn(vg.querySelectorAll('.mi'));
