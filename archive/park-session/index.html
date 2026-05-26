@@ -70,6 +70,11 @@ body::after{content:'';position:fixed;inset:0;z-index:9000;pointer-events:none;b
 #lb-prev,#lb-next{background:var(--cream);border:2px solid var(--ink);color:var(--ink);font-size:.6rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:8px 20px;border-radius:30px;cursor:pointer;box-shadow:3px 3px 0 var(--ink);transition:transform .15s,box-shadow .15s}
 #lb-prev:hover,#lb-next:hover{transform:translateY(-2px);box-shadow:5px 5px 0 var(--ink)}
 
+/* VIDEO FALLBACK */
+.mi.video video .video-unsupported{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;padding:30px;height:100%;color:var(--cream);font-size:.65rem;font-weight:600;letter-spacing:.08em;text-align:center;opacity:.75}
+.video-dl-btn{display:inline-block;margin-top:4px;background:var(--cream);color:var(--ink);font-size:.6rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:10px 22px;border-radius:30px;border:2px solid var(--ink);box-shadow:3px 3px 0 rgba(255,255,255,.25);text-decoration:none;transition:transform .15s,box-shadow .15s}
+.video-dl-btn:hover{transform:translateY(-2px);box-shadow:5px 5px 0 rgba(255,255,255,.25)}
+
 /* FOOTER */
 .page-footer{background:var(--ottanio);color:var(--cream);border:2px solid var(--ink);border-radius:14px;box-shadow:5px 5px 0 var(--ink);margin:0 3% 40px;padding:36px 5%;text-align:center}
 .page-footer a{font-family:'DM Serif Display',serif;font-style:italic;font-size:1.2rem;color:var(--cream);text-decoration:none;opacity:.8}
@@ -231,8 +236,34 @@ fetch(apiUrl, { headers:{ Accept:'application/vnd.github.v3+json' } })
       vids.forEach(function(vid){
         var d = document.createElement('div');
         d.className='mi video';
-        var mime = fileExt(vid.name)==='mov' ? 'video/mp4' : 'video/'+fileExt(vid.name);
-        d.innerHTML='<span class="video-pill">Video</span><video controls playsinline preload="metadata"><source src="'+vid.download_url+'" type="'+mime+'"></video>';
+        var ext = fileExt(vid.name);
+        var isMov = ext === 'mov';
+        // For MOV: try video/mp4 first (works when encoded as H.264),
+        // then video/quicktime as fallback (Safari). For other formats use their own mime.
+        var sources = isMov
+          ? '<source src="'+vid.download_url+'" type="video/mp4"><source src="'+vid.download_url+'" type="video/quicktime">'
+          : '<source src="'+vid.download_url+'" type="video/'+ext+'">';
+        d.innerHTML =
+          '<span class="video-pill">Video</span>' +
+          '<video controls playsinline preload="metadata" style="width:100%;height:100%;display:block">' +
+            sources +
+            // Shown only when no <source> succeeds (browser cannot play)
+            '<p class="video-unsupported">Your browser can\'t play this video inline.<br>' +
+            '<a href="'+vid.download_url+'" download="'+vid.name+'" class="video-dl-btn">⬇ Download to watch</a></p>' +
+          '</video>';
+        // Also show the download button via JS onerror, for browsers that fire it
+        var video = d.querySelector('video');
+        video.addEventListener('error', function(){
+          if (!d.querySelector('.video-fallback-shown')) {
+            var fb = document.createElement('div');
+            fb.className = 'video-fallback-shown';
+            fb.style.cssText = 'position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;background:rgba(23,32,21,.85);gap:12px;border-radius:8px';
+            fb.innerHTML =
+              '<p style="color:var(--cream);font-size:.65rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;opacity:.7">Can\'t play .mov inline</p>' +
+              '<a href="'+vid.download_url+'" download="'+vid.name+'" style="background:var(--cream);color:var(--ink);font-size:.6rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:10px 22px;border-radius:30px;border:2px solid var(--ink);box-shadow:3px 3px 0 rgba(255,255,255,.3);text-decoration:none">⬇ Download to watch</a>';
+            d.appendChild(fb);
+          }
+        }, true); // capture phase catches child source errors
         vg.appendChild(d);
       });
       fadeIn(vg.querySelectorAll('.mi'));
