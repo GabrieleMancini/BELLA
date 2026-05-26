@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Viani Pop-up — BELLA Archive</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Jost:wght@300;400;500;600;700&family=Shrikhand&display=swap" rel="stylesheet">
+<style>
+:root {
+  --cream: #E9E1CC; --ink: #172015; --senape: #D4A828;
+  --oliva: #017789; --ottanio: #015e6e; --corallo: #F78A72; --verde: #279C64;
+}
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { background: var(--oliva); color: var(--ink); font-family: 'Jost', sans-serif; overflow-x: hidden; -webkit-font-smoothing: antialiased; min-height: 100vh; }
+body::after { content:''; position:fixed; inset:0; z-index:9000; pointer-events:none; background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.78' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E"); opacity:.02; mix-blend-mode:overlay; }
+.top-bar { position: sticky; top: 15px; z-index: 500; background: var(--cream); border: 3px solid var(--ink); border-radius: 50px; box-shadow: 5px 5px 0 var(--ink); margin: 0 3%; padding: 0 3%; height: 60px; display: flex; align-items: center; justify-content: space-between; }
+.back-link { display: flex; align-items: center; gap: 8px; font-size: .6rem; font-weight: 700; letter-spacing: .15em; text-transform: uppercase; color: var(--ink); text-decoration: none; transition: color .2s; }
+.back-link:hover { color: var(--corallo); }
+.back-link::before { content: '←'; font-size: .8rem; transition: transform .2s; }
+.back-link:hover::before { transform: translateX(-3px); }
+.top-brand { font-family: 'Shrikhand', serif; font-size: 1.3rem; color: var(--ink); text-decoration: none; }
+.page-card { background: var(--cream); border: 2px solid var(--ink); border-radius: 14px; box-shadow: 5px 5px 0 var(--ink); margin: 50px 3% 40px; padding: 52px 5%; }
+.event-label { font-size: .6rem; font-weight: 700; letter-spacing: .3em; text-transform: uppercase; color: var(--corallo); display: block; margin-bottom: 10px; }
+.event-title { font-family: 'DM Serif Display', serif; font-size: clamp(3rem, 8vw, 6rem); line-height: .9; color: var(--ink); margin-bottom: 20px; }
+.event-meta { display: flex; align-items: center; gap: 20px; flex-wrap: wrap; }
+.event-meta-item { display: flex; align-items: center; gap: 8px; font-size: .6rem; font-weight: 600; letter-spacing: .15em; text-transform: uppercase; color: var(--ink); opacity: .6; }
+.event-meta-item .pip { width: 8px; height: 8px; border-radius: 50%; background: var(--corallo); }
+.section-divider { border: none; border-top: 1px solid rgba(23,32,21,.15); margin: 40px 0; }
+.media-section-label { font-size: .55rem; font-weight: 700; letter-spacing: .3em; text-transform: uppercase; color: var(--ink); opacity: .45; margin-bottom: 20px; display: block; }
+.media-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+.mi { border: 2px solid var(--ink); border-radius: 10px; overflow: hidden; box-shadow: 3px 3px 0 var(--ink); position: relative; cursor: pointer; }
+.mi.photo { aspect-ratio: 1; }
+.mi.photo-wide { aspect-ratio: 16/9; grid-column: span 2; }
+.mi img { width: 100%; height: 100%; object-fit: cover; filter: sepia(35%) contrast(1.08) brightness(0.9); transition: filter .4s, transform .4s; display: block; }
+.mi:hover img { filter: sepia(10%) contrast(1.04) brightness(1); transform: scale(1.03); }
+.mi.video { aspect-ratio: 16/9; background: var(--ink); }
+.mi.video video { width: 100%; height: 100%; object-fit: cover; display: block; }
+.mi.video-wide { grid-column: span 3; }
+.video-label { position: absolute; top: 10px; left: 10px; background: var(--ink); color: var(--cream); font-size: .5rem; font-weight: 700; letter-spacing: .15em; text-transform: uppercase; padding: 4px 10px; border-radius: 20px; display: flex; align-items: center; gap: 5px; z-index: 2; }
+.video-label::before { content: '▶'; font-size: .6rem; }
+#lightbox { display: none; position: fixed; inset: 0; z-index: 8000; background: rgba(23,32,21,.94); align-items: center; justify-content: center; }
+#lightbox.open { display: flex; }
+#lightbox img { max-width: 90vw; max-height: 90vh; object-fit: contain; border: 3px solid var(--ink); border-radius: 8px; }
+#lb-close { position: absolute; top: 20px; right: 24px; font-size: 1.6rem; color: var(--cream); cursor: pointer; background: none; border: none; font-family: 'Jost', sans-serif; opacity: .7; transition: opacity .2s; }
+#lb-close:hover { opacity: 1; }
+#lb-nav { position: absolute; bottom: 28px; left: 50%; transform: translateX(-50%); display: flex; gap: 12px; }
+#lb-prev, #lb-next { background: var(--cream); border: 2px solid var(--ink); color: var(--ink); font-size: .6rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; padding: 8px 20px; border-radius: 30px; cursor: pointer; box-shadow: 3px 3px 0 var(--ink); transition: transform .15s, box-shadow .15s; }
+#lb-prev:hover, #lb-next:hover { transform: translateY(-2px); box-shadow: 5px 5px 0 var(--ink); }
+footer { background: var(--ottanio); color: var(--cream); border: 2px solid var(--ink); border-radius: 14px; box-shadow: 5px 5px 0 var(--ink); margin: 0 3% 40px; padding: 40px 5%; text-align: center; }
+footer a { font-family: 'DM Serif Display', serif; font-style: italic; font-size: 1.2rem; color: var(--cream); text-decoration: none; opacity: .8; }
+.ft-copy { font-size: .55rem; letter-spacing: .15em; text-transform: uppercase; color: rgba(237,224,172,.35); display: block; margin-top: 24px; padding-top: 20px; border-top: 1px solid rgba(237,224,172,.15); }
+@media(max-width:700px){ .media-grid { grid-template-columns: repeat(2,1fr); } .mi.photo-wide, .mi.video-wide { grid-column: span 2; } .page-card { margin: 20px 4%; padding: 36px 5%; } }
+@media(max-width:480px){ .media-grid { grid-template-columns: 1fr; } .mi.photo-wide, .mi.video-wide { grid-column: span 1; } }
+</style>
+</head>
+<body>
+<nav>
+  <div class="top-bar">
+    <a href="../../index.html" class="back-link">All happenings</a>
+    <a href="../../index.html" class="top-brand">BELLA</a>
+  </div>
+</nav>
+
+<main class="page-card">
+  <div style="margin-bottom:48px;">
+    <span class="event-label">Archive · Jun 2025</span>
+    <h1 class="event-title">Viani Pop-up</h1>
+    <div class="event-meta">
+      <span class="event-meta-item"><span class="pip"></span>Eimsbüttel · Hamburg</span>
+      <span class="event-meta-item"><span class="pip"></span>Ale und Ori · Disco Kiosco · GABA</span>
+      <span class="event-meta-item"><span class="pip"></span>2 photos</span>
+    </div>
+  </div>
+
+  <hr class="section-divider">
+
+  <span class="media-section-label">Photos</span>
+  <div class="media-grid">
+
+    <div class="mi photo-wide" onclick="openLb(0)">
+      <img src="DSC_1414.JPG" alt="Viani Pop-up — 1">
+    </div>
+
+    <div class="mi photo" onclick="openLb(1)">
+      <img src="DSC_1415.JPG" alt="Viani Pop-up — 2">
+    </div>
+
+  </div>
+
+  <hr class="section-divider">
+
+  <!-- VIDEO PLACEHOLDER -->
+  <span class="media-section-label">Video</span>
+  <div class="media-grid">
+    <div class="mi video video-wide">
+      <span class="video-label">Video</span>
+      <!--
+        Upload your video to this folder and update the src:
+        <video src="viani_popup.mp4" controls playsinline poster="DSC_1414.JPG"></video>
+      -->
+      <video controls playsinline poster="DSC_1414.JPG">
+        <source src="viani_popup.mp4" type="video/mp4">
+        Your browser does not support HTML5 video.
+      </video>
+    </div>
+  </div>
+
+</main>
+
+<footer>
+  <a href="mailto:ciao@bella-afternoon.com">ciao@bella-afternoon.com</a>
+  <span class="ft-copy">© 2026 BELLA — Mediterranean Happenings</span>
+</footer>
+
+<div id="lightbox" role="dialog" aria-modal="true">
+  <button id="lb-close" onclick="closeLb()">✕</button>
+  <img id="lb-img" src="" alt="">
+  <div id="lb-nav">
+    <button id="lb-prev" onclick="lbStep(-1)">← Prev</button>
+    <button id="lb-next" onclick="lbStep(1)">Next →</button>
+  </div>
+</div>
+<script>
+var photos = Array.from(document.querySelectorAll('.mi.photo img, .mi.photo-wide img')).map(function(img){ return { src: img.src, alt: img.alt }; });
+var lbIdx = 0;
+function openLb(i) { lbIdx=i; document.getElementById('lb-img').src=photos[i].src; document.getElementById('lb-img').alt=photos[i].alt; document.getElementById('lightbox').classList.add('open'); document.body.style.overflow='hidden'; }
+function closeLb() { document.getElementById('lightbox').classList.remove('open'); document.body.style.overflow=''; }
+function lbStep(dir) { lbIdx=(lbIdx+dir+photos.length)%photos.length; document.getElementById('lb-img').src=photos[lbIdx].src; document.getElementById('lb-img').alt=photos[lbIdx].alt; }
+document.getElementById('lightbox').addEventListener('click',function(e){ if(e.target===this) closeLb(); });
+document.addEventListener('keydown',function(e){ if(!document.getElementById('lightbox').classList.contains('open')) return; if(e.key==='Escape') closeLb(); if(e.key==='ArrowRight') lbStep(1); if(e.key==='ArrowLeft') lbStep(-1); });
+var obs=new IntersectionObserver(function(entries){ entries.forEach(function(e){ if(e.isIntersecting){ e.target.style.opacity='1'; e.target.style.transform='translateY(0)'; }}); },{threshold:.05});
+document.querySelectorAll('.mi').forEach(function(el){ el.style.opacity='0'; el.style.transform='translateY(16px)'; el.style.transition='opacity .5s ease, transform .5s ease'; obs.observe(el); });
+</script>
+</body>
+</html>

@@ -9,22 +9,20 @@
 <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Jost:wght@300;400;500;600;700&family=Shrikhand&display=swap" rel="stylesheet">
 <style>
 :root {
-  /* NU GENEA PALETTE — teal brillante · sabbia · rosso vermiglio */
-  --cream:    #E9E1CC;   /* lino caldo — RGB(233,225,204)          */
-  --ink:      #172015;   /* foresta scurissima / incisioni NG      */
-  --campari:  #C83B1A;   /* rosso vermiglio — lettere album        */
-  --mattone:  #D46840;   /* corallo caldo                          */
-  --senape:   #D4A828;   /* oro mediterraneo                       */
-  --oliva:    #017789;   /* teal NU GENEA — RGB(1,119,137)        */
-  --ottanio:  #015e6e;   /* teal profondo                          */
-  --corallo:  #F78A72;   /* salmone festivo — RGB(247,138,114)     */
-  --verde:    #279C64;   /* verde terzo accento — RGB(39,156,100)  */
+  --cream:    #E9E1CC;
+  --ink:      #172015;
+  --campari:  #C83B1A;
+  --mattone:  #D46840;
+  --senape:   #D4A828;
+  --oliva:    #017789;
+  --ottanio:  #015e6e;
+  --corallo:  #F78A72;
+  --verde:    #279C64;
 }
 
 *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 html { scroll-behavior: smooth; overflow-x: hidden; }
 
-/* ── GLOBAL BACKGROUND ── */
 body {
   background-color: var(--oliva);
   color: var(--ink);
@@ -52,6 +50,7 @@ body::after {
 .tk span { font-size: .65rem; letter-spacing: .25em; text-transform: uppercase; font-weight: 600; color: var(--ink); padding: 0 2.5rem; }
 .tk .d { color: var(--corallo); }
 @keyframes roll { to { transform: translateX(-50%) } }
+
 /* ── FLOATING NAV ── */
 nav {
   position: sticky; top: 15px; z-index: 500; height: 64px; 
@@ -88,8 +87,6 @@ nav {
   text-align: center; padding: 8%; position: relative; z-index: 2; width: 100%;
 }
 .hero-rosone { width: min(240px, 48vw); margin: 0 auto 2rem; }
-
-/* ── Waveform section divider ── */
 .wave-divider { width: 100%; overflow: hidden; line-height: 0; margin: -2px 0; opacity: .18; }
 
 h1.bella {
@@ -105,21 +102,18 @@ h1.bella {
   display: inline-flex; align-items: center; justify-content: center; box-shadow: 4px 4px 0 var(--ink);
 }
 
-/* ════════ SECTION 2 — THE CONCEPT (3-COLUMN STEPS) ════════ */
+/* ════════ SECTION 2 — THE CONCEPT ════════ */
 .sound-top { text-align: center; margin-bottom: 60px; }
 .sound-h2 { font-family: 'DM Serif Display', serif; font-size: clamp(2.2rem, 6vw, 5rem); line-height: .95; color: var(--ink); }
 .sound-h2 em { font-style: italic; color: var(--corallo); }
-
 .steps-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 40px; margin-top: 20px; }
 .step-card { position: relative; border-top: 2px solid var(--ink); padding-top: 24px; }
 .step-card::before { content: ''; position: absolute; left: 0; top: -9px; width: 14px; height: 14px; border-radius: 50%; background: var(--corallo); border: 2px solid var(--ink); }
-.step-card:nth-child(2):before { background: var(--corallo); }
-.step-card:nth-child(3):before { background: var(--corallo); }
 .tl-time { font-size: .65rem; font-weight: 700; letter-spacing: .2em; text-transform: uppercase; color: var(--corallo); display: block; margin-bottom: 6px; }
 .tl-title { font-family: 'DM Serif Display', serif; font-size: 1.8rem; color: var(--ink); line-height: 1; margin-bottom: 10px;}
 .tl-desc { font-size: 1.05rem; color: var(--ink); opacity: 0.8; line-height: 1.5; }
 
-/* ════════ SECTION 3 — SELECTORS ════════ */
+/* ════════ SECTION 3 — ARTISTS ════════ */
 .artists-hd { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 40px; flex-wrap: wrap; gap: 10px; }
 .artists-h2 { font-family: 'DM Serif Display', serif; font-size: clamp(2.2rem, 6vw, 4rem); line-height: .95; color: var(--ink); }
 .acards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
@@ -138,7 +132,7 @@ h1.bella {
 .acard-desc { font-size: .95rem; line-height: 1.5; color: var(--ink); opacity: 0.8; margin-bottom: 14px;}
 .acard-link { font-size: .6rem; font-weight: 700; text-transform: uppercase; color: var(--corallo); text-decoration: none; }
 
-/* ════════ SECTION 4 — ROOTS (MAP ONLY) ════════ */
+/* ════════ SECTION 4 — ROOTS ════════ */
 .roots-map-block { position: relative; width: 100%; height: clamp(250px, 50vw, 450px); background: var(--cream); border: 3px solid var(--ink); border-radius: 10px; overflow: hidden; box-shadow: inset 4px 4px 0 rgba(26, 32, 24, 0.07); }
 .map-svg-wrap { position: absolute; inset: 0; display: flex; align-items: flex-start; justify-content: center; padding: 20px; }
 .italy-svg { height: 100%; width: auto; max-width: 90%; fill: var(--corallo); stroke: var(--ink); stroke-width: 2px; }
@@ -146,31 +140,106 @@ h1.bella {
 .mdot { width: 14px; height: 14px; border-radius: 50%; border: 2px solid var(--ink); background: var(--corallo); box-shadow: 2px 2px 0 var(--ink); }
 .mlbl { font-family: 'Jost', sans-serif; font-size: .55rem; letter-spacing: .15em; text-transform: uppercase; font-weight: 700; color: var(--cream); background: var(--ink); padding: 4px 10px; border-radius: 20px; white-space: nowrap; }
 
-/* ════════ SECTION 5 — EVENTS & GALLERY ════════ */
-.ev-top { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; margin-bottom: 40px; align-items: center; }
+/* ════════ SECTION 5 — EVENTS & ARCHIVE ════════ */
+.ev-top { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; margin-bottom: 50px; align-items: center; }
 .ev-h2 { font-family: 'DM Serif Display', serif; font-size: clamp(2.2rem, 6vw, 4rem); line-height: .95; color: var(--ink); }
 .ev-card { background: var(--verde); padding: 30px; border: 2px solid var(--ink); border-radius: 8px; box-shadow: 4px 4px 0 var(--ink); }
-.ev-sup { font-size: .6rem; font-weight: 700; letter-spacing: .2em; text-transform: uppercase; color: var(--corallo); opacity: 1; display: block; margin-bottom: 12px; }
+.ev-sup { font-size: .6rem; font-weight: 700; letter-spacing: .2em; text-transform: uppercase; color: var(--corallo); display: block; margin-bottom: 12px; }
 .ev-date { font-family: 'DM Serif Display', serif; font-size: 4rem; line-height: 1; color: var(--corallo); margin-bottom: 4px; }
 .ev-name { font-family: 'DM Serif Display', serif; font-style: italic; font-size: 1.8rem; color: var(--corallo); margin-bottom: 8px; }
 .ev-venue { font-size: .6rem; font-weight: 600; text-transform: uppercase; color: var(--corallo); opacity: .8; margin-bottom: 10px; display:block; }
 .ev-note { font-family: 'DM Serif Display', serif; font-style: italic; font-size: 1.1rem; color: var(--corallo); }
 
-.gallery { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; }
-.gi { aspect-ratio: 1; border: 2px solid var(--ink); border-radius: 8px; overflow:hidden;}
-.gi img { width: 100%; height: 100%; object-fit: cover; filter: sepia(40%) contrast(1.1) brightness(0.88); transition: transform .5s; }
-.gi:hover img { transform: scale(1.08); filter: sepia(10%) contrast(1.05) brightness(1); }
+/* ── ARCHIVE SECTION ── */
+.archive-label {
+  display: flex; align-items: center; gap: 16px;
+  margin-bottom: 24px;
+}
+.archive-label span {
+  font-size: .6rem; font-weight: 700; letter-spacing: .3em; text-transform: uppercase;
+  color: var(--ink); opacity: .5;
+}
+.archive-label::before,
+.archive-label::after {
+  content: ''; flex: 1; height: 1px; background: var(--ink); opacity: .2;
+}
 
-/* ════════ FOOTER (INSTAGRAM FOCUS) ════════ */
+/* ── EVENT FOLDER CARDS ── */
+.archive-grid {
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px;
+}
+.event-folder {
+  display: block; text-decoration: none;
+  border: 2px solid var(--ink); border-radius: 12px; overflow: hidden;
+  box-shadow: 5px 5px 0 var(--ink);
+  transition: transform .25s ease, box-shadow .25s ease;
+  background: var(--cream);
+  position: relative;
+}
+.event-folder:hover { transform: translate(-3px, -3px); box-shadow: 8px 8px 0 var(--ink); }
+
+.event-folder-cover {
+  aspect-ratio: 4/3;
+  background: var(--ottanio);
+  border-bottom: 2px solid var(--ink);
+  overflow: hidden; position: relative;
+}
+.event-folder-cover img {
+  width: 100%; height: 100%; object-fit: cover;
+  filter: sepia(40%) contrast(1.1) brightness(0.85);
+  transition: filter .4s ease, transform .4s ease;
+}
+.event-folder:hover .event-folder-cover img {
+  filter: sepia(10%) contrast(1.05) brightness(1);
+  transform: scale(1.04);
+}
+.event-folder-cover-overlay {
+  position: absolute; inset: 0;
+  background: linear-gradient(to top, rgba(23,32,21,.55) 0%, transparent 60%);
+}
+.media-badge {
+  position: absolute; top: 12px; right: 12px;
+  background: var(--ink); color: var(--cream);
+  font-size: .5rem; font-weight: 700; letter-spacing: .15em; text-transform: uppercase;
+  padding: 5px 11px; border-radius: 20px;
+  display: flex; align-items: center; gap: 5px;
+}
+.media-badge .dot { width: 6px; height: 6px; border-radius: 50%; background: var(--corallo); }
+
+.event-folder-body { padding: 20px 22px 22px; }
+.event-folder-date {
+  font-size: .55rem; font-weight: 700; letter-spacing: .2em; text-transform: uppercase;
+  color: var(--corallo); display: block; margin-bottom: 5px;
+}
+.event-folder-name {
+  font-family: 'DM Serif Display', serif; font-size: 1.65rem; color: var(--ink);
+  line-height: 1.05; margin-bottom: 5px;
+}
+.event-folder-footer {
+  display: flex; align-items: center; justify-content: space-between;
+  margin-top: 14px; padding-top: 12px; border-top: 1px solid rgba(23,32,21,.12);
+}
+.event-folder-venue {
+  font-size: .55rem; text-transform: uppercase; letter-spacing: .15em;
+  color: var(--ink); opacity: .55; font-weight: 600;
+}
+.event-folder-cta {
+  font-size: .55rem; font-weight: 700; letter-spacing: .15em; text-transform: uppercase;
+  color: var(--verde); display: flex; align-items: center; gap: 4px;
+}
+.event-folder-cta::after { content: '→'; transition: transform .2s; }
+.event-folder:hover .event-folder-cta::after { transform: translateX(4px); }
+
+/* ════════ FOOTER ════════ */
 footer.retro-card { background: var(--ottanio); color: var(--cream); border-color: var(--ink); margin-bottom: 40px; padding: 60px 5%; text-align:center;}
 .ft-hl { font-family: 'DM Serif Display', serif; font-size: clamp(2.5rem, 6vw, 5rem); line-height: .95; color: var(--cream); margin-bottom: 24px;}
 .ft-hl em { font-style: italic; color: var(--corallo); }
 .ft-social-btn { display:inline-block; background: var(--corallo); color: var(--ink); font-size: .8rem; font-weight: 700; letter-spacing: .15em; text-transform: uppercase; padding: 16px 36px; text-decoration: none; border: 2px solid var(--ink); border-radius: 50px; transition: all .2s; box-shadow: 5px 5px 0 var(--ink); margin-bottom: 40px;}
-.ft-social-btn:hover { background: var(--corallo); color: var(--ink); transform: translate(-2px, -2px); box-shadow: 7px 7px 0 var(--ink); }
+.ft-social-btn:hover { transform: translate(-2px, -2px); box-shadow: 7px 7px 0 var(--ink); }
 .ft-mail { font-family: 'DM Serif Display', serif; font-style: italic; font-size: 1.4rem; color: var(--cream); text-decoration: none; opacity: 0.8; display:block;}
 .ft-copy { font-size: .55rem; font-weight: 500; letter-spacing: .15em; text-transform: uppercase; color: rgba(237, 224, 172, 0.35); display:block; margin-top: 40px; border-top: 1px solid rgba(237, 224, 172, 0.15); padding-top: 20px;}
 
-/* ── RESPONSIVE MEDIA QUERIES ── */
+/* ── RESPONSIVE ── */
 @media(max-width:900px){
   nav { margin: 15px 4%; border-radius: 20px; padding: 12px 5%; height: auto; }
   .burger { display: flex; }
@@ -178,20 +247,18 @@ footer.retro-card { background: var(--ottanio); color: var(--cream); border-colo
   .nlinks.open { display: flex; }
   .nlinks a { padding: 14px 5%; width: 100%; font-size: 0.7rem; }
   .ncta { display: none; }
-  
   .retro-card { margin: 20px 4%; padding: 40px 5%; box-shadow: 4px 4px 0 var(--ink); }
-  
   .steps-grid { grid-template-columns: 1fr; gap: 30px; }
   .step-card { border-top: none; border-left: 2px solid var(--ink); padding-top: 0; padding-left: 24px; margin-left: 8px; }
   .step-card::before { left: -33px; top: 4px; }
-
   .acards { grid-template-columns: 1fr; gap: 20px; }
   .ev-top { grid-template-columns: 1fr; gap: 24px; }
-  .gallery { grid-template-columns: repeat(2, 1fr); gap: 8px; }
-  
+  .archive-grid { grid-template-columns: 1fr; gap: 16px; }
   .artists-hd { flex-direction: column; align-items: flex-start; gap: 8px; }
 }
-
+@media(max-width:600px){
+  .archive-grid { grid-template-columns: repeat(1, 1fr); }
+}
 @media(max-width:480px){
   .retro-card { padding: 30px 5%; margin: 15px 3%; }
   h1.bella { color: var(--cream); }
@@ -213,10 +280,7 @@ footer.retro-card { background: var(--ottanio); color: var(--cream); border-colo
 <nav>
   <a href="#" class="nbrand" style="display:flex;align-items:center;gap:12px;">
     <svg width="36" height="28" viewBox="0 0 56 44" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <!-- Arch cream con bordo ink -->
-      <path fill="var(--cream)" stroke="var(--ink)" stroke-width="3" stroke-linejoin="round"
-        d="M3 42 L3 20 A25 20 0 0 1 53 20 L53 42 Z"/>
-      <!-- Raggi tratteggiati mini -->
+      <path fill="var(--cream)" stroke="var(--ink)" stroke-width="3" stroke-linejoin="round" d="M3 42 L3 20 A25 20 0 0 1 53 20 L53 42 Z"/>
       <g transform="translate(28,19)">
         <line x1="0" y1="-16" x2="0" y2="-9" stroke="var(--ink)" stroke-width="1.5" stroke-dasharray="2 3" stroke-linecap="round" transform="rotate(0)"/>
         <line x1="0" y1="-16" x2="0" y2="-9" stroke="var(--ink)" stroke-width="1.5" stroke-dasharray="2 3" stroke-linecap="round" transform="rotate(30)"/>
@@ -231,12 +295,9 @@ footer.retro-card { background: var(--ottanio); color: var(--cream); border-colo
         <line x1="0" y1="-16" x2="0" y2="-9" stroke="var(--ink)" stroke-width="1.5" stroke-dasharray="2 3" stroke-linecap="round" transform="rotate(300)"/>
         <line x1="0" y1="-16" x2="0" y2="-9" stroke="var(--ink)" stroke-width="1.5" stroke-dasharray="2 3" stroke-linecap="round" transform="rotate(330)"/>
       </g>
-      <!-- Sole -->
       <circle cx="28" cy="19" r="7.5" fill="var(--senape)" stroke="var(--ink)" stroke-width="2"/>
-      <circle cx="28" cy="19" r="4"   fill="var(--corallo)"/>
-      <!-- Onda -->
-      <path d="M9 32 Q16 28 22 32 Q28 36 34 32 Q40 28 47 32"
-        fill="none" stroke="var(--ink)" stroke-width="2.5" stroke-linecap="round"/>
+      <circle cx="28" cy="19" r="4" fill="var(--corallo)"/>
+      <path d="M9 32 Q16 28 22 32 Q28 36 34 32 Q40 28 47 32" fill="none" stroke="var(--ink)" stroke-width="2.5" stroke-linecap="round"/>
     </svg>
     <span>BELLA</span>
   </a>
@@ -254,46 +315,32 @@ footer.retro-card { background: var(--ottanio); color: var(--cream); border-colo
 
 <header class="hero">
   <div class="hero-rosone">
-    <svg viewBox="0 0 160 130" xmlns="http://www.w3.org/2000/svg">
-
-      <!-- Arch riempito cream — come le card del sito -->
-      <path fill="var(--cream)" stroke="var(--ink)" stroke-width="4.5" stroke-linejoin="round"
-        d="M8 126 L8 60 A72 58 0 0 1 152 60 L152 126 Z"/>
-
-      <!-- Raggi solari tratteggiati — stile Bar Mediterraneo -->
+    <svg viewBox="0 0 160 160" xmlns="http://www.w3.org/2000/svg">
       <g transform="translate(80,58)">
-        <line x1="0" y1="-50" x2="0" y2="-26"   stroke="var(--ink)" stroke-width="2.5" stroke-dasharray="3 4" stroke-linecap="round" transform="rotate(0)"/>
-        <line x1="0" y1="-50" x2="0" y2="-26"   stroke="var(--ink)" stroke-width="2.5" stroke-dasharray="3 4" stroke-linecap="round" transform="rotate(20)"/>
-        <line x1="0" y1="-50" x2="0" y2="-26"   stroke="var(--ink)" stroke-width="2.5" stroke-dasharray="3 4" stroke-linecap="round" transform="rotate(40)"/>
-        <line x1="0" y1="-50" x2="0" y2="-26"   stroke="var(--ink)" stroke-width="2.5" stroke-dasharray="3 4" stroke-linecap="round" transform="rotate(60)"/>
-        <line x1="0" y1="-50" x2="0" y2="-26"   stroke="var(--ink)" stroke-width="2.5" stroke-dasharray="3 4" stroke-linecap="round" transform="rotate(80)"/>
-        <line x1="0" y1="-50" x2="0" y2="-26"   stroke="var(--ink)" stroke-width="2.5" stroke-dasharray="3 4" stroke-linecap="round" transform="rotate(100)"/>
-        <line x1="0" y1="-50" x2="0" y2="-26"   stroke="var(--ink)" stroke-width="2.5" stroke-dasharray="3 4" stroke-linecap="round" transform="rotate(120)"/>
-        <line x1="0" y1="-50" x2="0" y2="-26"   stroke="var(--ink)" stroke-width="2.5" stroke-dasharray="3 4" stroke-linecap="round" transform="rotate(140)"/>
-        <line x1="0" y1="-50" x2="0" y2="-26"   stroke="var(--ink)" stroke-width="2.5" stroke-dasharray="3 4" stroke-linecap="round" transform="rotate(160)"/>
-        <line x1="0" y1="-50" x2="0" y2="-26"   stroke="var(--ink)" stroke-width="2.5" stroke-dasharray="3 4" stroke-linecap="round" transform="rotate(180)"/>
-        <line x1="0" y1="-50" x2="0" y2="-26"   stroke="var(--ink)" stroke-width="2.5" stroke-dasharray="3 4" stroke-linecap="round" transform="rotate(200)"/>
-        <line x1="0" y1="-50" x2="0" y2="-26"   stroke="var(--ink)" stroke-width="2.5" stroke-dasharray="3 4" stroke-linecap="round" transform="rotate(220)"/>
-        <line x1="0" y1="-50" x2="0" y2="-26"   stroke="var(--ink)" stroke-width="2.5" stroke-dasharray="3 4" stroke-linecap="round" transform="rotate(240)"/>
-        <line x1="0" y1="-50" x2="0" y2="-26"   stroke="var(--ink)" stroke-width="2.5" stroke-dasharray="3 4" stroke-linecap="round" transform="rotate(260)"/>
-        <line x1="0" y1="-50" x2="0" y2="-26"   stroke="var(--ink)" stroke-width="2.5" stroke-dasharray="3 4" stroke-linecap="round" transform="rotate(280)"/>
-        <line x1="0" y1="-50" x2="0" y2="-26"   stroke="var(--ink)" stroke-width="2.5" stroke-dasharray="3 4" stroke-linecap="round" transform="rotate(300)"/>
-        <line x1="0" y1="-50" x2="0" y2="-26"   stroke="var(--ink)" stroke-width="2.5" stroke-dasharray="3 4" stroke-linecap="round" transform="rotate(320)"/>
-        <line x1="0" y1="-50" x2="0" y2="-26"   stroke="var(--ink)" stroke-width="2.5" stroke-dasharray="3 4" stroke-linecap="round" transform="rotate(340)"/>
+        <line x1="0" y1="-50" x2="0" y2="-26" stroke="var(--ink)" stroke-width="2.5" stroke-dasharray="3 4" stroke-linecap="round" transform="rotate(0)"/>
+        <line x1="0" y1="-50" x2="0" y2="-26" stroke="var(--ink)" stroke-width="2.5" stroke-dasharray="3 4" stroke-linecap="round" transform="rotate(20)"/>
+        <line x1="0" y1="-50" x2="0" y2="-26" stroke="var(--ink)" stroke-width="2.5" stroke-dasharray="3 4" stroke-linecap="round" transform="rotate(40)"/>
+        <line x1="0" y1="-50" x2="0" y2="-26" stroke="var(--ink)" stroke-width="2.5" stroke-dasharray="3 4" stroke-linecap="round" transform="rotate(60)"/>
+        <line x1="0" y1="-50" x2="0" y2="-26" stroke="var(--ink)" stroke-width="2.5" stroke-dasharray="3 4" stroke-linecap="round" transform="rotate(80)"/>
+        <line x1="0" y1="-50" x2="0" y2="-26" stroke="var(--ink)" stroke-width="2.5" stroke-dasharray="3 4" stroke-linecap="round" transform="rotate(100)"/>
+        <line x1="0" y1="-50" x2="0" y2="-26" stroke="var(--ink)" stroke-width="2.5" stroke-dasharray="3 4" stroke-linecap="round" transform="rotate(120)"/>
+        <line x1="0" y1="-50" x2="0" y2="-26" stroke="var(--ink)" stroke-width="2.5" stroke-dasharray="3 4" stroke-linecap="round" transform="rotate(140)"/>
+        <line x1="0" y1="-50" x2="0" y2="-26" stroke="var(--ink)" stroke-width="2.5" stroke-dasharray="3 4" stroke-linecap="round" transform="rotate(160)"/>
+        <line x1="0" y1="-50" x2="0" y2="-26" stroke="var(--ink)" stroke-width="2.5" stroke-dasharray="3 4" stroke-linecap="round" transform="rotate(180)"/>
+        <line x1="0" y1="-50" x2="0" y2="-26" stroke="var(--ink)" stroke-width="2.5" stroke-dasharray="3 4" stroke-linecap="round" transform="rotate(200)"/>
+        <line x1="0" y1="-50" x2="0" y2="-26" stroke="var(--ink)" stroke-width="2.5" stroke-dasharray="3 4" stroke-linecap="round" transform="rotate(220)"/>
+        <line x1="0" y1="-50" x2="0" y2="-26" stroke="var(--ink)" stroke-width="2.5" stroke-dasharray="3 4" stroke-linecap="round" transform="rotate(240)"/>
+        <line x1="0" y1="-50" x2="0" y2="-26" stroke="var(--ink)" stroke-width="2.5" stroke-dasharray="3 4" stroke-linecap="round" transform="rotate(260)"/>
+        <line x1="0" y1="-50" x2="0" y2="-26" stroke="var(--ink)" stroke-width="2.5" stroke-dasharray="3 4" stroke-linecap="round" transform="rotate(280)"/>
+        <line x1="0" y1="-50" x2="0" y2="-26" stroke="var(--ink)" stroke-width="2.5" stroke-dasharray="3 4" stroke-linecap="round" transform="rotate(300)"/>
+        <line x1="0" y1="-50" x2="0" y2="-26" stroke="var(--ink)" stroke-width="2.5" stroke-dasharray="3 4" stroke-linecap="round" transform="rotate(320)"/>
+        <line x1="0" y1="-50" x2="0" y2="-26" stroke="var(--ink)" stroke-width="2.5" stroke-dasharray="3 4" stroke-linecap="round" transform="rotate(340)"/>
       </g>
-
-      <!-- Sole — cerchio gold con core salmone -->
       <circle cx="80" cy="58" r="22" fill="var(--senape)" stroke="var(--ink)" stroke-width="3"/>
       <circle cx="80" cy="58" r="14" fill="var(--corallo)"/>
-      <circle cx="80" cy="58" r="4"  fill="var(--ink)"/>
-
-      <!-- Onda 1 — onde mediterranee nella parte bassa -->
-      <path d="M18 94 Q30 87 42 94 Q54 101 66 94 Q78 87 90 94 Q102 101 114 94 Q126 87 142 94"
-        fill="none" stroke="var(--ink)" stroke-width="3.5" stroke-linecap="round"/>
-      <!-- Onda 2 -->
-      <path d="M12 112 Q26 105 38 112 Q50 119 62 112 Q74 105 86 112 Q98 119 110 112 Q122 105 148 112"
-        fill="none" stroke="var(--ink)" stroke-width="3.5" stroke-linecap="round"/>
-
+      <circle cx="80" cy="58" r="4" fill="var(--ink)"/>
+      <path d="M18 94 Q30 87 42 94 Q54 101 66 94 Q78 87 90 94 Q102 101 114 94 Q126 87 142 94" fill="none" stroke="var(--ink)" stroke-width="3.5" stroke-linecap="round"/>
+      <path d="M12 112 Q26 105 38 112 Q50 119 62 112 Q74 105 86 112 Q98 119 110 112 Q122 105 148 112" fill="none" stroke="var(--ink)" stroke-width="3.5" stroke-linecap="round"/>
     </svg>
   </div>
   <h1 class="bella">BELLA</h1>
@@ -301,97 +348,21 @@ footer.retro-card { background: var(--ottanio); color: var(--cream); border-colo
 </header>
 
 <section id="concept" class="retro-card">
-  <!-- Waveform grafico — elemento musicale integrato -->
   <div style="margin-bottom:2rem; opacity:.35;">
     <svg viewBox="0 0 600 60" preserveAspectRatio="none" style="width:100%;height:40px;" xmlns="http://www.w3.org/2000/svg">
       <g fill="var(--ink)">
-        <rect x="0"   width="4" height="12" y="24" rx="2"/>
-        <rect x="8"   width="4" height="28" y="16" rx="2"/>
-        <rect x="16"  width="4" height="44" y="8"  rx="2"/>
-        <rect x="24"  width="4" height="36" y="12" rx="2"/>
-        <rect x="32"  width="4" height="52" y="4"  rx="2"/>
-        <rect x="40"  width="4" height="40" y="10" rx="2"/>
-        <rect x="48"  width="4" height="24" y="18" rx="2"/>
-        <rect x="56"  width="4" height="48" y="6"  rx="2"/>
-        <rect x="64"  width="4" height="32" y="14" rx="2"/>
-        <rect x="72"  width="4" height="56" y="2"  rx="2"/>
-        <rect x="80"  width="4" height="38" y="11" rx="2"/>
-        <rect x="88"  width="4" height="20" y="20" rx="2"/>
-        <rect x="96"  width="4" height="44" y="8"  rx="2"/>
-        <rect x="104" width="4" height="30" y="15" rx="2"/>
-        <rect x="112" width="4" height="50" y="5"  rx="2"/>
-        <rect x="120" width="4" height="34" y="13" rx="2"/>
-        <rect x="128" width="4" height="16" y="22" rx="2"/>
-        <rect x="136" width="4" height="42" y="9"  rx="2"/>
-        <rect x="144" width="4" height="54" y="3"  rx="2"/>
-        <rect x="152" width="4" height="28" y="16" rx="2"/>
-        <rect x="160" width="4" height="46" y="7"  rx="2"/>
-        <rect x="168" width="4" height="36" y="12" rx="2"/>
-        <rect x="176" width="4" height="58" y="1"  rx="2"/>
-        <rect x="184" width="4" height="22" y="19" rx="2"/>
-        <rect x="192" width="4" height="40" y="10" rx="2"/>
-        <rect x="200" width="4" height="52" y="4"  rx="2"/>
-        <rect x="208" width="4" height="18" y="21" rx="2"/>
-        <rect x="216" width="4" height="44" y="8"  rx="2"/>
-        <rect x="224" width="4" height="60" y="0"  rx="2"/>
-        <rect x="232" width="4" height="32" y="14" rx="2"/>
-        <rect x="240" width="4" height="48" y="6"  rx="2"/>
-        <rect x="248" width="4" height="24" y="18" rx="2"/>
-        <rect x="256" width="4" height="56" y="2"  rx="2"/>
-        <rect x="264" width="4" height="38" y="11" rx="2"/>
-        <rect x="272" width="4" height="44" y="8"  rx="2"/>
-        <rect x="280" width="4" height="20" y="20" rx="2"/>
-        <rect x="288" width="4" height="50" y="5"  rx="2"/>
-        <rect x="296" width="4" height="34" y="13" rx="2"/>
-        <rect x="304" width="4" height="58" y="1"  rx="2"/>
-        <rect x="312" width="4" height="28" y="16" rx="2"/>
-        <rect x="320" width="4" height="42" y="9"  rx="2"/>
-        <rect x="328" width="4" height="54" y="3"  rx="2"/>
-        <rect x="336" width="4" height="16" y="22" rx="2"/>
-        <rect x="344" width="4" height="46" y="7"  rx="2"/>
-        <rect x="352" width="4" height="36" y="12" rx="2"/>
-        <rect x="360" width="4" height="60" y="0"  rx="2"/>
-        <rect x="368" width="4" height="22" y="19" rx="2"/>
-        <rect x="376" width="4" height="40" y="10" rx="2"/>
-        <rect x="384" width="4" height="52" y="4"  rx="2"/>
-        <rect x="392" width="4" height="30" y="15" rx="2"/>
-        <rect x="400" width="4" height="48" y="6"  rx="2"/>
-        <rect x="408" width="4" height="18" y="21" rx="2"/>
-        <rect x="416" width="4" height="56" y="2"  rx="2"/>
-        <rect x="424" width="4" height="34" y="13" rx="2"/>
-        <rect x="432" width="4" height="44" y="8"  rx="2"/>
-        <rect x="440" width="4" height="24" y="18" rx="2"/>
-        <rect x="448" width="4" height="50" y="5"  rx="2"/>
-        <rect x="456" width="4" height="38" y="11" rx="2"/>
-        <rect x="464" width="4" height="58" y="1"  rx="2"/>
-        <rect x="472" width="4" height="20" y="20" rx="2"/>
-        <rect x="480" width="4" height="46" y="7"  rx="2"/>
-        <rect x="488" width="4" height="32" y="14" rx="2"/>
-        <rect x="496" width="4" height="54" y="3"  rx="2"/>
-        <rect x="504" width="4" height="28" y="16" rx="2"/>
-        <rect x="512" width="4" height="42" y="9"  rx="2"/>
-        <rect x="520" width="4" height="16" y="22" rx="2"/>
-        <rect x="528" width="4" height="48" y="6"  rx="2"/>
-        <rect x="536" width="4" height="36" y="12" rx="2"/>
-        <rect x="544" width="4" height="52" y="4"  rx="2"/>
-        <rect x="552" width="4" height="22" y="19" rx="2"/>
-        <rect x="560" width="4" height="44" y="8"  rx="2"/>
-        <rect x="568" width="4" height="30" y="15" rx="2"/>
-        <rect x="576" width="4" height="56" y="2"  rx="2"/>
-        <rect x="584" width="4" height="18" y="21" rx="2"/>
-        <rect x="592" width="4" height="40" y="10" rx="2"/>
+        <rect x="0" width="4" height="12" y="24" rx="2"/><rect x="8" width="4" height="28" y="16" rx="2"/><rect x="16" width="4" height="44" y="8" rx="2"/><rect x="24" width="4" height="36" y="12" rx="2"/><rect x="32" width="4" height="52" y="4" rx="2"/><rect x="40" width="4" height="40" y="10" rx="2"/><rect x="48" width="4" height="24" y="18" rx="2"/><rect x="56" width="4" height="48" y="6" rx="2"/><rect x="64" width="4" height="32" y="14" rx="2"/><rect x="72" width="4" height="56" y="2" rx="2"/><rect x="80" width="4" height="38" y="11" rx="2"/><rect x="88" width="4" height="20" y="20" rx="2"/><rect x="96" width="4" height="44" y="8" rx="2"/><rect x="104" width="4" height="30" y="15" rx="2"/><rect x="112" width="4" height="50" y="5" rx="2"/><rect x="120" width="4" height="34" y="13" rx="2"/><rect x="128" width="4" height="16" y="22" rx="2"/><rect x="136" width="4" height="42" y="9" rx="2"/><rect x="144" width="4" height="54" y="3" rx="2"/><rect x="152" width="4" height="28" y="16" rx="2"/><rect x="160" width="4" height="46" y="7" rx="2"/><rect x="168" width="4" height="36" y="12" rx="2"/><rect x="176" width="4" height="58" y="1" rx="2"/><rect x="184" width="4" height="22" y="19" rx="2"/><rect x="192" width="4" height="40" y="10" rx="2"/><rect x="200" width="4" height="52" y="4" rx="2"/><rect x="208" width="4" height="18" y="21" rx="2"/><rect x="216" width="4" height="44" y="8" rx="2"/><rect x="224" width="4" height="60" y="0" rx="2"/><rect x="232" width="4" height="32" y="14" rx="2"/><rect x="240" width="4" height="48" y="6" rx="2"/><rect x="248" width="4" height="24" y="18" rx="2"/><rect x="256" width="4" height="56" y="2" rx="2"/><rect x="264" width="4" height="38" y="11" rx="2"/><rect x="272" width="4" height="44" y="8" rx="2"/><rect x="280" width="4" height="20" y="20" rx="2"/><rect x="288" width="4" height="50" y="5" rx="2"/><rect x="296" width="4" height="34" y="13" rx="2"/><rect x="304" width="4" height="58" y="1" rx="2"/><rect x="312" width="4" height="28" y="16" rx="2"/><rect x="320" width="4" height="42" y="9" rx="2"/><rect x="328" width="4" height="54" y="3" rx="2"/><rect x="336" width="4" height="16" y="22" rx="2"/><rect x="344" width="4" height="46" y="7" rx="2"/><rect x="352" width="4" height="36" y="12" rx="2"/><rect x="360" width="4" height="60" y="0" rx="2"/><rect x="368" width="4" height="22" y="19" rx="2"/><rect x="376" width="4" height="40" y="10" rx="2"/><rect x="384" width="4" height="52" y="4" rx="2"/><rect x="392" width="4" height="30" y="15" rx="2"/><rect x="400" width="4" height="48" y="6" rx="2"/><rect x="408" width="4" height="18" y="21" rx="2"/><rect x="416" width="4" height="56" y="2" rx="2"/><rect x="424" width="4" height="34" y="13" rx="2"/><rect x="432" width="4" height="44" y="8" rx="2"/><rect x="440" width="4" height="24" y="18" rx="2"/><rect x="448" width="4" height="50" y="5" rx="2"/><rect x="456" width="4" height="38" y="11" rx="2"/><rect x="464" width="4" height="58" y="1" rx="2"/><rect x="472" width="4" height="20" y="20" rx="2"/><rect x="480" width="4" height="46" y="7" rx="2"/><rect x="488" width="4" height="32" y="14" rx="2"/><rect x="496" width="4" height="54" y="3" rx="2"/><rect x="504" width="4" height="28" y="16" rx="2"/><rect x="512" width="4" height="42" y="9" rx="2"/><rect x="520" width="4" height="16" y="22" rx="2"/><rect x="528" width="4" height="48" y="6" rx="2"/><rect x="536" width="4" height="36" y="12" rx="2"/><rect x="544" width="4" height="52" y="4" rx="2"/><rect x="552" width="4" height="22" y="19" rx="2"/><rect x="560" width="4" height="44" y="8" rx="2"/><rect x="568" width="4" height="30" y="15" rx="2"/><rect x="576" width="4" height="56" y="2" rx="2"/><rect x="584" width="4" height="18" y="21" rx="2"/><rect x="592" width="4" height="40" y="10" rx="2"/>
       </g>
     </svg>
   </div>
   <div class="sound-top">
     <h2 class="sound-h2">Nomadic spaces.<br><em>Mediterranean soul.</em></h2>
   </div>
-  
   <div class="steps-grid">
     <div class="step-card">
       <span class="tl-time">Step 01 · The Arrival</span>
       <div class="tl-title">The Space</div>
-      <p class="tl-desc">We pop up in shifting locations across Hamburg—from local cafés and corner kiosks to neighborhood wine shops and food stores. A new canvas for our Mediterranean mood.</p>
+      <p class="tl-desc">We pop up in shifting locations across Hamburg—from local cafés and corner kiosks to neighbourhood wine shops and food stores. A new canvas for our Mediterranean mood.</p>
     </div>
     <div class="step-card">
       <span class="tl-time">Step 02 · The Gathering</span>
@@ -473,15 +444,64 @@ footer.retro-card { background: var(--ottanio); color: var(--cream); border-colo
       <div class="ev-note">Limited capacity · By invitation</div>
     </div>
   </div>
-  <div class="gallery">
-    <div class="gi"><img src="salotto.jpeg" alt="" loading="lazy"></div>
-    <div class="gi"><img src="IMG_4979.JPG" alt="" loading="lazy"></div>
-    <div class="gi"><img src="IMG_4994.JPG" alt="" loading="lazy"></div>
-    <div class="gi"><img src="DSC_1414.JPG" alt="" loading="lazy"></div>
-    <div class="gi"><img src="DSC_1415.JPG" alt="" loading="lazy"></div>
-    <div class="gi"><img src="DSC_1400.JPG" alt="" loading="lazy"></div>
-    <div class="gi"><img src="park.jpeg" alt="" loading="lazy"></div>
-    <div class="gi"><img src="park_2.jpeg" alt="" loading="lazy"></div>
+
+  <!-- ARCHIVE -->
+  <div class="archive-label">
+    <span>Past Happenings</span>
+  </div>
+  <div class="archive-grid">
+
+    <!-- Event 1: Salotto Café -->
+    <a href="./archive/salotto-cafe/" class="event-folder">
+      <div class="event-folder-cover">
+        <img src="salotto.jpeg" alt="Salotto Café happening">
+        <div class="event-folder-cover-overlay"></div>
+        <span class="media-badge"><span class="dot"></span>6 photos · 1 video</span>
+      </div>
+      <div class="event-folder-body">
+        <span class="event-folder-date">Feb 2025</span>
+        <div class="event-folder-name">Salotto Café</div>
+        <div class="event-folder-footer">
+          <span class="event-folder-venue">Ottensen · Hamburg</span>
+          <span class="event-folder-cta">Open archive</span>
+        </div>
+      </div>
+    </a>
+
+    <!-- Event 2: Park Session -->
+    <a href="./archive/park-session/" class="event-folder">
+      <div class="event-folder-cover">
+        <img src="park.jpeg" alt="Park Session happening">
+        <div class="event-folder-cover-overlay"></div>
+        <span class="media-badge"><span class="dot"></span>3 photos</span>
+      </div>
+      <div class="event-folder-body">
+        <span class="event-folder-date">May 2025</span>
+        <div class="event-folder-name">Park Session</div>
+        <div class="event-folder-footer">
+          <span class="event-folder-venue">Stadtpark · Hamburg</span>
+          <span class="event-folder-cta">Open archive</span>
+        </div>
+      </div>
+    </a>
+
+    <!-- Event 3: Viani Pop-up -->
+    <a href="./archive/viani-popup/" class="event-folder">
+      <div class="event-folder-cover">
+        <img src="DSC_1414.JPG" alt="Viani Pop-up happening">
+        <div class="event-folder-cover-overlay"></div>
+        <span class="media-badge"><span class="dot"></span>2 photos</span>
+      </div>
+      <div class="event-folder-body">
+        <span class="event-folder-date">Jun 2025</span>
+        <div class="event-folder-name">Viani Pop-up</div>
+        <div class="event-folder-footer">
+          <span class="event-folder-venue">Eimsbüttel · Hamburg</span>
+          <span class="event-folder-cta">Open archive</span>
+        </div>
+      </div>
+    </a>
+
   </div>
 </section>
 
@@ -496,22 +516,21 @@ footer.retro-card { background: var(--ottanio); color: var(--cream); border-colo
 var obs = new IntersectionObserver(function(entries){
   entries.forEach(function(e){
     if(e.isIntersecting){
-      e.target.style.opacity = '1';
-      e.target.style.transform = 'translateY(0)';
+      e.target.style.opacity='1';
+      e.target.style.transform='translateY(0)';
     }
   });
-}, {threshold: .05});
-document.querySelectorAll('.retro-card, .acard, .step-card').forEach(function(el){
-  el.style.opacity = '0';
-  el.style.transform = 'translateY(20px)';
-  el.style.transition = 'opacity .6s ease, transform .6s ease';
+},{threshold:.05});
+document.querySelectorAll('.retro-card,.acard,.step-card,.event-folder').forEach(function(el){
+  el.style.opacity='0';
+  el.style.transform='translateY(20px)';
+  el.style.transition='opacity .6s ease, transform .6s ease';
   obs.observe(el);
 });
-
 document.querySelectorAll('a[href^="#"]').forEach(function(a){
-  a.addEventListener('click', function(e){
-    var t = document.querySelector(this.getAttribute('href'));
-    if(t){ e.preventDefault(); t.scrollIntoView({behavior:'smooth'}); }
+  a.addEventListener('click',function(e){
+    var t=document.querySelector(this.getAttribute('href'));
+    if(t){e.preventDefault();t.scrollIntoView({behavior:'smooth'});}
     document.querySelector('.nlinks').classList.remove('open');
     document.querySelector('.burger').classList.remove('open');
   });
