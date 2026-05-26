@@ -228,6 +228,24 @@ h1.bella {
 .event-folder:hover .event-folder-cta::after { transform: translateX(3px); }
 .event-folder-cta::after { content: ' →'; display: inline-block; transition: transform .2s; }
 
+/* cover placeholder while loading */
+.cover-placeholder {
+  position: absolute; inset: 0;
+  background: var(--ottanio);
+  display: flex; align-items: center; justify-content: center;
+}
+.cover-placeholder::after {
+  content: '';
+  width: 28px; height: 28px;
+  border: 3px solid rgba(233,225,204,.2);
+  border-top-color: var(--corallo);
+  border-radius: 50%;
+  animation: spin .8s linear infinite;
+}
+@keyframes spin { to { transform: rotate(360deg); } }
+.cover-img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; filter: sepia(40%) contrast(1.1) brightness(0.85); transition: filter .4s, transform .4s; }
+.event-folder:hover .cover-img { filter: sepia(10%) contrast(1.05) brightness(1); transform: scale(1.04); }
+
 /* ════════ FOOTER (INSTAGRAM FOCUS) ════════ */
 footer.retro-card { background: var(--ottanio); color: var(--cream); border-color: var(--ink); margin-bottom: 40px; padding: 60px 5%; text-align:center;}
 .ft-hl { font-family: 'DM Serif Display', serif; font-size: clamp(2.5rem, 6vw, 5rem); line-height: .95; color: var(--cream); margin-bottom: 24px;}
@@ -545,11 +563,12 @@ footer.retro-card { background: var(--ottanio); color: var(--cream); border-colo
   <div class="archive-label"><span>Past Happenings</span></div>
   <div class="archive-grid">
 
-    <a href="./archive/salotto-cafe/" class="event-folder">
+    <a href="./archive/salotto-cafe/" class="event-folder" data-folder="archive/salotto-cafe">
       <div class="event-folder-cover">
-        <img src="salotto.jpeg" alt="Salotto Café" loading="lazy">
+        <div class="cover-placeholder"></div>
+        <img class="cover-img" alt="Salotto Café" style="display:none">
         <div class="event-folder-cover-overlay"></div>
-        <span class="media-badge"><span class="dot"></span>Photos &amp; Video</span>
+        <span class="media-badge"><span class="dot"></span><span class="badge-count">…</span></span>
       </div>
       <div class="event-folder-body">
         <span class="event-folder-date">Feb 2025</span>
@@ -561,11 +580,12 @@ footer.retro-card { background: var(--ottanio); color: var(--cream); border-colo
       </div>
     </a>
 
-    <a href="./archive/park-session/" class="event-folder">
+    <a href="./archive/park-session/" class="event-folder" data-folder="archive/park-session">
       <div class="event-folder-cover">
-        <img src="park.jpeg" alt="Park Session" loading="lazy">
+        <div class="cover-placeholder"></div>
+        <img class="cover-img" alt="Park Session" style="display:none">
         <div class="event-folder-cover-overlay"></div>
-        <span class="media-badge"><span class="dot"></span>Photos &amp; Video</span>
+        <span class="media-badge"><span class="dot"></span><span class="badge-count">…</span></span>
       </div>
       <div class="event-folder-body">
         <span class="event-folder-date">May 2025</span>
@@ -577,11 +597,12 @@ footer.retro-card { background: var(--ottanio); color: var(--cream); border-colo
       </div>
     </a>
 
-    <a href="./archive/viani-popup/" class="event-folder">
+    <a href="./archive/viani-popup/" class="event-folder" data-folder="archive/viani-popup">
       <div class="event-folder-cover">
-        <img src="DSC_1414.JPG" alt="Viani Pop-up" loading="lazy">
+        <div class="cover-placeholder"></div>
+        <img class="cover-img" alt="Viani Pop-up" style="display:none">
         <div class="event-folder-cover-overlay"></div>
-        <span class="media-badge"><span class="dot"></span>Photos &amp; Video</span>
+        <span class="media-badge"><span class="dot"></span><span class="badge-count">…</span></span>
       </div>
       <div class="event-folder-body">
         <span class="event-folder-date">Jun 2025</span>
@@ -626,6 +647,51 @@ document.querySelectorAll('a[href^="#"]').forEach(function(a){
     document.querySelector('.nlinks').classList.remove('open');
     document.querySelector('.burger').classList.remove('open');
   });
+});
+
+// ── Auto-load cover image + media count from GitHub for each archive card ──
+var GITHUB_USER = 'GabrieleMancini';
+var GITHUB_REPO = 'BELLA';
+var IMG_EXT = ['jpg','jpeg','png','webp','gif','heic','avif'];
+var VID_EXT = ['mp4','mov','webm','m4v'];
+function fext(n){ return n.split('.').pop().toLowerCase(); }
+
+document.querySelectorAll('.event-folder[data-folder]').forEach(function(card) {
+  var folder = card.getAttribute('data-folder');
+  var url = 'https://api.github.com/repos/' + GITHUB_USER + '/' + GITHUB_REPO + '/contents/' + folder;
+
+  fetch(url, { headers: { Accept: 'application/vnd.github.v3+json' } })
+    .then(function(r) { return r.ok ? r.json() : Promise.reject(); })
+    .then(function(files) {
+      files.sort(function(a,b){ return a.name.localeCompare(b.name, undefined, {numeric:true}); });
+
+      var imgs = files.filter(function(f){ return f.type==='file' && IMG_EXT.indexOf(fext(f.name))>-1; });
+      var vids = files.filter(function(f){ return f.type==='file' && VID_EXT.indexOf(fext(f.name))>-1; });
+
+      // set cover from first image in folder
+      if (imgs.length > 0) {
+        var placeholder = card.querySelector('.cover-placeholder');
+        var img = card.querySelector('.cover-img');
+        img.src = imgs[0].download_url;
+        img.style.display = 'block';
+        img.onload = function() {
+          if (placeholder) placeholder.style.display = 'none';
+        };
+      }
+
+      // update badge
+      var parts = [];
+      if (imgs.length) parts.push(imgs.length + ' photo' + (imgs.length !== 1 ? 's' : ''));
+      if (vids.length) parts.push(vids.length + ' video' + (vids.length !== 1 ? 's' : ''));
+      var badge = card.querySelector('.badge-count');
+      if (badge) badge.textContent = parts.join(' · ') || 'Empty';
+    })
+    .catch(function() {
+      var badge = card.querySelector('.badge-count');
+      if (badge) badge.textContent = 'No files yet';
+      var placeholder = card.querySelector('.cover-placeholder');
+      if (placeholder) { placeholder.style.animation = 'none'; placeholder.style.opacity = '.4'; }
+    });
 });
 </script>
 </body>
