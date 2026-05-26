@@ -10,13 +10,15 @@
 <style>
 :root {
   /* NU GENEA PALETTE — teal brillante · sabbia · rosso vermiglio */
-  --cream:    #EDE0AC;   /* sabbia calda / manifesto tour          */
+  --cream:    #E9E1CC;   /* lino caldo — RGB(233,225,204)          */
   --ink:      #172015;   /* foresta scurissima / incisioni NG      */
   --campari:  #C83B1A;   /* rosso vermiglio — lettere album        */
   --mattone:  #D46840;   /* corallo caldo                          */
   --senape:   #D4A828;   /* oro mediterraneo                       */
-  --oliva:    #017789;   /* teal esatto NU GENEA — RGB(1,119,137) */
+  --oliva:    #017789;   /* teal NU GENEA — RGB(1,119,137)        */
   --ottanio:  #015e6e;   /* teal profondo                          */
+  --corallo:  #F78A72;   /* salmone festivo — RGB(247,138,114)     */
+  --verde:    #279C64;   /* verde terzo accento — RGB(39,156,100)  */
 }
 
 *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
@@ -48,7 +50,7 @@ body::after {
 .ticker { background: var(--cream); height: 44px; overflow: hidden; display: flex; align-items: center; border-bottom: 3px solid var(--ink); width: 100%; }
 .tk { display: flex; animation: roll 35s linear infinite; white-space: nowrap; }
 .tk span { font-size: .65rem; letter-spacing: .25em; text-transform: uppercase; font-weight: 600; color: var(--ink); padding: 0 2.5rem; }
-.tk .d { color: var(--campari); }
+.tk .d { color: var(--corallo); }
 @keyframes roll { to { transform: translateX(-50%) } }
 /* ── FLOATING NAV ── */
 nav {
@@ -61,9 +63,9 @@ nav {
 .nbrand { font-family: 'Shrikhand', serif; font-size: 1.5rem; color: var(--ink); text-decoration: none; letter-spacing: .06em; }
 .nlinks { display: flex; list-style: none; }
 .nlinks a { font-size: .6rem; font-weight: 600; letter-spacing: .15em; text-transform: uppercase; color: var(--ink); text-decoration: none; padding: 0 16px; transition: color .2s; }
-.nlinks a:hover { color: var(--campari); }
-.ncta { background: var(--ink); color: var(--cream); font-size: .6rem; letter-spacing: .15em; text-transform: uppercase; font-weight: 600; padding: 10px 24px; text-decoration: none; border: 2px solid var(--ink); border-radius: 30px; transition: all .2s; box-shadow: 2px 2px 0 rgba(44,26,18,0); flex-shrink: 0; }
-.ncta:hover { background: var(--campari); color: var(--cream); transform: translate(-2px, -2px); box-shadow: 4px 4px 0 var(--ink); }
+.nlinks a:hover { color: var(--corallo); }
+.ncta { background: var(--verde); color: var(--cream); font-size: .6rem; letter-spacing: .15em; text-transform: uppercase; font-weight: 600; padding: 10px 24px; text-decoration: none; border: 2px solid var(--ink); border-radius: 30px; transition: all .2s; box-shadow: 2px 2px 0 var(--ink); flex-shrink: 0; }
+.ncta:hover { background: var(--corallo); color: var(--ink); transform: translate(-2px, -2px); box-shadow: 4px 4px 0 var(--ink); }
 .burger { display: none; background: none; border: none; cursor: pointer; padding: 10px; flex-direction: column; gap: 5px; }
 .burger span { display: block; width: 22px; height: 3px; background: var(--ink); transition: all .3s; }
 .burger.open span:nth-child(1) { transform: translateY(8px) rotate(45deg); }
@@ -95,22 +97,22 @@ h1.bella {
 .hero-sub {
   font-family: 'Jost', sans-serif; font-weight: 700;
   font-size: clamp(.65rem, 2vw, .9rem); letter-spacing: .3em; text-transform: uppercase;
-  color: var(--ink); background: var(--cream); border: 3px solid var(--ink);
+  color: var(--ink); background: var(--corallo); border: 2px solid var(--ink);
   padding: 10px 28px; border-radius: 30px; margin-bottom: 2.5rem; 
-  display: inline-flex; align-items: center; justify-content: center; box-shadow: 5px 5px 0 var(--ink);
+  display: inline-flex; align-items: center; justify-content: center; box-shadow: 4px 4px 0 var(--ink);
 }
 
 /* ════════ SECTION 2 — THE CONCEPT (3-COLUMN STEPS) ════════ */
 .sound-top { text-align: center; margin-bottom: 60px; }
 .sound-h2 { font-family: 'DM Serif Display', serif; font-size: clamp(2.2rem, 6vw, 5rem); line-height: .95; color: var(--ink); }
-.sound-h2 em { font-style: italic; color: var(--mattone); }
+.sound-h2 em { font-style: italic; color: var(--corallo); }
 
 .steps-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 40px; margin-top: 20px; }
 .step-card { position: relative; border-top: 2px solid var(--ink); padding-top: 24px; }
-.step-card::before { content: ''; position: absolute; left: 0; top: -9px; width: 14px; height: 14px; border-radius: 50%; background: var(--senape); border: 2px solid var(--ink); }
-.step-card:nth-child(2):before { background: var(--oliva); }
-.step-card:nth-child(3):before { background: var(--campari); }
-.tl-time { font-size: .65rem; font-weight: 700; letter-spacing: .2em; text-transform: uppercase; color: var(--campari); display: block; margin-bottom: 6px; }
+.step-card::before { content: ''; position: absolute; left: 0; top: -9px; width: 14px; height: 14px; border-radius: 50%; background: var(--corallo); border: 2px solid var(--ink); }
+.step-card:nth-child(2):before { background: var(--corallo); }
+.step-card:nth-child(3):before { background: var(--corallo); }
+.tl-time { font-size: .65rem; font-weight: 700; letter-spacing: .2em; text-transform: uppercase; color: var(--corallo); display: block; margin-bottom: 6px; }
 .tl-title { font-family: 'DM Serif Display', serif; font-size: 1.8rem; color: var(--ink); line-height: 1; margin-bottom: 10px;}
 .tl-desc { font-size: 1.05rem; color: var(--ink); opacity: 0.8; line-height: 1.5; }
 
@@ -128,28 +130,28 @@ h1.bella {
 .acard:nth-child(2) .acard-img::after { background: linear-gradient(to bottom, rgba(200,59,26,.25), transparent); }
 .acard:nth-child(3) .acard-img::after { background: linear-gradient(to bottom, rgba(212,168,40,.25), transparent); }
 .acard-body { padding: 20px; }
-.acard-tag { font-size: .55rem; font-weight: 700; letter-spacing: .2em; text-transform: uppercase; color: var(--ottanio); display: block; margin-bottom: 6px; }
+.acard-tag { font-size: .55rem; font-weight: 700; letter-spacing: .2em; text-transform: uppercase; color: var(--verde); display: block; margin-bottom: 6px; }
 .acard-name { font-family: 'DM Serif Display', serif; font-size: 1.8rem; color: var(--ink); margin-bottom: 8px; line-height:1;}
 .acard-desc { font-size: .95rem; line-height: 1.5; color: var(--ink); opacity: 0.8; margin-bottom: 14px;}
-.acard-link { font-size: .6rem; font-weight: 700; text-transform: uppercase; color: var(--campari); text-decoration: none; }
+.acard-link { font-size: .6rem; font-weight: 700; text-transform: uppercase; color: var(--corallo); text-decoration: none; }
 
 /* ════════ SECTION 4 — ROOTS (MAP ONLY) ════════ */
 .roots-map-block { position: relative; width: 100%; height: clamp(250px, 50vw, 450px); background: var(--cream); border: 3px solid var(--ink); border-radius: 10px; overflow: hidden; box-shadow: inset 4px 4px 0 rgba(26, 32, 24, 0.07); }
 .map-svg-wrap { position: absolute; inset: 0; display: flex; align-items: flex-start; justify-content: center; padding: 20px; }
-.italy-svg { height: 100%; width: auto; max-width: 90%; fill: var(--senape); stroke: var(--ink); stroke-width: 2px; }
+.italy-svg { height: 100%; width: auto; max-width: 90%; fill: var(--corallo); stroke: var(--ink); stroke-width: 2px; }
 .mpin { position: absolute; transform: translate(-50%, -50%); display: flex; align-items: center; gap: 8px; z-index: 3; }
-.mdot { width: 14px; height: 14px; border-radius: 50%; border: 2px solid var(--ink); background: var(--oliva); box-shadow: 2px 2px 0 var(--ink); }
+.mdot { width: 14px; height: 14px; border-radius: 50%; border: 2px solid var(--ink); background: var(--corallo); box-shadow: 2px 2px 0 var(--ink); }
 .mlbl { font-family: 'Jost', sans-serif; font-size: .55rem; letter-spacing: .15em; text-transform: uppercase; font-weight: 700; color: var(--cream); background: var(--ink); padding: 4px 10px; border-radius: 20px; white-space: nowrap; }
 
 /* ════════ SECTION 5 — EVENTS & GALLERY ════════ */
 .ev-top { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; margin-bottom: 40px; align-items: center; }
 .ev-h2 { font-family: 'DM Serif Display', serif; font-size: clamp(2.2rem, 6vw, 4rem); line-height: .95; color: var(--ink); }
-.ev-card { background: var(--senape); padding: 30px; border: 2px solid var(--ink); border-radius: 8px; box-shadow: 4px 4px 0 var(--ink); }
-.ev-sup { font-size: .6rem; font-weight: 700; letter-spacing: .2em; text-transform: uppercase; color: var(--ink); opacity: .8; display: block; margin-bottom: 12px; }
-.ev-date { font-family: 'DM Serif Display', serif; font-size: 4rem; line-height: 1; color: var(--ink); margin-bottom: 4px; }
-.ev-name { font-family: 'DM Serif Display', serif; font-style: italic; font-size: 1.8rem; color: var(--ink); margin-bottom: 8px; }
-.ev-venue { font-size: .6rem; font-weight: 600; text-transform: uppercase; color: var(--ink); opacity: .8; margin-bottom: 10px; display:block; }
-.ev-note { font-family: 'DM Serif Display', serif; font-style: italic; font-size: 1.1rem; color: var(--campari); }
+.ev-card { background: var(--verde); padding: 30px; border: 2px solid var(--ink); border-radius: 8px; box-shadow: 4px 4px 0 var(--ink); }
+.ev-sup { font-size: .6rem; font-weight: 700; letter-spacing: .2em; text-transform: uppercase; color: var(--corallo); opacity: 1; display: block; margin-bottom: 12px; }
+.ev-date { font-family: 'DM Serif Display', serif; font-size: 4rem; line-height: 1; color: var(--corallo); margin-bottom: 4px; }
+.ev-name { font-family: 'DM Serif Display', serif; font-style: italic; font-size: 1.8rem; color: var(--corallo); margin-bottom: 8px; }
+.ev-venue { font-size: .6rem; font-weight: 600; text-transform: uppercase; color: var(--corallo); opacity: .8; margin-bottom: 10px; display:block; }
+.ev-note { font-family: 'DM Serif Display', serif; font-style: italic; font-size: 1.1rem; color: var(--corallo); }
 
 .gallery { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; }
 .gi { aspect-ratio: 1; border: 2px solid var(--ink); border-radius: 8px; overflow:hidden;}
@@ -159,9 +161,9 @@ h1.bella {
 /* ════════ FOOTER (INSTAGRAM FOCUS) ════════ */
 footer.retro-card { background: var(--ottanio); color: var(--cream); border-color: var(--ink); margin-bottom: 40px; padding: 60px 5%; text-align:center;}
 .ft-hl { font-family: 'DM Serif Display', serif; font-size: clamp(2.5rem, 6vw, 5rem); line-height: .95; color: var(--cream); margin-bottom: 24px;}
-.ft-hl em { font-style: italic; color: var(--senape); }
-.ft-social-btn { display:inline-block; background: var(--campari); color: var(--cream); font-size: .8rem; font-weight: 700; letter-spacing: .15em; text-transform: uppercase; padding: 16px 36px; text-decoration: none; border: 3px solid var(--ink); border-radius: 50px; transition: all .2s; box-shadow: 5px 5px 0 var(--ink); margin-bottom: 40px;}
-.ft-social-btn:hover { background: var(--senape); color: var(--ink); transform: translate(-2px, -2px); box-shadow: 7px 7px 0 var(--ink); }
+.ft-hl em { font-style: italic; color: var(--corallo); }
+.ft-social-btn { display:inline-block; background: var(--corallo); color: var(--ink); font-size: .8rem; font-weight: 700; letter-spacing: .15em; text-transform: uppercase; padding: 16px 36px; text-decoration: none; border: 2px solid var(--ink); border-radius: 50px; transition: all .2s; box-shadow: 5px 5px 0 var(--ink); margin-bottom: 40px;}
+.ft-social-btn:hover { background: var(--corallo); color: var(--ink); transform: translate(-2px, -2px); box-shadow: 7px 7px 0 var(--ink); }
 .ft-mail { font-family: 'DM Serif Display', serif; font-style: italic; font-size: 1.4rem; color: var(--cream); text-decoration: none; opacity: 0.8; display:block;}
 .ft-copy { font-size: .55rem; font-weight: 500; letter-spacing: .15em; text-transform: uppercase; color: rgba(237, 224, 172, 0.35); display:block; margin-top: 40px; border-top: 1px solid rgba(237, 224, 172, 0.15); padding-top: 20px;}
 
@@ -291,7 +293,7 @@ footer.retro-card { background: var(--ottanio); color: var(--cream); border-colo
 <section id="artists" class="retro-card">
   <div class="artists-hd">
     <div>
-      <span style="font-size:.6rem; font-weight:700; letter-spacing:.3em; text-transform:uppercase; color:var(--ottanio); display:block; margin-bottom:.6rem;">02 — Rotating Residents</span>
+      <span style="font-size:.6rem; font-weight:700; letter-spacing:.3em; text-transform:uppercase; color:var(--verde); display:block; margin-bottom:.6rem;">02 — Rotating Residents</span>
       <h2 class="artists-h2">The sound <em>of the South</em></h2>
     </div>
   </div>
@@ -325,7 +327,7 @@ footer.retro-card { background: var(--ottanio); color: var(--cream); border-colo
 </section>
 
 <section id="roots" class="retro-card" style="padding: 40px 5%;">
-  <span style="font-size:.6rem; font-weight:700; letter-spacing:.3em; text-transform:uppercase; color:var(--oliva); display:block; margin-bottom:1rem; text-align:center;">Our Roots</span>
+  <span style="font-size:.6rem; font-weight:700; letter-spacing:.3em; text-transform:uppercase; color:var(--verde); display:block; margin-bottom:1rem; text-align:center;">Our Roots</span>
   <div class="roots-map-block">
     <div class="map-svg-wrap">
       <svg class="italy-svg" viewBox="0 0 400 520" xmlns="http://www.w3.org/2000/svg">
@@ -344,7 +346,7 @@ footer.retro-card { background: var(--ottanio); color: var(--cream); border-colo
 <section id="events" class="retro-card">
   <div class="ev-top">
     <div>
-      <span style="font-size:.6rem; font-weight:700; letter-spacing:.3em; text-transform:uppercase; color:var(--campari); display:block; margin-bottom:.6rem;">05 — Gatherings</span>
+      <span style="font-size:.6rem; font-weight:700; letter-spacing:.3em; text-transform:uppercase; color:var(--corallo); display:block; margin-bottom:.6rem;">05 — Gatherings</span>
       <h2 class="ev-h2">Upcoming <em>& Archive</em></h2>
     </div>
     <div class="ev-card">
