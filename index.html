@@ -87,7 +87,10 @@ nav {
   min-height: 80vh; display: flex; flex-direction: column; align-items: center; justify-content: center;
   text-align: center; padding: 8%; position: relative; z-index: 2; width: 100%;
 }
-.hero-rosone { width: min(190px, 38vw); margin: 0 auto 1.8rem; }
+.hero-rosone { width: min(240px, 48vw); margin: 0 auto 2rem; }
+
+/* ── Waveform section divider ── */
+.wave-divider { width: 100%; overflow: hidden; line-height: 0; margin: -2px 0; opacity: .18; }
 
 h1.bella {
   font-family: 'Shrikhand', serif; font-weight: 400;
@@ -202,31 +205,38 @@ footer.retro-card { background: var(--ottanio); color: var(--cream); border-colo
 
 <div class="ticker" aria-hidden="true">
   <div class="tk">
-    <span>MEDITERRANEAN HAPPENINGS<span class="d"> · </span>NOMADIC POP-UPS<span class="d"> · </span>SOUND & GROOVE<span class="d"> · </span></span>
-    <span>MEDITERRANEAN HAPPENINGS<span class="d"> · </span>NOMADIC POP-UPS<span class="d"> · </span>SOUND & GROOVE<span class="d"> · </span></span>
+    <span>♪ MEDITERRANEAN HAPPENINGS<span class="d"> ◆ </span>NOMADIC POP-UPS<span class="d"> ◆ </span>♫ FUNK · DISCO · SOUL<span class="d"> ◆ </span>LIVE & DJ<span class="d"> ◆ </span>♪ SUONA BELLA<span class="d"> ◆ </span></span>
+    <span>♪ MEDITERRANEAN HAPPENINGS<span class="d"> ◆ </span>NOMADIC POP-UPS<span class="d"> ◆ </span>♫ FUNK · DISCO · SOUL<span class="d"> ◆ </span>LIVE & DJ<span class="d"> ◆ </span>♪ SUONA BELLA<span class="d"> ◆ </span></span>
   </div>
 </div>
 
 <nav>
   <a href="#" class="nbrand" style="display:flex;align-items:center;gap:12px;">
-    <svg width="38" height="34" viewBox="0 0 50 44" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <!-- Solid ink arch (arco mediterraneo riempito) -->
-      <path fill="var(--ink)"
-        d="M2 44 L2 22 A23 21 0 0 1 48 22 L48 44 Z"/>
-      <!-- Sole in oro — il sole mediterraneo nell'arco -->
-      <circle cx="25" cy="14" r="8.5" fill="var(--senape)"/>
-      <!-- Alone intorno al sole -->
-      <circle cx="25" cy="14" r="8.5" fill="none" stroke="var(--ink)" stroke-width="2.5"/>
-      <!-- Raggio sole puntini -->
-      <circle cx="25" cy="3"  r="2" fill="var(--senape)"/>
-      <circle cx="36" cy="6"  r="2" fill="var(--senape)"/>
-      <circle cx="14" cy="6"  r="2" fill="var(--senape)"/>
-      <!-- Onda 1 -->
-      <path d="M9 30 Q14 25.5 19 30 Q24 34.5 29 30 Q34 25.5 41 30"
-        fill="none" stroke="var(--cream)" stroke-width="3" stroke-linecap="round"/>
-      <!-- Onda 2 -->
-      <path d="M7 39 Q13 34.5 18 39 Q23 43.5 28 39 Q33 34.5 39 39"
-        fill="none" stroke="var(--cream)" stroke-width="3" stroke-linecap="round"/>
+    <svg width="36" height="28" viewBox="0 0 56 44" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <!-- Arch cream con bordo ink -->
+      <path fill="var(--cream)" stroke="var(--ink)" stroke-width="3" stroke-linejoin="round"
+        d="M3 42 L3 20 A25 20 0 0 1 53 20 L53 42 Z"/>
+      <!-- Raggi tratteggiati mini -->
+      <g transform="translate(28,19)">
+        <line x1="0" y1="-16" x2="0" y2="-9" stroke="var(--ink)" stroke-width="1.5" stroke-dasharray="2 3" stroke-linecap="round" transform="rotate(0)"/>
+        <line x1="0" y1="-16" x2="0" y2="-9" stroke="var(--ink)" stroke-width="1.5" stroke-dasharray="2 3" stroke-linecap="round" transform="rotate(30)"/>
+        <line x1="0" y1="-16" x2="0" y2="-9" stroke="var(--ink)" stroke-width="1.5" stroke-dasharray="2 3" stroke-linecap="round" transform="rotate(60)"/>
+        <line x1="0" y1="-16" x2="0" y2="-9" stroke="var(--ink)" stroke-width="1.5" stroke-dasharray="2 3" stroke-linecap="round" transform="rotate(90)"/>
+        <line x1="0" y1="-16" x2="0" y2="-9" stroke="var(--ink)" stroke-width="1.5" stroke-dasharray="2 3" stroke-linecap="round" transform="rotate(120)"/>
+        <line x1="0" y1="-16" x2="0" y2="-9" stroke="var(--ink)" stroke-width="1.5" stroke-dasharray="2 3" stroke-linecap="round" transform="rotate(150)"/>
+        <line x1="0" y1="-16" x2="0" y2="-9" stroke="var(--ink)" stroke-width="1.5" stroke-dasharray="2 3" stroke-linecap="round" transform="rotate(180)"/>
+        <line x1="0" y1="-16" x2="0" y2="-9" stroke="var(--ink)" stroke-width="1.5" stroke-dasharray="2 3" stroke-linecap="round" transform="rotate(210)"/>
+        <line x1="0" y1="-16" x2="0" y2="-9" stroke="var(--ink)" stroke-width="1.5" stroke-dasharray="2 3" stroke-linecap="round" transform="rotate(240)"/>
+        <line x1="0" y1="-16" x2="0" y2="-9" stroke="var(--ink)" stroke-width="1.5" stroke-dasharray="2 3" stroke-linecap="round" transform="rotate(270)"/>
+        <line x1="0" y1="-16" x2="0" y2="-9" stroke="var(--ink)" stroke-width="1.5" stroke-dasharray="2 3" stroke-linecap="round" transform="rotate(300)"/>
+        <line x1="0" y1="-16" x2="0" y2="-9" stroke="var(--ink)" stroke-width="1.5" stroke-dasharray="2 3" stroke-linecap="round" transform="rotate(330)"/>
+      </g>
+      <!-- Sole -->
+      <circle cx="28" cy="19" r="7.5" fill="var(--senape)" stroke="var(--ink)" stroke-width="2"/>
+      <circle cx="28" cy="19" r="4"   fill="var(--corallo)"/>
+      <!-- Onda -->
+      <path d="M9 32 Q16 28 22 32 Q28 36 34 32 Q40 28 47 32"
+        fill="none" stroke="var(--ink)" stroke-width="2.5" stroke-linecap="round"/>
     </svg>
     <span>BELLA</span>
   </a>
@@ -235,7 +245,7 @@ footer.retro-card { background: var(--ottanio); color: var(--cream); border-colo
   </button>
   <ul class="nlinks">
     <li><a href="#concept">The Concept</a></li>
-    <li><a href="#artists">US</a></li>
+    <li><a href="#artists">Residents</a></li>
     <li><a href="#roots">Roots</a></li>
     <li><a href="#events">Happenings</a></li>
   </ul>
@@ -244,22 +254,46 @@ footer.retro-card { background: var(--ottanio); color: var(--cream); border-colo
 
 <header class="hero">
   <div class="hero-rosone">
-    <svg viewBox="0 0 120 88" xmlns="http://www.w3.org/2000/svg">
-      <!-- Arch riempito sabbia — come il logo NU GENEA -->
-      <path fill="var(--cream)"
-        d="M6 84 L6 42 A54 40 0 0 1 114 42 L114 84 Z"/>
-      <!-- Bordo ink spesso -->
-      <path fill="none" stroke="var(--ink)" stroke-width="4" stroke-linejoin="round"
-        d="M6 84 L6 42 A54 40 0 0 1 114 42 L114 84 Z"/>
-      <!-- Sole in oro -->
-      <circle cx="60" cy="34" r="17" fill="var(--senape)"/>
-      <circle cx="60" cy="34" r="17" fill="none" stroke="var(--ink)" stroke-width="3.5"/>
-      <!-- Onda 1 -->
-      <path d="M16 60 Q24 54 32 60 Q40 66 48 60 Q56 54 64 60 Q72 66 80 60 Q88 54 104 60"
+    <svg viewBox="0 0 160 130" xmlns="http://www.w3.org/2000/svg">
+
+      <!-- Arch riempito cream — come le card del sito -->
+      <path fill="var(--cream)" stroke="var(--ink)" stroke-width="4.5" stroke-linejoin="round"
+        d="M8 126 L8 60 A72 58 0 0 1 152 60 L152 126 Z"/>
+
+      <!-- Raggi solari tratteggiati — stile Bar Mediterraneo -->
+      <g transform="translate(80,58)">
+        <line x1="0" y1="-50" x2="0" y2="-26"   stroke="var(--ink)" stroke-width="2.5" stroke-dasharray="3 4" stroke-linecap="round" transform="rotate(0)"/>
+        <line x1="0" y1="-50" x2="0" y2="-26"   stroke="var(--ink)" stroke-width="2.5" stroke-dasharray="3 4" stroke-linecap="round" transform="rotate(20)"/>
+        <line x1="0" y1="-50" x2="0" y2="-26"   stroke="var(--ink)" stroke-width="2.5" stroke-dasharray="3 4" stroke-linecap="round" transform="rotate(40)"/>
+        <line x1="0" y1="-50" x2="0" y2="-26"   stroke="var(--ink)" stroke-width="2.5" stroke-dasharray="3 4" stroke-linecap="round" transform="rotate(60)"/>
+        <line x1="0" y1="-50" x2="0" y2="-26"   stroke="var(--ink)" stroke-width="2.5" stroke-dasharray="3 4" stroke-linecap="round" transform="rotate(80)"/>
+        <line x1="0" y1="-50" x2="0" y2="-26"   stroke="var(--ink)" stroke-width="2.5" stroke-dasharray="3 4" stroke-linecap="round" transform="rotate(100)"/>
+        <line x1="0" y1="-50" x2="0" y2="-26"   stroke="var(--ink)" stroke-width="2.5" stroke-dasharray="3 4" stroke-linecap="round" transform="rotate(120)"/>
+        <line x1="0" y1="-50" x2="0" y2="-26"   stroke="var(--ink)" stroke-width="2.5" stroke-dasharray="3 4" stroke-linecap="round" transform="rotate(140)"/>
+        <line x1="0" y1="-50" x2="0" y2="-26"   stroke="var(--ink)" stroke-width="2.5" stroke-dasharray="3 4" stroke-linecap="round" transform="rotate(160)"/>
+        <line x1="0" y1="-50" x2="0" y2="-26"   stroke="var(--ink)" stroke-width="2.5" stroke-dasharray="3 4" stroke-linecap="round" transform="rotate(180)"/>
+        <line x1="0" y1="-50" x2="0" y2="-26"   stroke="var(--ink)" stroke-width="2.5" stroke-dasharray="3 4" stroke-linecap="round" transform="rotate(200)"/>
+        <line x1="0" y1="-50" x2="0" y2="-26"   stroke="var(--ink)" stroke-width="2.5" stroke-dasharray="3 4" stroke-linecap="round" transform="rotate(220)"/>
+        <line x1="0" y1="-50" x2="0" y2="-26"   stroke="var(--ink)" stroke-width="2.5" stroke-dasharray="3 4" stroke-linecap="round" transform="rotate(240)"/>
+        <line x1="0" y1="-50" x2="0" y2="-26"   stroke="var(--ink)" stroke-width="2.5" stroke-dasharray="3 4" stroke-linecap="round" transform="rotate(260)"/>
+        <line x1="0" y1="-50" x2="0" y2="-26"   stroke="var(--ink)" stroke-width="2.5" stroke-dasharray="3 4" stroke-linecap="round" transform="rotate(280)"/>
+        <line x1="0" y1="-50" x2="0" y2="-26"   stroke="var(--ink)" stroke-width="2.5" stroke-dasharray="3 4" stroke-linecap="round" transform="rotate(300)"/>
+        <line x1="0" y1="-50" x2="0" y2="-26"   stroke="var(--ink)" stroke-width="2.5" stroke-dasharray="3 4" stroke-linecap="round" transform="rotate(320)"/>
+        <line x1="0" y1="-50" x2="0" y2="-26"   stroke="var(--ink)" stroke-width="2.5" stroke-dasharray="3 4" stroke-linecap="round" transform="rotate(340)"/>
+      </g>
+
+      <!-- Sole — cerchio gold con core salmone -->
+      <circle cx="80" cy="58" r="22" fill="var(--senape)" stroke="var(--ink)" stroke-width="3"/>
+      <circle cx="80" cy="58" r="14" fill="var(--corallo)"/>
+      <circle cx="80" cy="58" r="4"  fill="var(--ink)"/>
+
+      <!-- Onda 1 — onde mediterranee nella parte bassa -->
+      <path d="M18 94 Q30 87 42 94 Q54 101 66 94 Q78 87 90 94 Q102 101 114 94 Q126 87 142 94"
         fill="none" stroke="var(--ink)" stroke-width="3.5" stroke-linecap="round"/>
       <!-- Onda 2 -->
-      <path d="M12 74 Q21 68 29 74 Q37 80 45 74 Q53 68 61 74 Q69 80 77 74 Q85 68 108 74"
+      <path d="M12 112 Q26 105 38 112 Q50 119 62 112 Q74 105 86 112 Q98 119 110 112 Q122 105 148 112"
         fill="none" stroke="var(--ink)" stroke-width="3.5" stroke-linecap="round"/>
+
     </svg>
   </div>
   <h1 class="bella">BELLA</h1>
@@ -267,6 +301,88 @@ footer.retro-card { background: var(--ottanio); color: var(--cream); border-colo
 </header>
 
 <section id="concept" class="retro-card">
+  <!-- Waveform grafico — elemento musicale integrato -->
+  <div style="margin-bottom:2rem; opacity:.35;">
+    <svg viewBox="0 0 600 60" preserveAspectRatio="none" style="width:100%;height:40px;" xmlns="http://www.w3.org/2000/svg">
+      <g fill="var(--ink)">
+        <rect x="0"   width="4" height="12" y="24" rx="2"/>
+        <rect x="8"   width="4" height="28" y="16" rx="2"/>
+        <rect x="16"  width="4" height="44" y="8"  rx="2"/>
+        <rect x="24"  width="4" height="36" y="12" rx="2"/>
+        <rect x="32"  width="4" height="52" y="4"  rx="2"/>
+        <rect x="40"  width="4" height="40" y="10" rx="2"/>
+        <rect x="48"  width="4" height="24" y="18" rx="2"/>
+        <rect x="56"  width="4" height="48" y="6"  rx="2"/>
+        <rect x="64"  width="4" height="32" y="14" rx="2"/>
+        <rect x="72"  width="4" height="56" y="2"  rx="2"/>
+        <rect x="80"  width="4" height="38" y="11" rx="2"/>
+        <rect x="88"  width="4" height="20" y="20" rx="2"/>
+        <rect x="96"  width="4" height="44" y="8"  rx="2"/>
+        <rect x="104" width="4" height="30" y="15" rx="2"/>
+        <rect x="112" width="4" height="50" y="5"  rx="2"/>
+        <rect x="120" width="4" height="34" y="13" rx="2"/>
+        <rect x="128" width="4" height="16" y="22" rx="2"/>
+        <rect x="136" width="4" height="42" y="9"  rx="2"/>
+        <rect x="144" width="4" height="54" y="3"  rx="2"/>
+        <rect x="152" width="4" height="28" y="16" rx="2"/>
+        <rect x="160" width="4" height="46" y="7"  rx="2"/>
+        <rect x="168" width="4" height="36" y="12" rx="2"/>
+        <rect x="176" width="4" height="58" y="1"  rx="2"/>
+        <rect x="184" width="4" height="22" y="19" rx="2"/>
+        <rect x="192" width="4" height="40" y="10" rx="2"/>
+        <rect x="200" width="4" height="52" y="4"  rx="2"/>
+        <rect x="208" width="4" height="18" y="21" rx="2"/>
+        <rect x="216" width="4" height="44" y="8"  rx="2"/>
+        <rect x="224" width="4" height="60" y="0"  rx="2"/>
+        <rect x="232" width="4" height="32" y="14" rx="2"/>
+        <rect x="240" width="4" height="48" y="6"  rx="2"/>
+        <rect x="248" width="4" height="24" y="18" rx="2"/>
+        <rect x="256" width="4" height="56" y="2"  rx="2"/>
+        <rect x="264" width="4" height="38" y="11" rx="2"/>
+        <rect x="272" width="4" height="44" y="8"  rx="2"/>
+        <rect x="280" width="4" height="20" y="20" rx="2"/>
+        <rect x="288" width="4" height="50" y="5"  rx="2"/>
+        <rect x="296" width="4" height="34" y="13" rx="2"/>
+        <rect x="304" width="4" height="58" y="1"  rx="2"/>
+        <rect x="312" width="4" height="28" y="16" rx="2"/>
+        <rect x="320" width="4" height="42" y="9"  rx="2"/>
+        <rect x="328" width="4" height="54" y="3"  rx="2"/>
+        <rect x="336" width="4" height="16" y="22" rx="2"/>
+        <rect x="344" width="4" height="46" y="7"  rx="2"/>
+        <rect x="352" width="4" height="36" y="12" rx="2"/>
+        <rect x="360" width="4" height="60" y="0"  rx="2"/>
+        <rect x="368" width="4" height="22" y="19" rx="2"/>
+        <rect x="376" width="4" height="40" y="10" rx="2"/>
+        <rect x="384" width="4" height="52" y="4"  rx="2"/>
+        <rect x="392" width="4" height="30" y="15" rx="2"/>
+        <rect x="400" width="4" height="48" y="6"  rx="2"/>
+        <rect x="408" width="4" height="18" y="21" rx="2"/>
+        <rect x="416" width="4" height="56" y="2"  rx="2"/>
+        <rect x="424" width="4" height="34" y="13" rx="2"/>
+        <rect x="432" width="4" height="44" y="8"  rx="2"/>
+        <rect x="440" width="4" height="24" y="18" rx="2"/>
+        <rect x="448" width="4" height="50" y="5"  rx="2"/>
+        <rect x="456" width="4" height="38" y="11" rx="2"/>
+        <rect x="464" width="4" height="58" y="1"  rx="2"/>
+        <rect x="472" width="4" height="20" y="20" rx="2"/>
+        <rect x="480" width="4" height="46" y="7"  rx="2"/>
+        <rect x="488" width="4" height="32" y="14" rx="2"/>
+        <rect x="496" width="4" height="54" y="3"  rx="2"/>
+        <rect x="504" width="4" height="28" y="16" rx="2"/>
+        <rect x="512" width="4" height="42" y="9"  rx="2"/>
+        <rect x="520" width="4" height="16" y="22" rx="2"/>
+        <rect x="528" width="4" height="48" y="6"  rx="2"/>
+        <rect x="536" width="4" height="36" y="12" rx="2"/>
+        <rect x="544" width="4" height="52" y="4"  rx="2"/>
+        <rect x="552" width="4" height="22" y="19" rx="2"/>
+        <rect x="560" width="4" height="44" y="8"  rx="2"/>
+        <rect x="568" width="4" height="30" y="15" rx="2"/>
+        <rect x="576" width="4" height="56" y="2"  rx="2"/>
+        <rect x="584" width="4" height="18" y="21" rx="2"/>
+        <rect x="592" width="4" height="40" y="10" rx="2"/>
+      </g>
+    </svg>
+  </div>
   <div class="sound-top">
     <h2 class="sound-h2">Nomadic spaces.<br><em>Mediterranean soul.</em></h2>
   </div>
@@ -293,8 +409,8 @@ footer.retro-card { background: var(--ottanio); color: var(--cream); border-colo
 <section id="artists" class="retro-card">
   <div class="artists-hd">
     <div>
-      <span style="font-size:.6rem; font-weight:700; letter-spacing:.3em; text-transform:uppercase; color:var(--verde); display:block; margin-bottom:.6rem;">02 — us</span>
-      <h2 class="artists-h2">The Collective</em></h2>
+      <span style="font-size:.6rem; font-weight:700; letter-spacing:.3em; text-transform:uppercase; color:var(--verde); display:block; margin-bottom:.6rem;">02 — Rotating Residents</span>
+      <h2 class="artists-h2">The sound <em>of the South</em></h2>
     </div>
   </div>
   <div class="acards">
