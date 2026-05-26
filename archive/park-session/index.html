@@ -237,12 +237,12 @@ fetch(apiUrl, { headers:{ Accept:'application/vnd.github.v3+json' } })
         var d = document.createElement('div');
         d.className='mi video';
         var ext = fileExt(vid.name);
-        var isMov = ext === 'mov';
-        // For MOV: try video/mp4 first (works when encoded as H.264),
-        // then video/quicktime as fallback (Safari). For other formats use their own mime.
+        var isMov = (ext === 'mov');
+        // MOV = H.264 in a QuickTime container — serve as video/mp4 so all browsers play inline.
+        var mimeMain = (isMov || ext === 'mp4') ? 'video/mp4' : 'video/' + ext;
         var sources = isMov
           ? '<source src="'+vid.download_url+'" type="video/mp4"><source src="'+vid.download_url+'" type="video/quicktime">'
-          : '<source src="'+vid.download_url+'" type="video/'+ext+'">';
+          : '<source src="'+vid.download_url+'" type="'+mimeMain+'">';
         d.innerHTML =
           '<span class="video-pill">Video</span>' +
           '<video controls playsinline preload="metadata" style="width:100%;height:100%;display:block">' +
