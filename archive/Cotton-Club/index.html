@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Park Session — BELLA Archive</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Jost:wght@300;400;500;600;700&family=Shrikhand&display=swap" rel="stylesheet">
+<style>
+:root {
+  --cream:#E9E1CC; --ink:#172015; --senape:#D4A828;
+  --oliva:#017789; --ottanio:#015e6e; --corallo:#F78A72; --verde:#279C64;
+}
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:var(--oliva);color:var(--ink);font-family:'Jost',sans-serif;overflow-x:hidden;-webkit-font-smoothing:antialiased;min-height:100vh}
+body::after{content:'';position:fixed;inset:0;z-index:9000;pointer-events:none;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.78' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");opacity:.02;mix-blend-mode:overlay}
+
+/* NAV */
+.top-bar{position:sticky;top:15px;z-index:500;background:var(--cream);border:3px solid var(--ink);border-radius:50px;box-shadow:5px 5px 0 var(--ink);margin:0 3%;padding:0 3%;height:60px;display:flex;align-items:center;justify-content:space-between}
+.back-link{display:flex;align-items:center;gap:8px;font-size:.6rem;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:var(--ink);text-decoration:none;transition:color .2s}
+.back-link:hover{color:var(--corallo)}
+.back-link::before{content:'←';font-size:.85rem;transition:transform .2s;display:inline-block}
+.back-link:hover::before{transform:translateX(-3px)}
+.top-brand{font-family:'Shrikhand',serif;font-size:1.3rem;color:var(--ink);text-decoration:none}
+
+/* CARD */
+.page-card{background:var(--cream);border:2px solid var(--ink);border-radius:14px;box-shadow:5px 5px 0 var(--ink);margin:50px 3% 40px;padding:52px 5%}
+
+/* HEADER */
+.event-label{font-size:.6rem;font-weight:700;letter-spacing:.3em;text-transform:uppercase;color:var(--corallo);display:block;margin-bottom:10px}
+.event-title{font-family:'DM Serif Display',serif;font-size:clamp(3rem,8vw,6rem);line-height:.9;color:var(--ink);margin-bottom:20px}
+.event-meta{display:flex;align-items:center;gap:20px;flex-wrap:wrap}
+.event-meta-item{display:flex;align-items:center;gap:8px;font-size:.6rem;font-weight:600;letter-spacing:.15em;text-transform:uppercase;color:var(--ink);opacity:.6}
+.event-meta-item .pip{width:8px;height:8px;border-radius:50%;background:var(--corallo)}
+.event-header{margin-bottom:48px}
+.section-divider{border:none;border-top:1px solid rgba(23,32,21,.15);margin:40px 0}
+
+/* SECTION LABEL */
+.media-section-label{font-size:.55rem;font-weight:700;letter-spacing:.3em;text-transform:uppercase;color:var(--ink);opacity:.45;margin-bottom:20px;display:flex;align-items:center;gap:10px}
+.media-section-label .count{background:var(--ink);color:var(--cream);border-radius:20px;padding:2px 9px;font-size:.5rem;opacity:1}
+
+/* GRID */
+.media-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.mi{border:2px solid var(--ink);border-radius:10px;overflow:hidden;box-shadow:3px 3px 0 var(--ink);position:relative;background:rgba(23,32,21,.06)}
+.mi.photo{aspect-ratio:1;cursor:pointer}
+.mi img{width:100%;height:100%;object-fit:cover;display:block;filter:sepia(35%) contrast(1.08) brightness(.9);transition:filter .4s,transform .4s}
+.mi.photo:hover img{filter:sepia(10%) contrast(1.04) brightness(1);transform:scale(1.03)}
+.mi.video{aspect-ratio:16/9;grid-column:span 2;background:var(--ink)}
+.mi.video video{width:100%;height:100%;display:block}
+.video-pill{position:absolute;top:10px;left:10px;background:var(--ink);color:var(--cream);font-size:.5rem;font-weight:700;letter-spacing:.15em;text-transform:uppercase;padding:4px 10px;border-radius:20px;display:flex;align-items:center;gap:5px;z-index:2;pointer-events:none}
+.video-pill::before{content:'▶';font-size:.55rem}
+
+/* STATES */
+.state-box{grid-column:1/-1;padding:60px 30px;text-align:center;border:2px dashed rgba(23,32,21,.2);border-radius:10px}
+.state-box .spinner{width:32px;height:32px;border:3px solid rgba(23,32,21,.15);border-top-color:var(--corallo);border-radius:50%;animation:spin .7s linear infinite;margin:0 auto 16px}
+@keyframes spin{to{transform:rotate(360deg)}}
+.state-box p{font-size:.75rem;letter-spacing:.1em;text-transform:uppercase;font-weight:600;color:var(--ink);opacity:.5}
+.state-box code{display:inline-block;margin-top:8px;font-size:.7rem;background:rgba(23,32,21,.08);padding:4px 10px;border-radius:6px;opacity:1;letter-spacing:0;text-transform:none}
+
+/* LIGHTBOX */
+#lightbox{display:none;position:fixed;inset:0;z-index:8000;background:rgba(23,32,21,.94);align-items:center;justify-content:center}
+#lightbox.open{display:flex}
+#lightbox img{max-width:90vw;max-height:88vh;object-fit:contain;border:3px solid var(--ink);border-radius:8px;user-select:none}
+#lb-close{position:absolute;top:20px;right:24px;font-size:1.5rem;color:var(--cream);cursor:pointer;background:none;border:none;font-family:'Jost',sans-serif;opacity:.65;transition:opacity .2s;line-height:1}
+#lb-close:hover{opacity:1}
+#lb-nav{position:absolute;bottom:28px;left:50%;transform:translateX(-50%);display:flex;gap:10px;align-items:center}
+#lb-counter{font-size:.6rem;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:var(--cream);opacity:.5;min-width:60px;text-align:center}
+#lb-prev,#lb-next{background:var(--cream);border:2px solid var(--ink);color:var(--ink);font-size:.6rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:8px 20px;border-radius:30px;cursor:pointer;box-shadow:3px 3px 0 var(--ink);transition:transform .15s,box-shadow .15s}
+#lb-prev:hover,#lb-next:hover{transform:translateY(-2px);box-shadow:5px 5px 0 var(--ink)}
+
+/* VIDEO FALLBACK */
+.mi.video video .video-unsupported{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;padding:30px;height:100%;color:var(--cream);font-size:.65rem;font-weight:600;letter-spacing:.08em;text-align:center;opacity:.75}
+.video-dl-btn{display:inline-block;margin-top:4px;background:var(--cream);color:var(--ink);font-size:.6rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:10px 22px;border-radius:30px;border:2px solid var(--ink);box-shadow:3px 3px 0 rgba(255,255,255,.25);text-decoration:none;transition:transform .15s,box-shadow .15s}
+.video-dl-btn:hover{transform:translateY(-2px);box-shadow:5px 5px 0 rgba(255,255,255,.25)}
+
+/* FOOTER */
+.page-footer{background:var(--ottanio);color:var(--cream);border:2px solid var(--ink);border-radius:14px;box-shadow:5px 5px 0 var(--ink);margin:0 3% 40px;padding:36px 5%;text-align:center}
+.page-footer a{font-family:'DM Serif Display',serif;font-style:italic;font-size:1.2rem;color:var(--cream);text-decoration:none;opacity:.8}
+.ft-copy{font-size:.55rem;letter-spacing:.15em;text-transform:uppercase;color:rgba(237,224,172,.35);display:block;margin-top:20px;padding-top:16px;border-top:1px solid rgba(237,224,172,.15)}
+
+/* RESPONSIVE */
+@media(max-width:700px){.media-grid{grid-template-columns:repeat(2,1fr)}.mi.video{grid-column:span 2}.page-card{margin:20px 4%;padding:36px 5%}}
+@media(max-width:480px){.media-grid{grid-template-columns:1fr}.mi.video{grid-column:span 1}}
+</style>
+</head>
+<body>
+
+<!-- ─────────────────────────────────────────────────────────────
+  BELLA EVENT CONFIG — edit only these lines, then drop your
+  photos/videos into this folder on GitHub. Everything else
+  is automatic.
+───────────────────────────────────────────────────────────────── -->
+<script>
+var BELLA = {
+  githubUser : 'GabrieleMancini',    // ← your GitHub username
+  githubRepo : 'BELLA',    // ← your repo name
+  folder     : 'archive/park-session',    // ← path to this folder in repo
+
+  name    : 'Park Session',
+  date    : 'May 2025',
+  venue   : 'Manstein Park · Hamburg',
+  artists : 'Ale und Ori',
+};
+</script>
+<!-- ────────────────────────────────────────────────────────────── -->
+
+<nav>
+  <div class="top-bar">
+    <a href="../../index.html" class="back-link">All happenings</a>
+    <a href="../../index.html" class="top-brand">BELLA</a>
+  </div>
+</nav>
+
+<main class="page-card">
+  <div class="event-header">
+    <span class="event-label" id="ev-label"></span>
+    <h1 class="event-title" id="ev-title"></h1>
+    <div class="event-meta" id="ev-meta"></div>
+  </div>
+  <hr class="section-divider">
+  <span class="media-section-label">Photos <span class="count" id="photo-count">…</span></span>
+  <div class="media-grid" id="photo-grid">
+    <div class="state-box"><div class="spinner"></div><p>Loading photos</p></div>
+  </div>
+  <div id="video-section" style="display:none">
+    <hr class="section-divider">
+    <span class="media-section-label">Videos <span class="count" id="video-count">…</span></span>
+    <div class="media-grid" id="video-grid"></div>
+  </div>
+</main>
+
+<footer class="page-footer">
+  <a href="mailto:ciao@bella-afternoon.com">ciao@bella-afternoon.com</a>
+  <span class="ft-copy">© 2026 BELLA — Mediterranean Happenings</span>
+</footer>
+
+<div id="lightbox" role="dialog" aria-modal="true">
+  <button id="lb-close">✕</button>
+  <img id="lb-img" src="" alt="">
+  <div id="lb-nav">
+    <button id="lb-prev">← Prev</button>
+    <span id="lb-counter"></span>
+    <button id="lb-next">Next →</button>
+  </div>
+</div>
+
+<script>
+var IMG_EXT   = ['jpg','jpeg','png','webp','gif','heic','avif'];
+var VIDEO_EXT = ['mp4','webm','m4v'];
+function fileExt(n){ return n.split('.').pop().toLowerCase(); }
+function isImg(n)  { return IMG_EXT.indexOf(fileExt(n))   > -1; }
+function isVid(n)  { return VIDEO_EXT.indexOf(fileExt(n)) > -1; }
+
+// ── fill static header ──────────────────────────────────────────
+document.getElementById('ev-label').textContent = 'Archive · ' + BELLA.date;
+document.getElementById('ev-title').textContent = BELLA.name;
+document.getElementById('ev-meta').innerHTML =
+  meta(BELLA.venue) + meta(BELLA.artists) + '<span class="event-meta-item" id="meta-count"><span class="pip"></span>Loading…</span>';
+document.title = BELLA.name + ' — BELLA Archive';
+
+function meta(t){ return '<span class="event-meta-item"><span class="pip"></span>'+t+'</span>'; }
+
+// ── fade helper ─────────────────────────────────────────────────
+function fadeIn(els){
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if(e.isIntersecting){ e.target.style.opacity='1'; e.target.style.transform='translateY(0)'; io.unobserve(e.target); }
+    });
+  },{threshold:.05});
+  els.forEach(function(el){
+    el.style.cssText += ';opacity:0;transform:translateY(16px);transition:opacity .5s ease,transform .5s ease';
+    io.observe(el);
+  });
+}
+
+// ── lightbox ────────────────────────────────────────────────────
+var lbPhotos=[], lbIdx=0;
+function openLb(i){ lbIdx=i; syncLb(); document.getElementById('lightbox').classList.add('open'); document.body.style.overflow='hidden'; }
+function closeLb(){ document.getElementById('lightbox').classList.remove('open'); document.body.style.overflow=''; }
+function stepLb(d){ lbIdx=(lbIdx+d+lbPhotos.length)%lbPhotos.length; syncLb(); }
+function syncLb(){
+  document.getElementById('lb-img').src = lbPhotos[lbIdx].src;
+  document.getElementById('lb-img').alt = lbPhotos[lbIdx].alt;
+  document.getElementById('lb-counter').textContent = (lbIdx+1)+' / '+lbPhotos.length;
+}
+document.getElementById('lb-close').onclick = closeLb;
+document.getElementById('lb-prev').onclick  = function(){ stepLb(-1); };
+document.getElementById('lb-next').onclick  = function(){ stepLb(1); };
+document.getElementById('lightbox').addEventListener('click', function(e){ if(e.target===this) closeLb(); });
+document.addEventListener('keydown', function(e){
+  if(!document.getElementById('lightbox').classList.contains('open')) return;
+  if(e.key==='Escape') closeLb();
+  if(e.key==='ArrowRight') stepLb(1);
+  if(e.key==='ArrowLeft')  stepLb(-1);
+});
+
+// ── fetch & render ──────────────────────────────────────────────
+var apiUrl = 'https://api.github.com/repos/'+BELLA.githubUser+'/'+BELLA.githubRepo+'/contents/'+BELLA.folder;
+
+fetch(apiUrl, { headers:{ Accept:'application/vnd.github.v3+json' } })
+  .then(function(r){
+    if(!r.ok) return r.json().then(function(b){ throw new Error(b.message || 'HTTP '+r.status); });
+    return r.json();
+  })
+  .then(function(files){
+    files.sort(function(a,b){ return a.name.localeCompare(b.name,undefined,{numeric:true}); });
+    var imgs = files.filter(function(f){ return f.type==='file' && isImg(f.name); });
+    var vids = files.filter(function(f){ return f.type==='file' && isVid(f.name); });
+
+    // photos
+    document.getElementById('photo-count').textContent = imgs.length;
+    var pg = document.getElementById('photo-grid');
+    if(imgs.length===0){
+      pg.innerHTML = '<div class="state-box"><p>No photos in this folder yet</p></div>';
+    } else {
+      pg.innerHTML = '';
+      lbPhotos = imgs.map(function(f){ return { src:f.download_url, alt:f.name }; });
+      imgs.forEach(function(img,i){
+        var d = document.createElement('div');
+        d.className='mi photo';
+        d.innerHTML='<img src="'+img.download_url+'" alt="'+img.name+'" loading="lazy">';
+        d.addEventListener('click', (function(idx){ return function(){ openLb(idx); }; })(i));
+        pg.appendChild(d);
+      });
+      fadeIn(pg.querySelectorAll('.mi'));
+    }
+
+    // videos
+    if(vids.length > 0){
+      document.getElementById('video-section').style.display='';
+      document.getElementById('video-count').textContent = vids.length;
+      var vg = document.getElementById('video-grid');
+      vg.innerHTML='';
+      vids.forEach(function(vid){
+        var d = document.createElement('div');
+        d.className='mi video';
+        var ext = fileExt(vid.name);
+        var mime = ext === 'm4v' ? 'video/mp4' : 'video/' + ext;
+        // media.githubusercontent.com supports byte-range requests needed for video streaming
+        var mediaUrl = 'https://media.githubusercontent.com/media/'+BELLA.githubUser+'/'+BELLA.githubRepo+'/main/'+vid.path;
+        var sources = '<source src="'+mediaUrl+'" type="'+mime+'">';
+        d.innerHTML =
+          '<span class="video-pill">Video</span>' +
+          '<video controls playsinline preload="metadata" style="width:100%;height:100%;display:block">' +
+            sources +
+            // Shown only when no <source> succeeds (browser cannot play)
+            '<p class="video-unsupported">Your browser can\'t play this video inline.<br>' +
+            '<a href="'+vid.download_url+'" download="'+vid.name+'" class="video-dl-btn">⬇ Download to watch</a></p>' +
+          '</video>';
+        vg.appendChild(d);
+      });
+      fadeIn(vg.querySelectorAll('.mi'));
+    }
+
+    // meta count
+    var parts=[];
+    if(imgs.length) parts.push(imgs.length+' photo'+(imgs.length!==1?'s':''));
+    if(vids.length) parts.push(vids.length+' video'+(vids.length!==1?'s':''));
+    document.getElementById('meta-count').innerHTML='<span class="pip"></span>'+(parts.join(' · ')||'No media yet');
+  })
+  .catch(function(err){
+    var isDefault = BELLA.githubUser==='GabrieleMancini' && false; // will show error
+    var isConfig  = BELLA.githubUser.indexOf('YOUR_')===0;
+    document.getElementById('photo-grid').innerHTML =
+      '<div class="state-box"><p style="opacity:1;font-size:.8rem">'+(
+        isConfig
+          ? '⚙️ Open this file and fill in <code>githubUser</code> and <code>githubRepo</code> in the BELLA config block.'
+          : '⚠️ API error: '+err.message+'<br><code>'+apiUrl+'</code>'
+      )+'</p></div>';
+    document.getElementById('meta-count').innerHTML='<span class="pip"></span>—';
+    document.getElementById('photo-count').textContent='!';
+  });
+</script>
+</body>
+</html>
