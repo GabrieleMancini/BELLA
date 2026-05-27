@@ -238,17 +238,23 @@ fetch(apiUrl, { headers:{ Accept:'application/vnd.github.v3+json' } })
         d.className='mi video';
         var ext = fileExt(vid.name);
         var mime = ext === 'm4v' ? 'video/mp4' : 'video/' + ext;
-        // media.githubusercontent.com supports byte-range requests needed for video streaming
+        // Try media.githubusercontent.com first (supports byte-range / streaming)
         var mediaUrl = 'https://media.githubusercontent.com/media/'+BELLA.githubUser+'/'+BELLA.githubRepo+'/main/'+vid.path;
-        var sources = '<source src="'+mediaUrl+'" type="'+mime+'">';
         d.innerHTML =
           '<span class="video-pill">Video</span>' +
           '<video controls playsinline preload="metadata" style="width:100%;height:100%;display:block">' +
-            sources +
-            // Shown only when no <source> succeeds (browser cannot play)
-            '<p class="video-unsupported">Your browser can\'t play this video inline.<br>' +
+            '<source src="'+mediaUrl+'" type="'+mime+'">' +
+            '<p class=\'video-unsupported\'>Your browser can\'t play this video inline.<br>' +
             '<a href="'+vid.download_url+'" download="'+vid.name+'" class="video-dl-btn">⬇ Download to watch</a></p>' +
           '</video>';
+        // Fallback: if media CDN fails (wrong branch, LFS, etc), swap to raw download_url
+        var videoEl = d.querySelector('video');
+        videoEl.addEventListener('error', function() {
+          if (videoEl.dataset.fallback) return;
+          videoEl.dataset.fallback = '1';
+          videoEl.querySelector('source').src = vid.download_url;
+          videoEl.load();
+        }, true);
         vg.appendChild(d);
       });
       fadeIn(vg.querySelectorAll('.mi'));
