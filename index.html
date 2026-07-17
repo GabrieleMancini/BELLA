@@ -65,6 +65,10 @@ nav {
 .nlinks { display: flex; list-style: none; }
 .nlinks a { font-size: .6rem; font-weight: 600; letter-spacing: .15em; text-transform: uppercase; color: var(--ink); text-decoration: none; padding: 0 16px; transition: color .2s; }
 .nlinks a:hover { color: var(--corallo); }
+.nav-right { display: flex; align-items: center; gap: 14px; flex-shrink: 0; }
+.nav-ig { display: flex; align-items: center; justify-content: center; width: 36px; height: 36px; border: 2px solid var(--ink); border-radius: 50%; background: var(--cream); transition: all .2s; box-shadow: 2px 2px 0 var(--ink); flex-shrink: 0; }
+.nav-ig svg { width: 18px; height: 18px; }
+.nav-ig:hover { background: var(--corallo); transform: translate(-2px, -2px); box-shadow: 4px 4px 0 var(--ink); }
 .ncta { background: var(--verde); color: var(--cream); font-size: .6rem; letter-spacing: .15em; text-transform: uppercase; font-weight: 600; padding: 10px 24px; text-decoration: none; border: 2px solid var(--ink); border-radius: 30px; transition: all .2s; box-shadow: 2px 2px 0 var(--ink); flex-shrink: 0; }
 .ncta:hover { background: var(--corallo); color: var(--ink); transform: translate(-2px, -2px); box-shadow: 4px 4px 0 var(--ink); }
 .burger { display: none; background: none; border: none; cursor: pointer; padding: 10px; flex-direction: column; gap: 5px; }
@@ -105,6 +109,11 @@ h1.bella {
   padding: 10px 28px; border-radius: 30px; margin-bottom: 2.5rem; 
   display: inline-flex; align-items: center; justify-content: center; box-shadow: 4px 4px 0 var(--ink);
 }
+.hero-ig { display: inline-flex; align-items: center; gap: 8px; margin-bottom: 2rem; background: var(--cream); border: 2px solid var(--ink); border-radius: 30px; padding: 8px 22px 8px 8px; text-decoration: none; box-shadow: 4px 4px 0 var(--ink); transition: all .2s; }
+.hero-ig:hover { background: var(--corallo); transform: translate(-2px,-2px); box-shadow: 6px 6px 0 var(--ink); }
+.hero-ig-icon { display: flex; align-items: center; justify-content: center; width: 30px; height: 30px; border-radius: 50%; background: var(--ink); flex-shrink: 0; }
+.hero-ig-icon svg { width: 16px; height: 16px; }
+.hero-ig-text { font-size: .65rem; font-weight: 700; letter-spacing: .2em; text-transform: uppercase; color: var(--ink); }
 
 /* ════════ SECTION 2 — THE CONCEPT (3-COLUMN STEPS) ════════ */
 .sound-top { text-align: center; margin-bottom: 60px; }
@@ -336,7 +345,16 @@ footer.retro-card { background: var(--ottanio); color: var(--cream); border-colo
     <li><a href="#roots">Roots</a></li>
     <li><a href="#events">Happenings</a></li>
   </ul>
-  <a href="#events" class="ncta">Next Happening</a>
+  <div class="nav-right">
+    <a href="https://www.instagram.com/bella.hamburgo/" class="nav-ig" target="_blank" rel="noopener" aria-label="BELLA on Instagram">
+      <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect x="2" y="2" width="20" height="20" rx="5" stroke="var(--ink)" stroke-width="2"/>
+        <circle cx="12" cy="12" r="4.2" stroke="var(--ink)" stroke-width="2"/>
+        <circle cx="17.3" cy="6.7" r="1.15" fill="var(--ink)"/>
+      </svg>
+    </a>
+    <a href="#events" class="ncta">Next Happening</a>
+  </div>
 </nav>
 
 <header class="hero">
@@ -385,6 +403,16 @@ footer.retro-card { background: var(--ottanio); color: var(--cream); border-colo
   </div>
   <h1 class="bella">BELLA</h1>
   <p class="hero-sub">Mediterranean happenings · Hamburg</p>
+  <a href="https://www.instagram.com/bella.hamburgo/" class="hero-ig" target="_blank" rel="noopener">
+    <span class="hero-ig-icon">
+      <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect x="2" y="2" width="20" height="20" rx="5" stroke="var(--cream)" stroke-width="2"/>
+        <circle cx="12" cy="12" r="4.2" stroke="var(--cream)" stroke-width="2"/>
+        <circle cx="17.3" cy="6.7" r="1.15" fill="var(--cream)"/>
+      </svg>
+    </span>
+    <span class="hero-ig-text">@bella.hamburgo</span>
+  </a>
 </header>
 
 <section id="abstract" class="retro-card">
@@ -516,6 +544,7 @@ footer.retro-card { background: var(--ottanio); color: var(--cream); border-colo
         <span class="acard-tag">Vinyl Selectors</span>
         <div class="acard-name">Disco Kiosco</div>
         <p class="acard-desc">A deep dig through 70s Mediterranean folk funk and rare groove.</p>
+        <a href="https://www.instagram.com/disco.kiosco/" class="acard-link" target="_blank">@disco.kiosco →</a>
       </div>
     </div>
     <div class="acard">
@@ -524,6 +553,7 @@ footer.retro-card { background: var(--ottanio); color: var(--cream); border-colo
         <span class="acard-tag">Electronic</span>
         <div class="acard-name">GABA</div>
         <p class="acard-desc">Modern Southern electronic. Elevating the energy of our nomadic spaces.</p>
+        <a href="https://www.instagram.com/gabriele_h501/" class="acard-link" target="_blank">@gabriele_h501 →</a>
       </div>
     </div>
   </div>
@@ -706,7 +736,7 @@ footer.retro-card { background: var(--ottanio); color: var(--cream); border-colo
 
 <footer id="contatti" class="retro-card">
   <div class="ft-hl">Want in? <em>Follow us.</em></div>
-  <a href="#" class="ft-social-btn">Join us on Instagram</a>
+  <a href="https://www.instagram.com/bella.hamburgo/" class="ft-social-btn" target="_blank" rel="noopener">Join us on Instagram</a>
   <a href="mailto:info@bellahamburg.com" class="ft-mail">info@bellahamburg.com</a>
   <span class="ft-copy">© 2026 BELLA — Mediterranean Happenings</span>
 </footer>
