@@ -837,33 +837,63 @@ document.querySelectorAll('a[href^="#"]').forEach(function(a){
   });
 });
 
-// ── Auto-load cover image + media count from GitHub for each archive card ──
+// ── Auto-load cover image + media count for each archive card ──
+// One shared request via jsDelivr's Data API (mirrors the whole repo, no
+// per-IP rate limit like api.github.com's 60/hr) instead of a separate
+// GitHub API call per card. jsDelivr can lag ~12h behind a freshly-pushed
+// branch — if new folders/photos don't show up right away, purge at
+// https://www.jsdelivr.com/tools/purge or just wait a bit.
 var GITHUB_USER = 'GabrieleMancini';
 var GITHUB_REPO = 'BELLA';
+var GITHUB_BRANCH = 'main';
 var IMG_EXT = ['jpg','jpeg','png','webp','gif','heic','avif'];
 var VID_EXT = ['mp4','mov','webm','m4v'];
 function fext(n){ return n.split('.').pop().toLowerCase(); }
+function encodePath(path){
+  return path.replace(/^\/+/,'').split('/').map(encodeURIComponent).join('/');
+}
+function cdnUrl(path){
+  return 'https://cdn.jsdelivr.net/gh/' + GITHUB_USER + '/' + GITHUB_REPO + '@' + GITHUB_BRANCH + '/' + encodePath(path);
+}
+function rawUrl(path){
+  return 'https://raw.githubusercontent.com/' + GITHUB_USER + '/' + GITHUB_REPO + '/' + GITHUB_BRANCH + '/' + encodePath(path);
+}
 
-document.querySelectorAll('.event-folder[data-folder]').forEach(function(card) {
-  var folder = card.getAttribute('data-folder');
-  var url = 'https://api.github.com/repos/' + GITHUB_USER + '/' + GITHUB_REPO + '/contents/' + folder;
+var flatUrl = 'https://data.jsdelivr.com/v1/package/gh/' + GITHUB_USER + '/' + GITHUB_REPO + '@' + GITHUB_BRANCH + '/flat';
+var cards = Array.prototype.slice.call(document.querySelectorAll('.event-folder[data-folder]'));
 
-  fetch(url, { headers: { Accept: 'application/vnd.github.v3+json' } })
-    .then(function(r) { return r.ok ? r.json() : Promise.reject(); })
-    .then(function(files) {
+fetch(flatUrl)
+  .then(function(r){ return r.ok ? r.json() : Promise.reject(new Error('HTTP ' + r.status)); })
+  .then(function(data){
+    var allFiles = data.files || [];
+
+    cards.forEach(function(card){
+      var folder = card.getAttribute('data-folder').replace(/^\/+/,'').replace(/\/+$/,'');
+      var prefix = '/' + folder + '/';
+
+      var files = allFiles.filter(function(f){
+        return f.type === 'file' && f.name.indexOf(prefix) === 0 && f.name.slice(prefix.length).indexOf('/') === -1;
+      }).map(function(f){
+        return { name: f.name.slice(prefix.length), fullPath: f.name };
+      });
       files.sort(function(a,b){ return a.name.localeCompare(b.name, undefined, {numeric:true}); });
 
-      var imgs = files.filter(function(f){ return f.type==='file' && IMG_EXT.indexOf(fext(f.name))>-1; });
-      var vids = files.filter(function(f){ return f.type==='file' && VID_EXT.indexOf(fext(f.name))>-1; });
+      var imgs = files.filter(function(f){ return IMG_EXT.indexOf(fext(f.name)) > -1; });
+      var vids = files.filter(function(f){ return VID_EXT.indexOf(fext(f.name)) > -1; });
 
       // set cover from first image in folder
       if (imgs.length > 0) {
         var placeholder = card.querySelector('.cover-placeholder');
         var img = card.querySelector('.cover-img');
-        img.src = imgs[0].download_url;
+        img.src = cdnUrl(imgs[0].fullPath);
         img.style.display = 'block';
         img.onload = function() {
           if (placeholder) placeholder.style.display = 'none';
+        };
+        img.onerror = function(){
+          if (img.dataset.fallback) return;
+          img.dataset.fallback = '1';
+          img.src = rawUrl(imgs[0].fullPath);
         };
       }
 
@@ -873,14 +903,16 @@ document.querySelectorAll('.event-folder[data-folder]').forEach(function(card) {
       if (vids.length) parts.push(vids.length + ' video' + (vids.length !== 1 ? 's' : ''));
       var badge = card.querySelector('.badge-count');
       if (badge) badge.textContent = parts.join(' · ') || 'Empty';
-    })
-    .catch(function() {
+    });
+  })
+  .catch(function(){
+    cards.forEach(function(card){
       var badge = card.querySelector('.badge-count');
       if (badge) badge.textContent = 'No files yet';
       var placeholder = card.querySelector('.cover-placeholder');
       if (placeholder) { placeholder.style.animation = 'none'; placeholder.style.opacity = '.4'; }
     });
-});
+  });
 </script>
 </body>
 </html>
