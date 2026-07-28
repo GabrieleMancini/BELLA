@@ -53,6 +53,7 @@ body::after {
 .tk span { font-size: .65rem; letter-spacing: .25em; text-transform: uppercase; font-weight: 600; color: var(--ink); padding: 0 2.5rem; }
 .tk .d { color: var(--corallo); }
 @keyframes roll { to { transform: translateX(-50%) } }
+
 /* ── FLOATING NAV ── */
 nav {
   position: sticky; top: 15px; z-index: 500; height: 64px; 
@@ -94,9 +95,6 @@ nav {
 }
 .hero-rosone { width: min(240px, 48vw); margin: 0 auto 2rem; }
 
-/* ── Waveform section divider ── */
-.wave-divider { width: 100%; overflow: hidden; line-height: 0; margin: -2px 0; opacity: .18; }
-
 h1.bella {
   font-family: 'Shrikhand', serif; font-weight: 400;
   font-size: clamp(3.2rem, 15vw, 16rem); line-height: .9; letter-spacing: 0.02em;
@@ -115,7 +113,7 @@ h1.bella {
 .hero-ig-icon svg { width: 16px; height: 16px; }
 .hero-ig-text { font-size: .65rem; font-weight: 700; letter-spacing: .2em; text-transform: uppercase; color: var(--ink); }
 
-/* ════════ SECTION 2 — THE CONCEPT (3-COLUMN STEPS) ════════ */
+/* ════════ SECTION 2 — THE CONCEPT ════════ */
 .sound-top { text-align: center; margin-bottom: 60px; }
 .sound-h2 { font-family: 'DM Serif Display', serif; font-size: clamp(2.2rem, 6vw, 5rem); line-height: .95; color: var(--ink); }
 .sound-h2 em { font-style: italic; color: var(--corallo); }
@@ -123,8 +121,6 @@ h1.bella {
 .steps-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 40px; margin-top: 20px; }
 .step-card { position: relative; border-top: 2px solid var(--ink); padding-top: 24px; }
 .step-card::before { content: ''; position: absolute; left: 0; top: -9px; width: 14px; height: 14px; border-radius: 50%; background: var(--corallo); border: 2px solid var(--ink); }
-.step-card:nth-child(2):before { background: var(--corallo); }
-.step-card:nth-child(3):before { background: var(--corallo); }
 .tl-time { font-size: .65rem; font-weight: 700; letter-spacing: .2em; text-transform: uppercase; color: var(--corallo); display: block; margin-bottom: 6px; }
 .tl-title { font-family: 'DM Serif Display', serif; font-size: 1.8rem; color: var(--ink); line-height: 1; margin-bottom: 10px;}
 .tl-desc { font-size: 1.05rem; color: var(--ink); opacity: 0.8; line-height: 1.5; }
@@ -136,8 +132,7 @@ h1.bella {
 .acard { background: var(--cream); border: 2px solid var(--ink); border-radius: 10px; overflow: hidden; box-shadow: 4px 4px 0 var(--ink); transition: transform .3s; }
 .acard:hover { transform: translateY(-4px); }
 .acard-img { position: relative; aspect-ratio: 3/4; border-bottom: 2px solid var(--ink); }
-.acard-img img { width: 100%; height: 100%; object-fit: cover; filter: brightness(0.92) contrast(1.04); transition: filter .5s; }
-.acard:hover .acard-img img { filter: brightness(1) contrast(1); }
+.acard-img img { width: 100%; height: 100%; object-fit: cover; filter: brightness(0.92) contrast(1.04); transition: filter .5s; display: block; }
 .acard-img::after { content: ''; position: absolute; inset: 0; mix-blend-mode: multiply; }
 .acard:nth-child(1) .acard-img::after { background: linear-gradient(to bottom, rgba(58,136,128,.3), transparent); }
 .acard:nth-child(2) .acard-img::after { background: linear-gradient(to bottom, rgba(200,59,26,.25), transparent); }
@@ -159,127 +154,45 @@ h1.bella {
 /* ════════ SECTION 5 — EVENTS & GALLERY ════════ */
 .ev-top { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; margin-bottom: 40px; align-items: start; }
 .ev-h2 { font-family: 'DM Serif Display', serif; font-size: clamp(2.2rem, 6vw, 4rem); line-height: .95; color: var(--ink); }
-
-/* Container for one-or-many upcoming event cards — stacks vertically, wraps cleanly */
 .ev-cards { display: flex; flex-direction: column; gap: 20px; }
-
-.ev-card {
-  --ev-accent: var(--corallo);
-  background: var(--verde);
-  padding: 30px; border: 2px solid var(--ink); border-radius: 8px; box-shadow: 4px 4px 0 var(--ink);
-}
-.ev-sup { font-size: .6rem; font-weight: 700; letter-spacing: .2em; text-transform: uppercase; color: var(--ev-accent); opacity: 1; display: block; margin-bottom: 12px; }
-.ev-date { font-family: 'DM Serif Display', serif; font-size: 4rem; line-height: 1; color: var(--ev-accent); margin-bottom: 4px; }
-.ev-name { font-family: 'DM Serif Display', serif; font-style: italic; font-size: 1.8rem; color: var(--ev-accent); margin-bottom: 8px; }
-.ev-venue { font-size: .6rem; font-weight: 600; text-transform: uppercase; color: var(--ev-accent); opacity: .8; margin-bottom: 10px; display:block; }
-.ev-note { font-family: 'DM Serif Display', serif; font-style: italic; font-size: 1.1rem; color: var(--ev-accent); }
+.ev-card { background: var(--verde); padding: 30px; border: 2px solid var(--ink); border-radius: 8px; box-shadow: 4px 4px 0 var(--ink); }
+.ev-sup { font-size: .6rem; font-weight: 700; letter-spacing: .2em; text-transform: uppercase; color: var(--corallo); display: block; margin-bottom: 12px; }
+.ev-date { font-family: 'DM Serif Display', serif; font-size: 4rem; line-height: 1; color: var(--corallo); margin-bottom: 4px; }
+.ev-name { font-family: 'DM Serif Display', serif; font-style: italic; font-size: 1.8rem; color: var(--corallo); margin-bottom: 8px; }
+.ev-venue { font-size: .6rem; font-weight: 600; text-transform: uppercase; color: var(--corallo); opacity: .8; margin-bottom: 10px; display:block; }
+.ev-note { font-family: 'DM Serif Display', serif; font-style: italic; font-size: 1.1rem; color: var(--corallo); }
 
 .ev-card.ev-card--verde   { background: var(--verde);   --ev-accent: var(--corallo); }
 .ev-card.ev-card--campari { background: var(--campari); --ev-accent: var(--cream); }
-.ev-card.ev-card--ottanio { background: var(--ottanio); --ev-accent: var(--corallo); }
-.ev-card.ev-card--mattone { background: var(--mattone); --ev-accent: var(--ink); }
-.ev-card.ev-card--senape  { background: var(--senape);  --ev-accent: var(--ink); }
-
-.gallery { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; }
-.gi { aspect-ratio: 1; border: 2px solid var(--ink); border-radius: 8px; overflow:hidden;}
-.gi img { width: 100%; height: 100%; object-fit: cover; filter: sepia(40%) contrast(1.1) brightness(0.88); transition: transform .5s; }
-.gi:hover img { transform: scale(1.08); filter: sepia(10%) contrast(1.05) brightness(1); }
 
 /* ── ARCHIVE GRID ── */
-.archive-label {
-  display: flex; align-items: center; gap: 16px; margin-bottom: 24px; margin-top: 48px;
-}
-.archive-label span {
-  font-size: .6rem; font-weight: 700; letter-spacing: .3em; text-transform: uppercase;
-  color: var(--ink); opacity: .45; white-space: nowrap;
-}
-.archive-label::before, .archive-label::after {
-  content: ''; flex: 1; height: 1px; background: var(--ink); opacity: .15;
-}
+.archive-label { display: flex; align-items: center; gap: 16px; margin-bottom: 24px; margin-top: 48px; }
+.archive-label span { font-size: .6rem; font-weight: 700; letter-spacing: .3em; text-transform: uppercase; color: var(--ink); opacity: .45; white-space: nowrap; }
+.archive-label::before, .archive-label::after { content: ''; flex: 1; height: 1px; background: var(--ink); opacity: .15; }
 .archive-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
-.event-folder {
-  display: block; text-decoration: none;
-  border: 2px solid var(--ink); border-radius: 12px; overflow: hidden;
-  box-shadow: 5px 5px 0 var(--ink);
-  transition: transform .25s, box-shadow .25s;
-  background: var(--cream);
-}
+.event-folder { display: block; text-decoration: none; border: 2px solid var(--ink); border-radius: 12px; overflow: hidden; box-shadow: 5px 5px 0 var(--ink); background: var(--cream); transition: transform .25s, box-shadow .25s; }
 .event-folder:hover { transform: translate(-3px,-3px); box-shadow: 8px 8px 0 var(--ink); }
-.event-folder-cover {
-  aspect-ratio: 4/3; background: var(--ottanio);
-  border-bottom: 2px solid var(--ink); overflow: hidden; position: relative;
-}
-.event-folder-cover img {
-  width: 100%; height: 100%; object-fit: cover;
-  filter: sepia(40%) contrast(1.1) brightness(0.85);
-  transition: filter .4s, transform .4s;
-}
-.event-folder:hover .event-folder-cover img {
-  filter: sepia(10%) contrast(1.05) brightness(1); transform: scale(1.04);
-}
-.event-folder-cover-overlay {
-  position: absolute; inset: 0;
-  background: linear-gradient(to top, rgba(23,32,21,.5) 0%, transparent 60%);
-}
-.media-badge {
-  position: absolute; top: 12px; right: 12px;
-  background: var(--ink); color: var(--cream);
-  font-size: .5rem; font-weight: 700; letter-spacing: .12em; text-transform: uppercase;
-  padding: 5px 11px; border-radius: 20px; display: flex; align-items: center; gap: 5px;
-}
+.event-folder-cover { aspect-ratio: 4/3; background: var(--ottanio); border-bottom: 2px solid var(--ink); overflow: hidden; position: relative; }
+.cover-img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; filter: sepia(40%) contrast(1.1) brightness(0.85); transition: filter .4s, transform .4s; display: block; }
+.event-folder:hover .cover-img { filter: sepia(10%) contrast(1.05) brightness(1); transform: scale(1.04); }
+.event-folder-cover-overlay { position: absolute; inset: 0; background: linear-gradient(to top, rgba(23,32,21,.5) 0%, transparent 60%); }
+.media-badge { position: absolute; top: 12px; right: 12px; background: var(--ink); color: var(--cream); font-size: .5rem; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; padding: 5px 11px; border-radius: 20px; display: flex; align-items: center; gap: 5px; z-index: 2; }
 .media-badge .dot { width: 6px; height: 6px; border-radius: 50%; background: var(--corallo); }
 .event-folder-body { padding: 20px 22px 22px; }
-.event-folder-date {
-  font-size: .55rem; font-weight: 700; letter-spacing: .2em; text-transform: uppercase;
-  color: var(--corallo); display: block; margin-bottom: 5px;
-}
-.event-folder-name {
-  font-family: 'DM Serif Display', serif; font-size: 1.65rem; color: var(--ink);
-  line-height: 1.05; margin-bottom: 5px;
-}
-.event-folder-footer {
-  display: flex; align-items: center; justify-content: space-between;
-  margin-top: 14px; padding-top: 12px; border-top: 1px solid rgba(23,32,21,.12);
-}
-.event-folder-venue {
-  font-size: .55rem; text-transform: uppercase; letter-spacing: .15em;
-  color: var(--ink); opacity: .55; font-weight: 600;
-}
-.event-folder-cta {
-  font-size: .55rem; font-weight: 700; letter-spacing: .12em; text-transform: uppercase;
-  color: var(--verde);
-}
-.event-folder:hover .event-folder-cta::after { transform: translateX(3px); }
+.event-folder-date { font-size: .55rem; font-weight: 700; letter-spacing: .2em; text-transform: uppercase; color: var(--corallo); display: block; margin-bottom: 5px; }
+.event-folder-name { font-family: 'DM Serif Display', serif; font-size: 1.65rem; color: var(--ink); line-height: 1.05; margin-bottom: 5px; }
+.event-folder-footer { display: flex; align-items: center; justify-content: space-between; margin-top: 14px; padding-top: 12px; border-top: 1px solid rgba(23,32,21,.12); }
+.event-folder-venue { font-size: .55rem; text-transform: uppercase; letter-spacing: .15em; color: var(--ink); opacity: .55; font-weight: 600; }
+.event-folder-cta { font-size: .55rem; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: var(--verde); }
 .event-folder-cta::after { content: ' →'; display: inline-block; transition: transform .2s; }
 
-/* cover placeholder while loading */
-.cover-placeholder {
-  position: absolute; inset: 0;
-  background: var(--ottanio);
-  display: flex; align-items: center; justify-content: center;
-}
-.cover-placeholder::after {
-  content: '';
-  width: 28px; height: 28px;
-  border: 3px solid rgba(233,225,204,.2);
-  border-top-color: var(--corallo);
-  border-radius: 50%;
-  animation: spin .8s linear infinite;
-}
-@keyframes spin { to { transform: rotate(360deg); } }
-.cover-img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; filter: sepia(40%) contrast(1.1) brightness(0.85); transition: filter .4s, transform .4s; }
-.event-folder:hover .cover-img { filter: sepia(10%) contrast(1.05) brightness(1); transform: scale(1.04); }
-
-/* ════════ FOOTER (INSTAGRAM FOCUS) ════════ */
 footer.retro-card { background: var(--ottanio); color: var(--cream); border-color: var(--ink); margin-bottom: 40px; padding: 60px 5%; text-align:center;}
 .ft-hl { font-family: 'DM Serif Display', serif; font-size: clamp(2.5rem, 6vw, 5rem); line-height: .95; color: var(--cream); margin-bottom: 24px;}
 .ft-hl em { font-style: italic; color: var(--corallo); }
 .ft-social-btn { display:inline-block; background: var(--corallo); color: var(--ink); font-size: .8rem; font-weight: 700; letter-spacing: .15em; text-transform: uppercase; padding: 16px 36px; text-decoration: none; border: 2px solid var(--ink); border-radius: 50px; transition: all .2s; box-shadow: 5px 5px 0 var(--ink); margin-bottom: 40px;}
-.ft-social-btn:hover { background: var(--corallo); color: var(--ink); transform: translate(-2px, -2px); box-shadow: 7px 7px 0 var(--ink); }
 .ft-mail { font-family: 'DM Serif Display', serif; font-style: italic; font-size: 1.4rem; color: var(--cream); text-decoration: none; opacity: 0.8; display:block;}
 .ft-copy { font-size: .55rem; font-weight: 500; letter-spacing: .15em; text-transform: uppercase; color: rgba(237, 224, 172, 0.35); display:block; margin-top: 40px; border-top: 1px solid rgba(237, 224, 172, 0.15); padding-top: 20px;}
 
-/* ── RESPONSIVE MEDIA QUERIES ── */
 @media(max-width:900px){
   nav { margin: 15px 4%; border-radius: 20px; padding: 12px 5%; height: auto; }
   .burger { display: flex; }
@@ -287,27 +200,12 @@ footer.retro-card { background: var(--ottanio); color: var(--cream); border-colo
   .nlinks.open { display: flex; }
   .nlinks a { padding: 14px 5%; width: 100%; font-size: 0.7rem; }
   .ncta { display: none; }
-  
   .retro-card { margin: 20px 4%; padding: 40px 5%; box-shadow: 4px 4px 0 var(--ink); }
-  
   .steps-grid { grid-template-columns: 1fr; gap: 30px; }
   .step-card { border-top: none; border-left: 2px solid var(--ink); padding-top: 0; padding-left: 24px; margin-left: 8px; }
-  .step-card::before { left: -33px; top: 4px; }
-
   .acards { grid-template-columns: 1fr; gap: 20px; }
   .ev-top { grid-template-columns: 1fr; gap: 24px; }
-  .gallery { grid-template-columns: repeat(2, 1fr); gap: 8px; }
   .archive-grid { grid-template-columns: 1fr; gap: 16px; }
-
-  .artists-hd { flex-direction: column; align-items: flex-start; gap: 8px; }
-}
-
-@media(max-width:480px){
-  .retro-card { padding: 30px 5%; margin: 15px 3%; }
-  h1.bella { color: var(--cream); }
-  .hero-sub { padding: 8px 16px; line-height: 1.4; text-align:center;}
-  .ev-card { padding: 24px; }
-  .ft-social-btn { padding: 14px 28px; font-size: .7rem;}
 }
 </style>
 </head>
@@ -323,26 +221,10 @@ footer.retro-card { background: var(--ottanio); color: var(--cream); border-colo
 <nav>
   <a href="#" class="nbrand" style="display:flex;align-items:center;gap:12px;">
     <svg width="36" height="28" viewBox="0 0 56 44" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <path fill="var(--cream)" stroke="var(--ink)" stroke-width="3" stroke-linejoin="round"
-        d="M3 42 L3 20 A25 20 0 0 1 53 20 L53 42 Z"/>
-      <g transform="translate(28,19)">
-        <line x1="0" y1="-16" x2="0" y2="-9" stroke="var(--ink)" stroke-width="1.5" stroke-dasharray="2 3" stroke-linecap="round" transform="rotate(0)"/>
-        <line x1="0" y1="-16" x2="0" y2="-9" stroke="var(--ink)" stroke-width="1.5" stroke-dasharray="2 3" stroke-linecap="round" transform="rotate(30)"/>
-        <line x1="0" y1="-16" x2="0" y2="-9" stroke="var(--ink)" stroke-width="1.5" stroke-dasharray="2 3" stroke-linecap="round" transform="rotate(60)"/>
-        <line x1="0" y1="-16" x2="0" y2="-9" stroke="var(--ink)" stroke-width="1.5" stroke-dasharray="2 3" stroke-linecap="round" transform="rotate(90)"/>
-        <line x1="0" y1="-16" x2="0" y2="-9" stroke="var(--ink)" stroke-width="1.5" stroke-dasharray="2 3" stroke-linecap="round" transform="rotate(120)"/>
-        <line x1="0" y1="-16" x2="0" y2="-9" stroke="var(--ink)" stroke-width="1.5" stroke-dasharray="2 3" stroke-linecap="round" transform="rotate(150)"/>
-        <line x1="0" y1="-16" x2="0" y2="-9" stroke="var(--ink)" stroke-width="1.5" stroke-dasharray="2 3" stroke-linecap="round" transform="rotate(180)"/>
-        <line x1="0" y1="-16" x2="0" y2="-9" stroke="var(--ink)" stroke-width="1.5" stroke-dasharray="2 3" stroke-linecap="round" transform="rotate(210)"/>
-        <line x1="0" y1="-16" x2="0" y2="-9" stroke="var(--ink)" stroke-width="1.5" stroke-dasharray="2 3" stroke-linecap="round" transform="rotate(240)"/>
-        <line x1="0" y1="-16" x2="0" y2="-9" stroke="var(--ink)" stroke-width="1.5" stroke-dasharray="2 3" stroke-linecap="round" transform="rotate(270)"/>
-        <line x1="0" y1="-16" x2="0" y2="-9" stroke="var(--ink)" stroke-width="1.5" stroke-dasharray="2 3" stroke-linecap="round" transform="rotate(300)"/>
-        <line x1="0" y1="-16" x2="0" y2="-9" stroke="var(--ink)" stroke-width="1.5" stroke-dasharray="2 3" stroke-linecap="round" transform="rotate(330)"/>
-      </g>
+      <path fill="var(--cream)" stroke="var(--ink)" stroke-width="3" stroke-linejoin="round" d="M3 42 L3 20 A25 20 0 0 1 53 20 L53 42 Z"/>
       <circle cx="28" cy="19" r="7.5" fill="var(--senape)" stroke="var(--ink)" stroke-width="2"/>
       <circle cx="28" cy="19" r="4"   fill="var(--corallo)"/>
-      <path d="M9 32 Q16 28 22 32 Q28 36 34 32 Q40 28 47 32"
-        fill="none" stroke="var(--ink)" stroke-width="2.5" stroke-linecap="round"/>
+      <path d="M9 32 Q16 28 22 32 Q28 36 34 32 Q40 28 47 32" fill="none" stroke="var(--ink)" stroke-width="2.5" stroke-linecap="round"/>
     </svg>
     <span>BELLA</span>
   </a>
@@ -356,7 +238,7 @@ footer.retro-card { background: var(--ottanio); color: var(--cream); border-colo
     <li><a href="#events">Happenings</a></li>
   </ul>
   <div class="nav-right">
-    <a href="https://www.instagram.com/bella.hamburgo/" class="nav-ig" target="_blank" rel="noopener" aria-label="BELLA on Instagram">
+    <a href="https://www.instagram.com/bella.hamburgo/" class="nav-ig" target="_blank" rel="noopener">
       <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
         <rect x="2" y="2" width="20" height="20" rx="5" stroke="var(--ink)" stroke-width="2"/>
         <circle cx="12" cy="12" r="4.2" stroke="var(--ink)" stroke-width="2"/>
@@ -370,35 +252,12 @@ footer.retro-card { background: var(--ottanio); color: var(--cream); border-colo
 <header class="hero">
   <div class="hero-rosone">
     <svg viewBox="0 0 160 130" xmlns="http://www.w3.org/2000/svg">
-      <path fill="var(--cream)" stroke="var(--ink)" stroke-width="4.5" stroke-linejoin="round"
-        d="M8 126 L8 60 A72 58 0 0 1 152 60 L152 126 Z"/>
-      <g transform="translate(80,58)">
-        <line x1="0" y1="-50" x2="0" y2="-26"   stroke="var(--ink)" stroke-width="2.5" stroke-dasharray="3 4" stroke-linecap="round" transform="rotate(0)"/>
-        <line x1="0" y1="-50" x2="0" y2="-26"   stroke="var(--ink)" stroke-width="2.5" stroke-dasharray="3 4" stroke-linecap="round" transform="rotate(20)"/>
-        <line x1="0" y1="-50" x2="0" y2="-26"   stroke="var(--ink)" stroke-width="2.5" stroke-dasharray="3 4" stroke-linecap="round" transform="rotate(40)"/>
-        <line x1="0" y1="-50" x2="0" y2="-26"   stroke="var(--ink)" stroke-width="2.5" stroke-dasharray="3 4" stroke-linecap="round" transform="rotate(60)"/>
-        <line x1="0" y1="-50" x2="0" y2="-26"   stroke="var(--ink)" stroke-width="2.5" stroke-dasharray="3 4" stroke-linecap="round" transform="rotate(80)"/>
-        <line x1="0" y1="-50" x2="0" y2="-26"   stroke="var(--ink)" stroke-width="2.5" stroke-dasharray="3 4" stroke-linecap="round" transform="rotate(100)"/>
-        <line x1="0" y1="-50" x2="0" y2="-26"   stroke="var(--ink)" stroke-width="2.5" stroke-dasharray="3 4" stroke-linecap="round" transform="rotate(120)"/>
-        <line x1="0" y1="-50" x2="0" y2="-26"   stroke="var(--ink)" stroke-width="2.5" stroke-dasharray="3 4" stroke-linecap="round" transform="rotate(140)"/>
-        <line x1="0" y1="-50" x2="0" y2="-26"   stroke="var(--ink)" stroke-width="2.5" stroke-dasharray="3 4" stroke-linecap="round" transform="rotate(160)"/>
-        <line x1="0" y1="-50" x2="0" y2="-26"   stroke="var(--ink)" stroke-width="2.5" stroke-dasharray="3 4" stroke-linecap="round" transform="rotate(180)"/>
-        <line x1="0" y1="-50" x2="0" y2="-26"   stroke="var(--ink)" stroke-width="2.5" stroke-dasharray="3 4" stroke-linecap="round" transform="rotate(200)"/>
-        <line x1="0" y1="-50" x2="0" y2="-26"   stroke="var(--ink)" stroke-width="2.5" stroke-dasharray="3 4" stroke-linecap="round" transform="rotate(220)"/>
-        <line x1="0" y1="-50" x2="0" y2="-26"   stroke="var(--ink)" stroke-width="2.5" stroke-dasharray="3 4" stroke-linecap="round" transform="rotate(240)"/>
-        <line x1="0" y1="-50" x2="0" y2="-26"   stroke="var(--ink)" stroke-width="2.5" stroke-dasharray="3 4" stroke-linecap="round" transform="rotate(260)"/>
-        <line x1="0" y1="-50" x2="0" y2="-26"   stroke="var(--ink)" stroke-width="2.5" stroke-dasharray="3 4" stroke-linecap="round" transform="rotate(280)"/>
-        <line x1="0" y1="-50" x2="0" y2="-26"   stroke="var(--ink)" stroke-width="2.5" stroke-dasharray="3 4" stroke-linecap="round" transform="rotate(300)"/>
-        <line x1="0" y1="-50" x2="0" y2="-26"   stroke="var(--ink)" stroke-width="2.5" stroke-dasharray="3 4" stroke-linecap="round" transform="rotate(320)"/>
-        <line x1="0" y1="-50" x2="0" y2="-26"   stroke="var(--ink)" stroke-width="2.5" stroke-dasharray="3 4" stroke-linecap="round" transform="rotate(340)"/>
-      </g>
+      <path fill="var(--cream)" stroke="var(--ink)" stroke-width="4.5" stroke-linejoin="round" d="M8 126 L8 60 A72 58 0 0 1 152 60 L152 126 Z"/>
       <circle cx="80" cy="58" r="22" fill="var(--senape)" stroke="var(--ink)" stroke-width="3"/>
       <circle cx="80" cy="58" r="14" fill="var(--corallo)"/>
       <circle cx="80" cy="58" r="4"  fill="var(--ink)"/>
-      <path d="M18 94 Q30 87 42 94 Q54 101 66 94 Q78 87 90 94 Q102 101 114 94 Q126 87 142 94"
-        fill="none" stroke="var(--ink)" stroke-width="3.5" stroke-linecap="round"/>
-      <path d="M12 112 Q26 105 38 112 Q50 119 62 112 Q74 105 86 112 Q98 119 110 112 Q122 105 148 112"
-        fill="none" stroke="var(--ink)" stroke-width="3.5" stroke-linecap="round"/>
+      <path d="M18 94 Q30 87 42 94 Q54 101 66 94 Q78 87 90 94 Q102 101 114 94 Q126 87 142 94" fill="none" stroke="var(--ink)" stroke-width="3.5" stroke-linecap="round"/>
+      <path d="M12 112 Q26 105 38 112 Q50 119 62 112 Q74 105 86 112 Q98 119 110 112 Q122 105 148 112" fill="none" stroke="var(--ink)" stroke-width="3.5" stroke-linecap="round"/>
     </svg>
   </div>
   <h1 class="bella">BELLA</h1>
@@ -416,106 +275,24 @@ footer.retro-card { background: var(--ottanio); color: var(--cream); border-colo
 </header>
 
 <section id="abstract" class="retro-card">
-  <div style="margin-bottom:2rem; opacity:.35;">
-    <svg viewBox="0 0 600 60" preserveAspectRatio="none" style="width:100%;height:40px;" xmlns="http://www.w3.org/2000/svg">
-      <g fill="var(--ink)">
-        <rect x="0"   width="4" height="12" y="24" rx="2"/>
-        <rect x="8"   width="4" height="28" y="16" rx="2"/>
-        <rect x="16"  width="4" height="44" y="8"  rx="2"/>
-        <rect x="24"  width="4" height="36" y="12" rx="2"/>
-        <rect x="32"  width="4" height="52" y="4"  rx="2"/>
-        <rect x="40"  width="4" height="40" y="10" rx="2"/>
-        <rect x="48"  width="4" height="24" y="18" rx="2"/>
-        <rect x="56"  width="4" height="48" y="6"  rx="2"/>
-        <rect x="64"  width="4" height="32" y="14" rx="2"/>
-        <rect x="72"  width="4" height="56" y="2"  rx="2"/>
-        <rect x="80"  width="4" height="38" y="11" rx="2"/>
-        <rect x="88"  width="4" height="20" y="20" rx="2"/>
-        <rect x="96"  width="4" height="44" y="8"  rx="2"/>
-        <rect x="104" width="4" height="30" y="15" rx="2"/>
-        <rect x="112" width="4" height="50" y="5"  rx="2"/>
-        <rect x="120" width="4" height="34" y="13" rx="2"/>
-        <rect x="128" width="4" height="16" y="22" rx="2"/>
-        <rect x="136" width="4" height="42" y="9"  rx="2"/>
-        <rect x="144" width="4" height="54" y="3"  rx="2"/>
-        <rect x="152" width="4" height="28" y="16" rx="2"/>
-        <rect x="160" width="4" height="46" y="7"  rx="2"/>
-        <rect x="168" width="4" height="36" y="12" rx="2"/>
-        <rect x="176" width="4" height="58" y="1"  rx="2"/>
-        <rect x="184" width="4" height="22" y="19" rx="2"/>
-        <rect x="192" width="4" height="40" y="10" rx="2"/>
-        <rect x="200" width="4" height="52" y="4"  rx="2"/>
-        <rect x="208" width="4" height="18" y="21" rx="2"/>
-        <rect x="216" width="4" height="44" y="8"  rx="2"/>
-        <rect x="224" width="4" height="60" y="0"  rx="2"/>
-        <rect x="232" width="4" height="32" y="14" rx="2"/>
-        <rect x="240" width="4" height="48" y="6"  rx="2"/>
-        <rect x="248" width="4" height="24" y="18" rx="2"/>
-        <rect x="256" width="4" height="56" y="2"  rx="2"/>
-        <rect x="264" width="4" height="38" y="11" rx="2"/>
-        <rect x="272" width="4" height="44" y="8"  rx="2"/>
-        <rect x="280" width="4" height="20" y="20" rx="2"/>
-        <rect x="288" width="4" height="50" y="5"  rx="2"/>
-        <rect x="296" width="4" height="34" y="13" rx="2"/>
-        <rect x="304" width="4" height="58" y="1"  rx="2"/>
-        <rect x="312" width="4" height="28" y="16" rx="2"/>
-        <rect x="320" width="4" height="42" y="9"  rx="2"/>
-        <rect x="328" width="4" height="54" y="3"  rx="2"/>
-        <rect x="336" width="4" height="16" y="22" rx="2"/>
-        <rect x="344" width="4" height="46" y="7"  rx="2"/>
-        <rect x="352" width="4" height="36" y="12" rx="2"/>
-        <rect x="360" width="4" height="60" y="0"  rx="2"/>
-        <rect x="368" width="4" height="22" y="19" rx="2"/>
-        <rect x="376" width="4" height="40" y="10" rx="2"/>
-        <rect x="384" width="4" height="52" y="4"  rx="2"/>
-        <rect x="392" width="4" height="30" y="15" rx="2"/>
-        <rect x="400" width="4" height="48" y="6"  rx="2"/>
-        <rect x="408" width="4" height="18" y="21" rx="2"/>
-        <rect x="416" width="4" height="56" y="2"  rx="2"/>
-        <rect x="424" width="4" height="34" y="13" rx="2"/>
-        <rect x="432" width="4" height="44" y="8"  rx="2"/>
-        <rect x="440" width="4" height="24" y="18" rx="2"/>
-        <rect x="448" width="4" height="50" y="5"  rx="2"/>
-        <rect x="456" width="4" height="38" y="11" rx="2"/>
-        <rect x="464" width="4" height="58" y="1"  rx="2"/>
-        <rect x="472" width="4" height="20" y="20" rx="2"/>
-        <rect x="480" width="4" height="46" y="7"  rx="2"/>
-        <rect x="488" width="4" height="32" y="14" rx="2"/>
-        <rect x="496" width="4" height="54" y="3"  rx="2"/>
-        <rect x="504" width="4" height="28" y="16" rx="2"/>
-        <rect x="512" width="4" height="42" y="9"  rx="2"/>
-        <rect x="520" width="4" height="16" y="22" rx="2"/>
-        <rect x="528" width="4" height="48" y="6"  rx="2"/>
-        <rect x="536" width="4" height="36" y="12" rx="2"/>
-        <rect x="544" width="4" height="52" y="4"  rx="2"/>
-        <rect x="552" width="4" height="22" y="19" rx="2"/>
-        <rect x="560" width="4" height="44" y="8"  rx="2"/>
-        <rect x="568" width="4" height="30" y="15" rx="2"/>
-        <rect x="576" width="4" height="56" y="2"  rx="2"/>
-        <rect x="584" width="4" height="18" y="21" rx="2"/>
-        <rect x="592" width="4" height="40" y="10" rx="2"/>
-      </g>
-    </svg>
-  </div>
   <div class="sound-top">
     <h2 class="sound-h2">Nomadic spaces.<br><em>Mediterranean soul.</em></h2>
   </div>
-  
   <div class="steps-grid">
     <div class="step-card">
       <span class="tl-time">Step 01 · The Arrival</span>
       <div class="tl-title">The Space</div>
-      <p class="tl-desc">We pop up in shifting locations across Hamburg—from local cafés and corner kiosks to neighborhood wine shops and food stores. A new canvas for our Mediterranean mood.</p>
+      <p class="tl-desc">We pop up in shifting locations across Hamburg—from local cafés and corner kiosks to neighborhood wine shops and food stores.</p>
     </div>
     <div class="step-card">
       <span class="tl-time">Step 02 · The Gathering</span>
       <div class="tl-title">The Atmosphere</div>
-      <p class="tl-desc">The room fills slowly as we settle in. The space transforms as our acoustic rhythms begin, blending the unique character of the venue with our unmistakable Southern warmth.</p>
+      <p class="tl-desc">The room fills slowly as we settle in. The space transforms as our acoustic rhythms begin, blending unique venue character with Southern warmth.</p>
     </div>
     <div class="step-card">
       <span class="tl-time">Step 03 · The Climax</span>
       <div class="tl-title">The Groove</div>
-      <p class="tl-desc">Deep cuts, electronic heat, and rare funk. An intimate, connected crescendo entirely shaped by the energy of the room.</p>
+      <p class="tl-desc">Deep cuts, electronic heat, and rare funk. An intimate, connected crescendo entirely shaped by the room's energy.</p>
     </div>
   </div>
 </section>
@@ -529,7 +306,7 @@ footer.retro-card { background: var(--ottanio); color: var(--cream); border-colo
   </div>
   <div class="acards">
     <div class="acard">
-      <div class="acard-img"><img src="./ale_und_ori.jpeg" alt="Ale und Ori" loading="lazy"></div>
+      <div class="acard-img"><img src="./ale_und_ori.jpeg" alt="Ale und Ori"></div>
       <div class="acard-body">
         <span class="acard-tag">Acoustic · Vocals</span>
         <div class="acard-name">Ale und Ori</div>
@@ -538,7 +315,7 @@ footer.retro-card { background: var(--ottanio); color: var(--cream); border-colo
       </div>
     </div>
     <div class="acard">
-      <div class="acard-img"><img src="./disco_kiosco.jpeg" alt="Disco Kiosco" loading="lazy"></div>
+      <div class="acard-img"><img src="./disco_kiosco.jpeg" alt="Disco Kiosco"></div>
       <div class="acard-body">
         <span class="acard-tag">Vinyl Selectors</span>
         <div class="acard-name">Disco Kiosco</div>
@@ -547,7 +324,7 @@ footer.retro-card { background: var(--ottanio); color: var(--cream); border-colo
       </div>
     </div>
     <div class="acard">
-      <div class="acard-img"><img src="./gab.jpeg" alt="GABS" loading="lazy"></div>
+      <div class="acard-img"><img src="./gab.jpeg" alt="GABS"></div>
       <div class="acard-body">
         <span class="acard-tag">Electronic</span>
         <div class="acard-name">GABS</div>
@@ -600,16 +377,15 @@ footer.retro-card { background: var(--ottanio); color: var(--cream); border-colo
       </div>
     </div>
   </div>
-  <!-- ARCHIVE -->
+
   <div class="archive-label"><span>Past Happenings</span></div>
   <div class="archive-grid">
 
     <a href="./archive/Salotto_2/" class="event-folder" data-folder="archive/Salotto_2">
       <div class="event-folder-cover">
-        <div class="cover-placeholder"></div>
-        <img class="cover-img" alt="Funk Solotto Cafe'">
+        <img class="cover-img" src="./archive/Salotto_2/1.jpg" alt="Funk Solotto Cafe'" onerror="this.src='./archive/Salotto_2/1.jpeg'">
         <div class="event-folder-cover-overlay"></div>
-        <span class="media-badge"><span class="dot"></span><span class="badge-count">…</span></span>
+        <span class="media-badge"><span class="dot"></span><span class="badge-count">Archive</span></span>
       </div>
       <div class="event-folder-body">
         <span class="event-folder-date">Jul 2026</span>
@@ -623,10 +399,9 @@ footer.retro-card { background: var(--ottanio); color: var(--cream); border-colo
 
     <a href="./archive/Viani_Big/" class="event-folder" data-folder="archive/Viani_Big">
       <div class="event-folder-cover">
-        <div class="cover-placeholder"></div>
-        <img class="cover-img" alt="Italian Aperitivo">
+        <img class="cover-img" src="./archive/Viani_Big/1.jpg" alt="Italian Aperitivo" onerror="this.src='./archive/Viani_Big/1.jpeg'">
         <div class="event-folder-cover-overlay"></div>
-        <span class="media-badge"><span class="dot"></span><span class="badge-count">…</span></span>
+        <span class="media-badge"><span class="dot"></span><span class="badge-count">Archive</span></span>
       </div>
       <div class="event-folder-body">
         <span class="event-folder-date">Jul 2026</span>
@@ -637,13 +412,12 @@ footer.retro-card { background: var(--ottanio); color: var(--cream); border-colo
         </div>
       </div>
     </a>
-    
+
     <a href="./archive/Viani/" class="event-folder" data-folder="archive/Viani">
       <div class="event-folder-cover">
-        <div class="cover-placeholder"></div>
-        <img class="cover-img" alt="Viani Pop-up">
+        <img class="cover-img" src="./archive/Viani/1.jpg" alt="Viani Pop-up" onerror="this.src='./archive/Viani/1.jpeg'">
         <div class="event-folder-cover-overlay"></div>
-        <span class="media-badge"><span class="dot"></span><span class="badge-count">…</span></span>
+        <span class="media-badge"><span class="dot"></span><span class="badge-count">Archive</span></span>
       </div>
       <div class="event-folder-body">
         <span class="event-folder-date">Jun 2026</span>
@@ -654,13 +428,12 @@ footer.retro-card { background: var(--ottanio); color: var(--cream); border-colo
         </div>
       </div>
     </a>
-    
+
     <a href="./archive/salotto-cafe/" class="event-folder" data-folder="archive/salotto-cafe">
       <div class="event-folder-cover">
-        <div class="cover-placeholder"></div>
-        <img class="cover-img" alt="Salotto Café Dj-set">
+        <img class="cover-img" src="./archive/salotto-cafe/1.jpg" alt="Salotto Café Dj-set" onerror="this.src='./archive/salotto-cafe/1.jpeg'">
         <div class="event-folder-cover-overlay"></div>
-        <span class="media-badge"><span class="dot"></span><span class="badge-count">…</span></span>
+        <span class="media-badge"><span class="dot"></span><span class="badge-count">Archive</span></span>
       </div>
       <div class="event-folder-body">
         <span class="event-folder-date">May 2026</span>
@@ -674,10 +447,9 @@ footer.retro-card { background: var(--ottanio); color: var(--cream); border-colo
 
     <a href="./archive/park-session/" class="event-folder" data-folder="archive/park-session">
       <div class="event-folder-cover">
-        <div class="cover-placeholder"></div>
-        <img class="cover-img" alt="Park Session">
+        <img class="cover-img" src="./archive/park-session/1.jpg" alt="Park Session" onerror="this.src='./archive/park-session/1.jpeg'">
         <div class="event-folder-cover-overlay"></div>
-        <span class="media-badge"><span class="dot"></span><span class="badge-count">…</span></span>
+        <span class="media-badge"><span class="dot"></span><span class="badge-count">Archive</span></span>
       </div>
       <div class="event-folder-body">
         <span class="event-folder-date">Mar 2026</span>
@@ -691,10 +463,9 @@ footer.retro-card { background: var(--ottanio); color: var(--cream); border-colo
 
     <a href="./archive/Cotton-Club/" class="event-folder" data-folder="archive/Cotton-Club">
       <div class="event-folder-cover">
-        <div class="cover-placeholder"></div>
-        <img class="cover-img" alt="Cotton-Club">
+        <img class="cover-img" src="./archive/Cotton-Club/1.jpg" alt="Cotton-Club" onerror="this.src='./archive/Cotton-Club/1.jpeg'">
         <div class="event-folder-cover-overlay"></div>
-        <span class="media-badge"><span class="dot"></span><span class="badge-count">…</span></span>
+        <span class="media-badge"><span class="dot"></span><span class="badge-count">Archive</span></span>
       </div>
       <div class="event-folder-body">
         <span class="event-folder-date">Mar 2025</span>
@@ -708,10 +479,9 @@ footer.retro-card { background: var(--ottanio); color: var(--cream); border-colo
 
     <a href="./archive/St-Pauli Museum/" class="event-folder" data-folder="archive/St-Pauli Museum">
       <div class="event-folder-cover">
-        <div class="cover-placeholder"></div>
-        <img class="cover-img" alt="St-Pauli Museum">
+        <img class="cover-img" src="./archive/St-Pauli Museum/1.jpg" alt="St-Pauli Museum" onerror="this.src='./archive/St-Pauli Museum/1.jpeg'">
         <div class="event-folder-cover-overlay"></div>
-        <span class="media-badge"><span class="dot"></span><span class="badge-count">…</span></span>
+        <span class="media-badge"><span class="dot"></span><span class="badge-count">Archive</span></span>
       </div>
       <div class="event-folder-body">
         <span class="event-folder-date">Jul 2024</span>
@@ -725,10 +495,9 @@ footer.retro-card { background: var(--ottanio); color: var(--cream); border-colo
 
     <a href="./archive/Bar_italia/" class="event-folder" data-folder="archive/Bar_italia">
       <div class="event-folder-cover">
-        <div class="cover-placeholder"></div>
-        <img class="cover-img" alt="Bar_italia">
+        <img class="cover-img" src="./archive/Bar_italia/1.jpg" alt="Bar Italia" onerror="this.src='./archive/Bar_italia/1.jpeg'">
         <div class="event-folder-cover-overlay"></div>
-        <span class="media-badge"><span class="dot"></span><span class="badge-count">…</span></span>
+        <span class="media-badge"><span class="dot"></span><span class="badge-count">Archive</span></span>
       </div>
       <div class="event-folder-body">
         <span class="event-folder-date">Feb 2025</span>
@@ -742,10 +511,9 @@ footer.retro-card { background: var(--ottanio); color: var(--cream); border-colo
 
     <a href="./archive/Salotto-cafe-concert/" class="event-folder" data-folder="archive/Salotto-cafe-concert">
       <div class="event-folder-cover">
-        <div class="cover-placeholder"></div>
-        <img class="cover-img" alt="Salotto Café Concert">
+        <img class="cover-img" src="./archive/Salotto-cafe-concert/1.jpg" alt="Salotto Café Concert" onerror="this.src='./archive/Salotto-cafe-concert/1.jpeg'">
         <div class="event-folder-cover-overlay"></div>
-        <span class="media-badge"><span class="dot"></span><span class="badge-count">…</span></span>
+        <span class="media-badge"><span class="dot"></span><span class="badge-count">Archive</span></span>
       </div>
       <div class="event-folder-body">
         <span class="event-folder-date">Apr 2026</span>
@@ -756,13 +524,12 @@ footer.retro-card { background: var(--ottanio); color: var(--cream); border-colo
         </div>
       </div>
     </a>
-    
+
     <a href="./archive/Baradona/" class="event-folder" data-folder="archive/Baradona">
       <div class="event-folder-cover">
-        <div class="cover-placeholder"></div>
-        <img class="cover-img" alt="Baradona">
+        <img class="cover-img" src="./archive/Baradona/1.jpg" alt="Baradona" onerror="this.src='./archive/Baradona/1.jpeg'">
         <div class="event-folder-cover-overlay"></div>
-        <span class="media-badge"><span class="dot"></span><span class="badge-count">…</span></span>
+        <span class="media-badge"><span class="dot"></span><span class="badge-count">Archive</span></span>
       </div>
       <div class="event-folder-body">
         <span class="event-folder-date">Feb 2024</span>
@@ -773,7 +540,7 @@ footer.retro-card { background: var(--ottanio); color: var(--cream); border-colo
         </div>
       </div>
     </a>
-    
+
   </div>
 </section>
 
@@ -785,122 +552,28 @@ footer.retro-card { background: var(--ottanio); color: var(--cream); border-colo
 </footer>
 
 <script>
-var obs = new IntersectionObserver(function(entries){
-  entries.forEach(function(e){
-    if(e.isIntersecting){
-      e.target.style.opacity = '1';
-      e.target.style.transform = 'translateY(0)';
-    }
-  });
-}, {threshold: .05});
-document.querySelectorAll('.retro-card, .acard, .step-card, .event-folder').forEach(function(el){
-  el.style.opacity = '0';
-  el.style.transform = 'translateY(20px)';
-  el.style.transition = 'opacity .6s ease, transform .6s ease';
-  obs.observe(el);
-});
-
-document.querySelectorAll('a[href^="#"]').forEach(function(a){
-  a.addEventListener('click', function(e){
-    var t = document.querySelector(this.getAttribute('href'));
-    if(t){ e.preventDefault(); t.scrollIntoView({behavior:'smooth'}); }
-    document.querySelector('.nlinks').classList.remove('open');
-    document.querySelector('.burger').classList.remove('open');
-  });
-});
-
+// Non-blocking background script: fetches count badges without delaying image load
 var GITHUB_USER = 'GabrieleMancini';
 var GITHUB_REPO = 'BELLA';
 var GITHUB_BRANCH = 'main';
-var TREE_CACHE_TTL_MS = 10 * 60 * 1000;
-var IMG_EXT = ['jpg','jpeg','png','webp','gif','heic','avif'];
-var VID_EXT = ['mp4','mov','webm','m4v'];
-function fext(n){ return n.split('.').pop().toLowerCase(); }
-function encodePath(path){
-  return path.replace(/^\/+/,'').split('/').map(encodeURIComponent).join('/');
-}
-function rawUrl(path){
-  return 'https://raw.githubusercontent.com/' + GITHUB_USER + '/' + GITHUB_REPO + '/' + GITHUB_BRANCH + '/' + encodePath(path);
-}
+var IMG_EXT = ['jpg','jpeg','png','webp'];
 
-function fetchRepoTree(){
-  var cacheKey = 'bella_tree_' + GITHUB_USER + '_' + GITHUB_REPO + '_' + GITHUB_BRANCH;
-  try {
-    var cached = JSON.parse(sessionStorage.getItem(cacheKey));
-    if (cached && (Date.now() - cached.t) < TREE_CACHE_TTL_MS && Array.isArray(cached.tree)) {
-      return Promise.resolve(cached.tree);
-    }
-  } catch(e) {}
-
-  var url = 'https://api.github.com/repos/' + GITHUB_USER + '/' + GITHUB_REPO + '/git/trees/' + encodeURIComponent(GITHUB_BRANCH) + '?recursive=1';
-  return fetch(url, { headers: { Accept: 'application/vnd.github+json' } })
-    .then(function(r){
-      if(!r.ok) throw new Error('API Rate Limited or HTTP ' + r.status);
-      return r.json();
-    })
-    .then(function(data){
-      var tree = (data.tree || []).filter(function(n){ return n.type === 'blob'; });
-      try { sessionStorage.setItem(cacheKey, JSON.stringify({ t: Date.now(), tree: tree })); } catch(e) {}
-      return tree;
-    });
-}
-
-var cards = Array.prototype.slice.call(document.querySelectorAll('.event-folder[data-folder]'));
-
-fetchRepoTree()
-  .then(function(tree){
-    cards.forEach(function(card){
-      var folder = decodeURIComponent(card.getAttribute('data-folder')).replace(/^\/+/,'').replace(/\/+$/,'').toLowerCase();
-
-      var files = tree.filter(function(n){
-        var nPath = n.path.toLowerCase();
-        var prefix = folder + '/';
-        return nPath.indexOf(prefix) === 0 && nPath.slice(prefix.length).indexOf('/') === -1;
-      }).map(function(n){
-        return { name: n.path.split('/').pop(), fullPath: n.path };
+fetch('https://api.github.com/repos/' + GITHUB_USER + '/' + GITHUB_REPO + '/git/trees/' + GITHUB_BRANCH + '?recursive=1')
+  .then(function(r) { return r.ok ? r.json() : Promise.reject(); })
+  .then(function(data) {
+    var tree = data.tree || [];
+    document.querySelectorAll('.event-folder[data-folder]').forEach(function(card) {
+      var folder = card.getAttribute('data-folder').toLowerCase() + '/';
+      var imgs = tree.filter(function(n) {
+        return n.path.toLowerCase().indexOf(folder) === 0 && IMG_EXT.indexOf(n.path.split('.').pop().toLowerCase()) > -1;
       });
-      files.sort(function(a,b){ return a.name.localeCompare(b.name, undefined, {numeric:true}); });
-
-      var imgs = files.filter(function(f){ return IMG_EXT.indexOf(fext(f.name)) > -1; });
-      var vids = files.filter(function(f){ return VID_EXT.indexOf(fext(f.name)) > -1; });
-
-      if (imgs.length > 0) {
-        var placeholder = card.querySelector('.cover-placeholder');
-        var img = card.querySelector('.cover-img');
-        img.src = rawUrl(imgs[0].fullPath);
-        img.style.display = 'block';
-        img.onload = function() {
-          if (placeholder) placeholder.style.display = 'none';
-        };
+      if (imgs.length) {
+        card.querySelector('.badge-count').textContent = imgs.length + ' photos';
       }
-
-      var parts = [];
-      if (imgs.length) parts.push(imgs.length + ' photo' + (imgs.length !== 1 ? 's' : ''));
-      if (vids.length) parts.push(vids.length + ' video' + (vids.length !== 1 ? 's' : ''));
-      var badge = card.querySelector('.badge-count');
-      if (badge) badge.textContent = parts.join(' · ') || 'Empty';
     });
   })
-  .catch(function(err){
-    console.warn("GitHub API rate limit hit. Falling back to direct raw image fetching:", err);
-    cards.forEach(function(card){
-      var folder = card.getAttribute('data-folder');
-      var placeholder = card.querySelector('.cover-placeholder');
-      var img = card.querySelector('.cover-img');
-      var badge = card.querySelector('.badge-count');
-      
-      if (badge) badge.textContent = 'Archive';
-      
-      img.src = rawUrl(folder + '/1.jpg');
-      img.style.display = 'block';
-      img.onload = function() {
-        if (placeholder) placeholder.style.display = 'none';
-      };
-      img.onerror = function() {
-        img.src = rawUrl(folder + '/1.jpeg');
-      };
-    });
-  });
+  .catch(function() { /* Gracefully falls back to 'Archive' if API rate limits */ });
 </script>
+
 </body>
 </html>
