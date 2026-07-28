@@ -174,10 +174,6 @@ h1.bella {
 .ev-venue { font-size: .6rem; font-weight: 600; text-transform: uppercase; color: var(--ev-accent); opacity: .8; margin-bottom: 10px; display:block; }
 .ev-note { font-family: 'DM Serif Display', serif; font-style: italic; font-size: 1.1rem; color: var(--ev-accent); }
 
-/* Color variants — cycle through these on each new .ev-card so consecutive
-   gatherings don't all look identical. Just add one of these modifier
-   classes (ev-card--verde, --campari, --ottanio, --mattone, --senape) to
-   each new .ev-card, repeating the cycle as needed. */
 .ev-card.ev-card--verde   { background: var(--verde);   --ev-accent: var(--corallo); }
 .ev-card.ev-card--campari { background: var(--campari); --ev-accent: var(--cream); }
 .ev-card.ev-card--ottanio { background: var(--ottanio); --ev-accent: var(--corallo); }
@@ -327,10 +323,8 @@ footer.retro-card { background: var(--ottanio); color: var(--cream); border-colo
 <nav>
   <a href="#" class="nbrand" style="display:flex;align-items:center;gap:12px;">
     <svg width="36" height="28" viewBox="0 0 56 44" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <!-- Arch cream con bordo ink -->
       <path fill="var(--cream)" stroke="var(--ink)" stroke-width="3" stroke-linejoin="round"
         d="M3 42 L3 20 A25 20 0 0 1 53 20 L53 42 Z"/>
-      <!-- Raggi tratteggiati mini -->
       <g transform="translate(28,19)">
         <line x1="0" y1="-16" x2="0" y2="-9" stroke="var(--ink)" stroke-width="1.5" stroke-dasharray="2 3" stroke-linecap="round" transform="rotate(0)"/>
         <line x1="0" y1="-16" x2="0" y2="-9" stroke="var(--ink)" stroke-width="1.5" stroke-dasharray="2 3" stroke-linecap="round" transform="rotate(30)"/>
@@ -345,10 +339,8 @@ footer.retro-card { background: var(--ottanio); color: var(--cream); border-colo
         <line x1="0" y1="-16" x2="0" y2="-9" stroke="var(--ink)" stroke-width="1.5" stroke-dasharray="2 3" stroke-linecap="round" transform="rotate(300)"/>
         <line x1="0" y1="-16" x2="0" y2="-9" stroke="var(--ink)" stroke-width="1.5" stroke-dasharray="2 3" stroke-linecap="round" transform="rotate(330)"/>
       </g>
-      <!-- Sole -->
       <circle cx="28" cy="19" r="7.5" fill="var(--senape)" stroke="var(--ink)" stroke-width="2"/>
       <circle cx="28" cy="19" r="4"   fill="var(--corallo)"/>
-      <!-- Onda -->
       <path d="M9 32 Q16 28 22 32 Q28 36 34 32 Q40 28 47 32"
         fill="none" stroke="var(--ink)" stroke-width="2.5" stroke-linecap="round"/>
     </svg>
@@ -378,12 +370,8 @@ footer.retro-card { background: var(--ottanio); color: var(--cream); border-colo
 <header class="hero">
   <div class="hero-rosone">
     <svg viewBox="0 0 160 130" xmlns="http://www.w3.org/2000/svg">
-
-      <!-- Arch riempito cream — come le card del sito -->
       <path fill="var(--cream)" stroke="var(--ink)" stroke-width="4.5" stroke-linejoin="round"
         d="M8 126 L8 60 A72 58 0 0 1 152 60 L152 126 Z"/>
-
-      <!-- Raggi solari tratteggiati — stile Bar Mediterraneo -->
       <g transform="translate(80,58)">
         <line x1="0" y1="-50" x2="0" y2="-26"   stroke="var(--ink)" stroke-width="2.5" stroke-dasharray="3 4" stroke-linecap="round" transform="rotate(0)"/>
         <line x1="0" y1="-50" x2="0" y2="-26"   stroke="var(--ink)" stroke-width="2.5" stroke-dasharray="3 4" stroke-linecap="round" transform="rotate(20)"/>
@@ -404,19 +392,13 @@ footer.retro-card { background: var(--ottanio); color: var(--cream); border-colo
         <line x1="0" y1="-50" x2="0" y2="-26"   stroke="var(--ink)" stroke-width="2.5" stroke-dasharray="3 4" stroke-linecap="round" transform="rotate(320)"/>
         <line x1="0" y1="-50" x2="0" y2="-26"   stroke="var(--ink)" stroke-width="2.5" stroke-dasharray="3 4" stroke-linecap="round" transform="rotate(340)"/>
       </g>
-
-      <!-- Sole — cerchio gold con core salmone -->
       <circle cx="80" cy="58" r="22" fill="var(--senape)" stroke="var(--ink)" stroke-width="3"/>
       <circle cx="80" cy="58" r="14" fill="var(--corallo)"/>
       <circle cx="80" cy="58" r="4"  fill="var(--ink)"/>
-
-      <!-- Onda 1 — onde mediterranee nella parte bassa -->
       <path d="M18 94 Q30 87 42 94 Q54 101 66 94 Q78 87 90 94 Q102 101 114 94 Q126 87 142 94"
         fill="none" stroke="var(--ink)" stroke-width="3.5" stroke-linecap="round"/>
-      <!-- Onda 2 -->
       <path d="M12 112 Q26 105 38 112 Q50 119 62 112 Q74 105 86 112 Q98 119 110 112 Q122 105 148 112"
         fill="none" stroke="var(--ink)" stroke-width="3.5" stroke-linecap="round"/>
-
     </svg>
   </div>
   <h1 class="bella">BELLA</h1>
@@ -434,7 +416,6 @@ footer.retro-card { background: var(--ottanio); color: var(--cream); border-colo
 </header>
 
 <section id="abstract" class="retro-card">
-  <!-- Waveform grafico — elemento musicale integrato -->
   <div style="margin-bottom:2rem; opacity:.35;">
     <svg viewBox="0 0 600 60" preserveAspectRatio="none" style="width:100%;height:40px;" xmlns="http://www.w3.org/2000/svg">
       <g fill="var(--ink)">
@@ -601,11 +582,6 @@ footer.retro-card { background: var(--ottanio); color: var(--cream); border-colo
       <h2 class="ev-h2">Upcoming <em>& Archive</em></h2>
     </div>
 
-    <!--
-      UPCOMING EVENTS — add as many .ev-card blocks as you like inside .ev-cards.
-      Cycle the modifier class (ev-card--verde, --campari, --ottanio, --mattone,
-      --senape) so each new gathering gets a different color from the last.
-    -->
     <div class="ev-cards">
       <div class="ev-card ev-card--verde">
         <span class="ev-sup">Next Gathering</span>
@@ -628,8 +604,6 @@ footer.retro-card { background: var(--ottanio); color: var(--cream); border-colo
   <div class="archive-label"><span>Past Happenings</span></div>
   <div class="archive-grid">
 
-    
-    
     <a href="./archive/Salotto_2/" class="event-folder" data-folder="archive/Salotto_2">
       <div class="event-folder-cover">
         <div class="cover-placeholder"></div>
@@ -646,7 +620,6 @@ footer.retro-card { background: var(--ottanio); color: var(--cream); border-colo
         </div>
       </div>
     </a>
-
 
     <a href="./archive/Viani_Big/" class="event-folder" data-folder="archive/Viani_Big">
       <div class="event-folder-cover">
@@ -681,7 +654,6 @@ footer.retro-card { background: var(--ottanio); color: var(--cream); border-colo
         </div>
       </div>
     </a>
-    
     
     <a href="./archive/salotto-cafe/" class="event-folder" data-folder="archive/salotto-cafe">
       <div class="event-folder-cover">
@@ -837,11 +809,10 @@ document.querySelectorAll('a[href^="#"]').forEach(function(a){
   });
 });
 
-// ── Auto-load cover image + media count for each archive card ──
 var GITHUB_USER = 'GabrieleMancini';
 var GITHUB_REPO = 'BELLA';
 var GITHUB_BRANCH = 'main';
-var TREE_CACHE_TTL_MS = 10 * 60 * 1000; // 10 minutes
+var TREE_CACHE_TTL_MS = 10 * 60 * 1000;
 var IMG_EXT = ['jpg','jpeg','png','webp','gif','heic','avif'];
 var VID_EXT = ['mp4','mov','webm','m4v'];
 function fext(n){ return n.split('.').pop().toLowerCase(); }
@@ -856,7 +827,7 @@ function fetchRepoTree(){
   var cacheKey = 'bella_tree_' + GITHUB_USER + '_' + GITHUB_REPO + '_' + GITHUB_BRANCH;
   try {
     var cached = JSON.parse(sessionStorage.getItem(cacheKey));
-    if (cached && (Date.now() - cached.t) < TREE_CACHE_TTL_MS) {
+    if (cached && (Date.now() - cached.t) < TREE_CACHE_TTL_MS && Array.isArray(cached.tree)) {
       return Promise.resolve(cached.tree);
     }
   } catch(e) {}
@@ -864,7 +835,7 @@ function fetchRepoTree(){
   var url = 'https://api.github.com/repos/' + GITHUB_USER + '/' + GITHUB_REPO + '/git/trees/' + encodeURIComponent(GITHUB_BRANCH) + '?recursive=1';
   return fetch(url, { headers: { Accept: 'application/vnd.github+json' } })
     .then(function(r){
-      if(!r.ok) return r.json().then(function(b){ throw new Error((b && b.message) || 'HTTP ' + r.status); });
+      if(!r.ok) throw new Error('API Rate Limited or HTTP ' + r.status);
       return r.json();
     })
     .then(function(data){
@@ -893,18 +864,16 @@ fetchRepoTree()
       var imgs = files.filter(function(f){ return IMG_EXT.indexOf(fext(f.name)) > -1; });
       var vids = files.filter(function(f){ return VID_EXT.indexOf(fext(f.name)) > -1; });
 
-      // set cover from first image in folder
       if (imgs.length > 0) {
         var placeholder = card.querySelector('.cover-placeholder');
         var img = card.querySelector('.cover-img');
-        img.style.display = 'block';
         img.src = rawUrl(imgs[0].fullPath);
+        img.style.display = 'block';
         img.onload = function() {
           if (placeholder) placeholder.style.display = 'none';
         };
       }
 
-      // update badge
       var parts = [];
       if (imgs.length) parts.push(imgs.length + ' photo' + (imgs.length !== 1 ? 's' : ''));
       if (vids.length) parts.push(vids.length + ' video' + (vids.length !== 1 ? 's' : ''));
@@ -912,12 +881,24 @@ fetchRepoTree()
       if (badge) badge.textContent = parts.join(' · ') || 'Empty';
     });
   })
-  .catch(function(){
+  .catch(function(err){
+    console.warn("GitHub API rate limit hit. Falling back to direct raw image fetching:", err);
     cards.forEach(function(card){
-      var badge = card.querySelector('.badge-count');
-      if (badge) badge.textContent = 'No files yet';
+      var folder = card.getAttribute('data-folder');
       var placeholder = card.querySelector('.cover-placeholder');
-      if (placeholder) { placeholder.style.animation = 'none'; placeholder.style.opacity = '.4'; }
+      var img = card.querySelector('.cover-img');
+      var badge = card.querySelector('.badge-count');
+      
+      if (badge) badge.textContent = 'Archive';
+      
+      img.src = rawUrl(folder + '/1.jpg');
+      img.style.display = 'block';
+      img.onload = function() {
+        if (placeholder) placeholder.style.display = 'none';
+      };
+      img.onerror = function() {
+        img.src = rawUrl(folder + '/1.jpeg');
+      };
     });
   });
 </script>
