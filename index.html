@@ -157,14 +157,32 @@ h1.bella {
 .mlbl { font-family: 'Jost', sans-serif; font-size: .55rem; letter-spacing: .15em; text-transform: uppercase; font-weight: 700; color: var(--cream); background: var(--ink); padding: 4px 10px; border-radius: 20px; white-space: nowrap; }
 
 /* ════════ SECTION 5 — EVENTS & GALLERY ════════ */
-.ev-top { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; margin-bottom: 40px; align-items: center; }
+.ev-top { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; margin-bottom: 40px; align-items: start; }
 .ev-h2 { font-family: 'DM Serif Display', serif; font-size: clamp(2.2rem, 6vw, 4rem); line-height: .95; color: var(--ink); }
-.ev-card { background: var(--verde); padding: 30px; border: 2px solid var(--ink); border-radius: 8px; box-shadow: 4px 4px 0 var(--ink); }
-.ev-sup { font-size: .6rem; font-weight: 700; letter-spacing: .2em; text-transform: uppercase; color: var(--corallo); opacity: 1; display: block; margin-bottom: 12px; }
-.ev-date { font-family: 'DM Serif Display', serif; font-size: 4rem; line-height: 1; color: var(--corallo); margin-bottom: 4px; }
-.ev-name { font-family: 'DM Serif Display', serif; font-style: italic; font-size: 1.8rem; color: var(--corallo); margin-bottom: 8px; }
-.ev-venue { font-size: .6rem; font-weight: 600; text-transform: uppercase; color: var(--corallo); opacity: .8; margin-bottom: 10px; display:block; }
-.ev-note { font-family: 'DM Serif Display', serif; font-style: italic; font-size: 1.1rem; color: var(--corallo); }
+
+/* Container for one-or-many upcoming event cards — stacks vertically, wraps cleanly */
+.ev-cards { display: flex; flex-direction: column; gap: 20px; }
+
+.ev-card {
+  --ev-accent: var(--corallo);
+  background: var(--verde);
+  padding: 30px; border: 2px solid var(--ink); border-radius: 8px; box-shadow: 4px 4px 0 var(--ink);
+}
+.ev-sup { font-size: .6rem; font-weight: 700; letter-spacing: .2em; text-transform: uppercase; color: var(--ev-accent); opacity: 1; display: block; margin-bottom: 12px; }
+.ev-date { font-family: 'DM Serif Display', serif; font-size: 4rem; line-height: 1; color: var(--ev-accent); margin-bottom: 4px; }
+.ev-name { font-family: 'DM Serif Display', serif; font-style: italic; font-size: 1.8rem; color: var(--ev-accent); margin-bottom: 8px; }
+.ev-venue { font-size: .6rem; font-weight: 600; text-transform: uppercase; color: var(--ev-accent); opacity: .8; margin-bottom: 10px; display:block; }
+.ev-note { font-family: 'DM Serif Display', serif; font-style: italic; font-size: 1.1rem; color: var(--ev-accent); }
+
+/* Color variants — cycle through these on each new .ev-card so consecutive
+   gatherings don't all look identical. Just add one of these modifier
+   classes (ev-card--verde, --campari, --ottanio, --mattone, --senape) to
+   each new .ev-card, repeating the cycle as needed. */
+.ev-card.ev-card--verde   { background: var(--verde);   --ev-accent: var(--corallo); }
+.ev-card.ev-card--campari { background: var(--campari); --ev-accent: var(--cream); }
+.ev-card.ev-card--ottanio { background: var(--ottanio); --ev-accent: var(--corallo); }
+.ev-card.ev-card--mattone { background: var(--mattone); --ev-accent: var(--ink); }
+.ev-card.ev-card--senape  { background: var(--senape);  --ev-accent: var(--ink); }
 
 .gallery { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; }
 .gi { aspect-ratio: 1; border: 2px solid var(--ink); border-radius: 8px; overflow:hidden;}
@@ -582,31 +600,28 @@ footer.retro-card { background: var(--ottanio); color: var(--cream); border-colo
       <span style="font-size:.6rem; font-weight:700; letter-spacing:.3em; text-transform:uppercase; color:var(--corallo); display:block; margin-bottom:.6rem;">05 — Gatherings</span>
       <h2 class="ev-h2">Upcoming <em>& Archive</em></h2>
     </div>
-    <div class="ev-card">
-      <span class="ev-sup">Next Gathering</span>
-      <div class="ev-date">31 Jul</div>
-      <div class="ev-name">Live Music Ale&Ori</div>
-      <span class="ev-venue">Salotto cafe'</span>
-      <div class="ev-note">Start: 6pm, free entry</div>
-    </div>
-  </div>
-  <!-- ARCHIVE -->
-  <div class="archive-label"><span>Past Happenings</span></div>
-  <div class="archive-grid">
 
+    <!--
+      UPCOMING EVENTS — add as many .ev-card blocks as you like inside .ev-cards.
+      Cycle the modifier class (ev-card--verde, --campari, --ottanio, --mattone,
+      --senape) so each new gathering gets a different color from the last.
+    -->
+    <div class="ev-cards">
+      <div class="ev-card ev-card--verde">
+        <span class="ev-sup">Next Gathering</span>
+        <div class="ev-date">31 Jul</div>
+        <div class="ev-name">Live Music Ale&Ori</div>
+        <span class="ev-venue">Salotto cafe'</span>
+        <div class="ev-note">Start: 6pm, free entry</div>
+      </div>
 
-<section id="events" class="retro-card">
-  <div class="ev-top">
-    <div>
-      <span style="font-size:.6rem; font-weight:700; letter-spacing:.3em; text-transform:uppercase; color:var(--corallo); display:block; margin-bottom:.6rem;">05 — Gatherings</span>
-      <h2 class="ev-h2">Upcoming <em>& Archive</em></h2>
-    </div>
-    <div class="ev-card">
-      <span class="ev-sup">Next Gathering</span>
-      <div class="ev-date">1 Aug</div>
-      <div class="ev-name">DJ set - Portofino, senza vista amare</div>
-      <span class="ev-venue">Palazzo Emilienstrasse </span>
-      <div class="ev-note">Limited capacity · By invitation</div>
+      <div class="ev-card ev-card--campari">
+        <span class="ev-sup">Next Gathering</span>
+        <div class="ev-date">1 Aug</div>
+        <div class="ev-name">DJ set - Portofino, senza vista amare</div>
+        <span class="ev-venue">Palazzo Emilienstrasse </span>
+        <div class="ev-note">Limited capacity · By invitation</div>
+      </div>
     </div>
   </div>
   <!-- ARCHIVE -->
