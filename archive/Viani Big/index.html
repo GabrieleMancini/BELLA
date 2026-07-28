@@ -183,16 +183,8 @@ function openLb(i){ lbIdx=i; syncLb(); document.getElementById('lightbox').class
 function closeLb(){ document.getElementById('lightbox').classList.remove('open'); document.body.style.overflow=''; }
 function stepLb(d){ lbIdx=(lbIdx+d+lbPhotos.length)%lbPhotos.length; syncLb(); }
 function syncLb(){
-  var p = lbPhotos[lbIdx];
-  var lbImg = document.getElementById('lb-img');
-  lbImg.dataset.fallback='';
-  lbImg.onerror = function(){
-    if(lbImg.dataset.fallback) return;
-    lbImg.dataset.fallback='1';
-    lbImg.src = p.fallback;
-  };
-  lbImg.src = p.src;
-  lbImg.alt = p.alt;
+  document.getElementById('lb-img').src = lbPhotos[lbIdx].src;
+  document.getElementById('lb-img').alt = lbPhotos[lbIdx].alt;
   document.getElementById('lb-counter').textContent = (lbIdx+1)+' / '+lbPhotos.length;
 }
 document.getElementById('lb-close').onclick = closeLb;
@@ -207,38 +199,55 @@ document.addEventListener('keydown', function(e){
 });
 
 // ── fetch & render ──────────────────────────────────────────────
-// jsDelivr's Data API mirrors the whole repo (no per-IP rate limit like
-// api.github.com's 60/hr), so we list files from there instead. It lags
-// GitHub by up to ~12h for a branch like "main" — if you just uploaded
-// new photos and don't see them yet, force a refresh at
-// https://www.jsdelivr.com/tools/purge (paste the folder URL) or wait a bit.
-var apiUrl = 'https://data.jsdelivr.com/v1/package/gh/'+BELLA.githubUser+'/'+BELLA.githubRepo+'@'+BELLA.branch+'/flat';
+// GitHub's Git Trees API (?recursive=1) returns the ENTIRE repo's file
+// listing in a single request, which we then filter down to this folder
+// client-side. That single call still counts against the unauthenticated
+// 60/hr limit, so we cache it in sessionStorage for a few minutes.
+// (We tried jsDelivr's Data API here, but it refuses to mirror any repo
+// over 50MB total, which this one now exceeds — so we go straight to
+// GitHub. raw.githubusercontent.com serves the files themselves and is
+// not subject to the API rate limit, and media.githubusercontent.com
+// adds byte-range support for smoother video scrubbing.)
+var TREE_CACHE_TTL_MS = 10 * 60 * 1000; // 10 minutes
 
 function encodePath(path){
   return path.replace(/^\/+/,'').split('/').map(encodeURIComponent).join('/');
 }
-function cdnUrl(path){
-  return 'https://cdn.jsdelivr.net/gh/'+BELLA.githubUser+'/'+BELLA.githubRepo+'@'+BELLA.branch+'/'+encodePath(path);
-}
 function rawUrl(path){
-  // Fallback: raw.githubusercontent.com isn't the rate-limited REST API,
-  // and has no jsDelivr's 50MB-per-file cap or CDN cache lag.
   return 'https://raw.githubusercontent.com/'+BELLA.githubUser+'/'+BELLA.githubRepo+'/'+BELLA.branch+'/'+encodePath(path);
 }
+function mediaUrl(path){
+  return 'https://media.githubusercontent.com/media/'+BELLA.githubUser+'/'+BELLA.githubRepo+'/'+BELLA.branch+'/'+encodePath(path);
+}
 
-fetch(apiUrl)
-  .then(function(r){
-    if(!r.ok) return r.json().then(function(b){ throw new Error((b && b.message) || 'HTTP '+r.status); });
-    return r.json();
-  })
-  .then(function(data){
-    var folderPrefix = '/'+BELLA.folder.replace(/^\/+/,'').replace(/\/+$/,'')+'/';
-    // flat listing covers the whole repo — keep only direct children of this folder
-    var files = (data.files||[]).filter(function(f){
-      if(f.type!=='file' || f.name.indexOf(folderPrefix)!==0) return false;
-      return f.name.slice(folderPrefix.length).indexOf('/')===-1;
-    }).map(function(f){
-      return { name: f.name.slice(folderPrefix.length), fullPath: f.name };
+var treeApiUrl = 'https://api.github.com/repos/'+BELLA.githubUser+'/'+BELLA.githubRepo+'/git/trees/'+encodeURIComponent(BELLA.branch)+'?recursive=1';
+
+function fetchRepoTree(){
+  var cacheKey = 'bella_tree_'+BELLA.githubUser+'_'+BELLA.githubRepo+'_'+BELLA.branch;
+  try {
+    var cached = JSON.parse(sessionStorage.getItem(cacheKey));
+    if (cached && (Date.now() - cached.t) < TREE_CACHE_TTL_MS) return Promise.resolve(cached.tree);
+  } catch(e) {}
+
+  return fetch(treeApiUrl, { headers:{ Accept:'application/vnd.github+json' } })
+    .then(function(r){
+      if(!r.ok) return r.json().then(function(b){ throw new Error((b && b.message) || 'HTTP '+r.status); });
+      return r.json();
+    })
+    .then(function(data){
+      var tree = (data.tree||[]).filter(function(n){ return n.type==='blob'; });
+      try { sessionStorage.setItem(cacheKey, JSON.stringify({ t: Date.now(), tree: tree })); } catch(e) {}
+      return tree;
+    });
+}
+
+fetchRepoTree()
+  .then(function(tree){
+    var folderPrefix = BELLA.folder.replace(/^\/+/,'').replace(/\/+$/,'')+'/';
+    var files = tree.filter(function(n){
+      return n.path.indexOf(folderPrefix)===0 && n.path.slice(folderPrefix.length).indexOf('/')===-1;
+    }).map(function(n){
+      return { name: n.path.slice(folderPrefix.length), fullPath: n.path };
     });
     files.sort(function(a,b){ return a.name.localeCompare(b.name,undefined,{numeric:true}); });
     var imgs = files.filter(function(f){ return isImg(f.name); });
@@ -251,17 +260,11 @@ fetch(apiUrl)
       pg.innerHTML = '<div class="state-box"><p>No photos in this folder yet</p></div>';
     } else {
       pg.innerHTML = '';
-      lbPhotos = imgs.map(function(f){ return { src:cdnUrl(f.fullPath), fallback:rawUrl(f.fullPath), alt:f.name }; });
+      lbPhotos = imgs.map(function(f){ return { src:rawUrl(f.fullPath), alt:f.name }; });
       imgs.forEach(function(img,i){
         var d = document.createElement('div');
         d.className='mi photo';
-        d.innerHTML='<img src="'+cdnUrl(img.fullPath)+'" alt="'+img.name+'" loading="lazy">';
-        var imgEl = d.querySelector('img');
-        imgEl.addEventListener('error', function(){
-          if(imgEl.dataset.fallback) return;
-          imgEl.dataset.fallback='1';
-          imgEl.src = rawUrl(img.fullPath);
-        });
+        d.innerHTML='<img src="'+rawUrl(img.fullPath)+'" alt="'+img.name+'" loading="lazy">';
         d.addEventListener('click', (function(idx){ return function(){ openLb(idx); }; })(i));
         pg.appendChild(d);
       });
@@ -279,15 +282,13 @@ fetch(apiUrl)
         d.className='mi video';
         var ext = fileExt(vid.name);
         var mime = ext === 'm4v' ? 'video/mp4' : 'video/' + ext;
-        // jsDelivr CDN first (fast, cached); falls back to raw.githubusercontent.com
-        // for files over jsDelivr's 50MB cap or ones too new for the CDN cache yet.
-        var primaryUrl  = cdnUrl(vid.fullPath);
+        var primaryUrl  = mediaUrl(vid.fullPath);
         var fallbackUrl = rawUrl(vid.fullPath);
         d.innerHTML =
           '<span class="video-pill">Video</span>' +
           '<video controls playsinline preload="metadata" style="width:100%;height:100%;display:block">' +
             '<source src="'+primaryUrl+'" type="'+mime+'">' +
-            '<p class="video-unsupported">Your browser can\'t play this video inline.<br>' +
+            '<p class=\'video-unsupported\'>Your browser can\'t play this video inline.<br>' +
             '<a href="'+fallbackUrl+'" download="'+vid.name+'" class="video-dl-btn">⬇ Download to watch</a></p>' +
           '</video>';
         var videoEl = d.querySelector('video');
@@ -314,7 +315,7 @@ fetch(apiUrl)
       '<div class="state-box"><p style="opacity:1;font-size:.8rem">'+(
         isConfig
           ? '⚙️ Open this file and fill in <code>githubUser</code> and <code>githubRepo</code> in the BELLA config block.'
-          : '⚠️ jsDelivr error: '+err.message+'<br><code>'+apiUrl+'</code><br>If you just pushed this folder, jsDelivr can take a little while to pick it up — try purging at jsdelivr.com/tools/purge.'
+          : '⚠️ GitHub API error: '+err.message+'<br><code>'+treeApiUrl+'</code>'
       )+'</p></div>';
     document.getElementById('meta-count').innerHTML='<span class="pip"></span>—';
     document.getElementById('photo-count').textContent='!';
