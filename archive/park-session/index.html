@@ -238,7 +238,7 @@ fetch(apiUrl, { headers:{ Accept:'application/vnd.github.v3+json' } })
         var d = document.createElement('div');
         d.className='mi video';
         var ext = fileExt(vid.name);
-        var mime = ext === 'm4v' ? 'video/mp4' : 'video/' + ext;
+        var mime = ({mp4:'video/mp4',m4v:'video/mp4',mov:'video/quicktime',webm:'video/webm'})[ext] || ('video/' + ext);
         // media.githubusercontent.com supports byte-range requests needed for video streaming
         var mediaUrl = 'https://media.githubusercontent.com/media/'+BELLA.githubUser+'/'+BELLA.githubRepo+'/main/'+vid.path;
         var sources = '<source src="'+mediaUrl+'" type="'+mime+'">';
