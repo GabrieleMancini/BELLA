@@ -217,7 +217,7 @@ function rawUrl(path){
   return 'https://raw.githubusercontent.com/'+BELLA.githubUser+'/'+BELLA.githubRepo+'/'+BELLA.branch+'/'+encodePath(path);
 }
 function mediaUrl(path){
-  return 'https://media.githubusercontent.com/media/'+BELLA.githubUser+'/'+BELLA.githubRepo+'/'+BELLA.branch+'/'+encodePath(path);
+  return 'https://raw.githubusercontent.com/'+BELLA.githubUser+'/'+BELLA.githubRepo+'/'+BELLA.branch+'/'+encodePath(path);
 }
 
 var treeApiUrl = 'https://api.github.com/repos/'+BELLA.githubUser+'/'+BELLA.githubRepo+'/git/trees/'+encodeURIComponent(BELLA.branch)+'?recursive=1';

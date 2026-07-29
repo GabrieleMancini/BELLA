@@ -556,7 +556,8 @@ footer.retro-card { background: var(--ottanio); color: var(--cream); border-colo
 var GITHUB_USER = 'GabrieleMancini';
 var GITHUB_REPO = 'BELLA';
 var GITHUB_BRANCH = 'main';
-var IMG_EXT = ['jpg','jpeg','png','webp'];
+var IMG_EXT = ['jpg','jpeg','png','webp','gif','heic','avif'];
+var VIDEO_EXT = ['mp4','mov','webm','m4v'];
 
 fetch('https://api.github.com/repos/' + GITHUB_USER + '/' + GITHUB_REPO + '/git/trees/' + GITHUB_BRANCH + '?recursive=1')
   .then(function(r) { return r.ok ? r.json() : Promise.reject(); })
@@ -567,8 +568,14 @@ fetch('https://api.github.com/repos/' + GITHUB_USER + '/' + GITHUB_REPO + '/git/
       var imgs = tree.filter(function(n) {
         return n.path.toLowerCase().indexOf(folder) === 0 && IMG_EXT.indexOf(n.path.split('.').pop().toLowerCase()) > -1;
       });
-      if (imgs.length) {
-        card.querySelector('.badge-count').textContent = imgs.length + ' photos';
+      var vids = tree.filter(function(n) {
+        return n.path.toLowerCase().indexOf(folder) === 0 && VIDEO_EXT.indexOf(n.path.split('.').pop().toLowerCase()) > -1;
+      });
+      var parts = [];
+      if (imgs.length) parts.push(imgs.length + ' photo' + (imgs.length !== 1 ? 's' : ''));
+      if (vids.length) parts.push(vids.length + ' video' + (vids.length !== 1 ? 's' : ''));
+      if (parts.length) {
+        card.querySelector('.badge-count').textContent = parts.join(' \u00b7 ');
       }
     });
   })
